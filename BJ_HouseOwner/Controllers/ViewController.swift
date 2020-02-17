@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         coutryCodeField.optionArray = ["Option 1", "Option 2", "Option 3"]
         //Its Id Values and its optional
         coutryCodeField.optionIds = [1,23,54,22]
-        coutryCodeField.selectedRowColor = UIColor(rgb: Colors.gray)
+        coutryCodeField.selectedRowColor = .white
 
         coutryCodeField.showList()  // To show the Drop Down Menu
 
