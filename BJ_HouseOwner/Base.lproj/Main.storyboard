@@ -28,7 +28,7 @@
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RhA-6o-uxi">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RhA-6o-uxi" customClass="DropDown" customModule="iOSDropDown">
                                 <rect key="frame" x="103" y="370" width="208" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="208" id="aKM-MF-QRD"/>
@@ -74,6 +74,7 @@
                     <connections>
                         <outlet property="NextButton" destination="xib-fE-Fsf" id="Yl0-cK-NEh"/>
                         <outlet property="SignUpLabel" destination="uPs-jq-IJj" id="1bN-4g-zjc"/>
+                        <outlet property="coutryCodeField" destination="RhA-6o-uxi" id="uYT-ZP-6cf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

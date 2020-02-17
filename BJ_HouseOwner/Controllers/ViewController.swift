@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import iOSDropDown
 
 
 
@@ -15,9 +15,24 @@ class ViewController: UIViewController {
     @IBOutlet weak var SignUpLabel: UILabel!
     
     @IBOutlet weak var NextButton: UIButton!
+ 
+    @IBOutlet weak var coutryCodeField: DropDown!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         styleUI()
+        // The list of array to display. Can be changed dynamically
+        coutryCodeField.optionArray = ["Option 1", "Option 2", "Option 3"]
+        //Its Id Values and its optional
+        coutryCodeField.optionIds = [1,23,54,22]
+        coutryCodeField.selectedRowColor = UIColor(rgb: Colors.gray)
+
+        coutryCodeField.showList()  // To show the Drop Down Menu
+
+        coutryCodeField.didSelect{(selectedText , index ,id) in
+        let selected = "Selected String: \(selectedText) \n index: \(index)"
+            print(selected)
+        }
     }
     
     
