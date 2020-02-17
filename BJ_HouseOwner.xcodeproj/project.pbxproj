@@ -16,7 +16,7 @@
 		A9A59AE923F9DDA200F3B6D9 /* BJ_HouseOwnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A59AE823F9DDA200F3B6D9 /* BJ_HouseOwnerTests.swift */; };
 		A9A59AF423F9DDA200F3B6D9 /* BJ_HouseOwnerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A59AF323F9DDA200F3B6D9 /* BJ_HouseOwnerUITests.swift */; };
 		A9A59BBB23F9F93700F3B6D9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A59BBA23F9F93700F3B6D9 /* Colors.swift */; };
-		A9A59BBD23F9FED600F3B6D9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A59BBC23F9FED600F3B6D9 /* Constants.swift */; };
+		A9A59BBD23F9FED600F3B6D9 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A59BBC23F9FED600F3B6D9 /* constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +52,7 @@
 		A9A59AF323F9DDA200F3B6D9 /* BJ_HouseOwnerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BJ_HouseOwnerUITests.swift; sourceTree = "<group>"; };
 		A9A59AF523F9DDA200F3B6D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9A59BBA23F9F93700F3B6D9 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		A9A59BBC23F9FED600F3B6D9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A9A59BBC23F9FED600F3B6D9 /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,7 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				A9A59BBA23F9F93700F3B6D9 /* Colors.swift */,
-				A9A59BBC23F9FED600F3B6D9 /* Constants.swift */,
+				A9A59BBC23F9FED600F3B6D9 /* constants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -300,7 +300,7 @@
 				A9A59AD623F9DDA100F3B6D9 /* ViewController.swift in Sources */,
 				A9A59BBB23F9F93700F3B6D9 /* Colors.swift in Sources */,
 				A9A59AD223F9DDA100F3B6D9 /* AppDelegate.swift in Sources */,
-				A9A59BBD23F9FED600F3B6D9 /* Constants.swift in Sources */,
+				A9A59BBD23F9FED600F3B6D9 /* constants.swift in Sources */,
 				A9A59AD423F9DDA100F3B6D9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
