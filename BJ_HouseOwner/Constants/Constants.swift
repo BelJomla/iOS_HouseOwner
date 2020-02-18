@@ -13,4 +13,7 @@ struct K {
     // testing new branch
     // testing xcode source control
     
+    // segues
+    static let verifyPhoneSegue = "verifyPhone"
+    
 }
