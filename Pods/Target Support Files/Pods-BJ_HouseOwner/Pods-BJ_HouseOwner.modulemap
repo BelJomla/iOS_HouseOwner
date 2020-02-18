@@ -1,0 +1,6 @@
+framework module Pods_BJ_HouseOwner {
+  umbrella header "Pods-BJ_HouseOwner-umbrella.h"
+
+  export *
+  module * { export * }
+}
