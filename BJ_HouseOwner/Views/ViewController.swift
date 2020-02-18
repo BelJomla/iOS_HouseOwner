@@ -15,6 +15,12 @@ class ViewController: UIViewController{
     @IBOutlet weak var SignUpLabel: UILabel!
     
     
+    @IBAction func nextButtonPressed(_ sender: UIButton) {
+        
+        //NOTE: -Can use prepare for segue if needed
+        performSegue(withIdentifier: K.verifyPhoneSegue, sender: self)
+    }
+    
     @IBOutlet weak var NextButton: UIButton!
  
     @IBOutlet weak var countryCodeTextField: DropDown!
