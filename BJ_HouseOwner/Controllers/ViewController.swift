@@ -14,9 +14,13 @@ import iOSDropDown
 class ViewController: UIViewController{
     @IBOutlet weak var SignUpLabel: UILabel!
     
+    
     @IBOutlet weak var NextButton: UIButton!
  
     @IBOutlet weak var countryCodeTextField: DropDown!
+    @IBAction func countryFieldPressed(_ sender: DropDown) {
+        countryCodeTextField.showList()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +81,7 @@ class ViewController: UIViewController{
         
         // the color that shows up after the user chooses an option
         countryCodeTextField.selectedRowColor = .white
-        countryCodeTextField.showList()  // To show the Drop Down Menu
+        //countryCodeTextField.showList()  // To show the Drop Down Menu
         
         // just printing what the user clicked (not important)
         countryCodeTextField.didSelect{(selectedText , index ,id) in
