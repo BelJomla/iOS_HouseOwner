@@ -39,7 +39,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Number Here!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2aF-QY-Pie">
                                 <rect key="frame" x="103" y="450" width="208" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="208" id="onK-iD-3Lk"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="208" id="onK-iD-3Lk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
@@ -47,7 +47,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xib-fE-Fsf">
                                 <rect key="frame" x="103" y="530" width="208" height="43"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="208" id="0jU-ca-i5S"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="208" id="0jU-ca-i5S"/>
                                     <constraint firstAttribute="height" constant="43" id="jUq-MY-KwI"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -74,7 +74,7 @@
                     <connections>
                         <outlet property="NextButton" destination="xib-fE-Fsf" id="Yl0-cK-NEh"/>
                         <outlet property="SignUpLabel" destination="uPs-jq-IJj" id="1bN-4g-zjc"/>
-                        <outlet property="coutryCodeField" destination="RhA-6o-uxi" id="uYT-ZP-6cf"/>
+                        <outlet property="countryCodeTextField" destination="RhA-6o-uxi" id="uYT-ZP-6cf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

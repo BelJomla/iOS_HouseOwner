@@ -425,7 +425,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1130;
 				TargetAttributes = {
 					59CBCEF5C182602EBE41C23707D5B8B1 = {
 						LastSwiftMigration = 1130;
@@ -618,7 +618,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DE121D47D28D6D13EC2E33BAF694722D /* iOSDropDown-library.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -742,7 +741,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DE121D47D28D6D13EC2E33BAF694722D /* iOSDropDown-library.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
