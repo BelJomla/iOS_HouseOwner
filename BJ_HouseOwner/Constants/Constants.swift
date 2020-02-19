@@ -15,5 +15,6 @@ struct K {
     
     // segues
     static let verifyPhoneSegue = "verifyPhone"
+    static let startAppSegue = "startApp"
     
 }

@@ -11,4 +11,5 @@ struct Colors{
     static let darkBlue = 0x080E33
     static let mediumBlue = 0x2D3251 // for the cell inside verification field
     static let smokeWhite = 0xF2F2F2 // for background normally
+    static let lightGray = 0xBCBCBC
 }

@@ -12,6 +12,9 @@ import iOSDropDown
 
 
 class ViewController: UIViewController{
+    
+
+    
     @IBOutlet weak var SignUpLabel: UILabel!
     
     
@@ -28,11 +31,11 @@ class ViewController: UIViewController{
         countryCodeTextField.showList()
     }
     
+    @IBOutlet weak var phoneTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        countryCodeTextField.delegate = self
-        
-        // adding specific styles for the UI
+
         styleUI()
         
         // using iOS dropDown pod, for dropdown menue (for countries)
@@ -41,16 +44,21 @@ class ViewController: UIViewController{
         
     
     }
-//    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool{
-//        //countryCodeTextField.showList()  // To show the Drop Down Menu
-//        return true
-//    }
+
 
     /**
      This fuction updates the UI look and feel. Reason: hard to do using options
      // reads json file, and returns country codes dictionary, ex: Saudi Arabia -> +966
      */
     func styleUI(){
+        let smoke = UIColor(rgb: Colors.smokeWhite)
+        
+        view.backgroundColor = smoke
+        countryCodeTextField.backgroundColor = smoke
+        
+        phoneTextField.backgroundColor = smoke
+        
+        
         SignUpLabel.textColor = UIColor(rgb: Colors.gray)
         NextButton.backgroundColor = UIColor(rgb: Colors.darkBlue)
         NextButton.layer.cornerRadius = K.cornerRadius
