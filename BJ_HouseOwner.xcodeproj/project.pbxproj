@@ -38,6 +38,10 @@
 		A9A59C3923FBCB9400F3B6D9 /* segoeui.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9A59C2D23FBCB9400F3B6D9 /* segoeui.ttf */; };
 		A9A59C3A23FBCB9400F3B6D9 /* segoeuii.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9A59C2E23FBCB9400F3B6D9 /* segoeuii.ttf */; };
 		A9A59C3B23FBCB9400F3B6D9 /* segoeuisl.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9A59C2F23FBCB9400F3B6D9 /* segoeuisl.ttf */; };
+		A9ECC74C2400F86A00524238 /* shoppingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ECC74A2400F86A00524238 /* shoppingTableCell.swift */; };
+		A9ECC74D2400F86A00524238 /* shoppingTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9ECC74B2400F86A00524238 /* shoppingTableCell.xib */; };
+		A9ECC7502400F9D700524238 /* shoppingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ECC74E2400F9D700524238 /* shoppingCollectionCell.swift */; };
+		A9ECC7512400F9D700524238 /* shoppingCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9ECC74F2400F9D700524238 /* shoppingCollectionCell.xib */; };
 		DEAC11EA5BD0A68886BA5ED8 /* Pods_BJ_HouseOwner_BJ_HouseOwnerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC3259BF4E39378CBBD1AAAC /* Pods_BJ_HouseOwner_BJ_HouseOwnerUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +104,10 @@
 		A9A59C2D23FBCB9400F3B6D9 /* segoeui.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = segoeui.ttf; sourceTree = "<group>"; };
 		A9A59C2E23FBCB9400F3B6D9 /* segoeuii.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = segoeuii.ttf; sourceTree = "<group>"; };
 		A9A59C2F23FBCB9400F3B6D9 /* segoeuisl.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = segoeuisl.ttf; sourceTree = "<group>"; };
+		A9ECC74A2400F86A00524238 /* shoppingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shoppingTableCell.swift; sourceTree = "<group>"; };
+		A9ECC74B2400F86A00524238 /* shoppingTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = shoppingTableCell.xib; sourceTree = "<group>"; };
+		A9ECC74E2400F9D700524238 /* shoppingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shoppingCollectionCell.swift; sourceTree = "<group>"; };
+		A9ECC74F2400F9D700524238 /* shoppingCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = shoppingCollectionCell.xib; sourceTree = "<group>"; };
 		E7F8A8F120F6B3540EC649C3 /* Pods-BJ_HouseOwner-BJ_HouseOwnerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BJ_HouseOwner-BJ_HouseOwnerUITests.release.xcconfig"; path = "Target Support Files/Pods-BJ_HouseOwner-BJ_HouseOwnerUITests/Pods-BJ_HouseOwner-BJ_HouseOwnerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EC3259BF4E39378CBBD1AAAC /* Pods_BJ_HouseOwner_BJ_HouseOwnerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BJ_HouseOwner_BJ_HouseOwnerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F973AF2B7236576B15508323 /* Pods-BJ_HouseOwner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BJ_HouseOwner.debug.xcconfig"; path = "Target Support Files/Pods-BJ_HouseOwner/Pods-BJ_HouseOwner.debug.xcconfig"; sourceTree = "<group>"; };
@@ -240,6 +248,10 @@
 			isa = PBXGroup;
 			children = (
 				A9A59AD723F9DDA100F3B6D9 /* Main.storyboard */,
+				A9ECC74A2400F86A00524238 /* shoppingTableCell.swift */,
+				A9ECC74B2400F86A00524238 /* shoppingTableCell.xib */,
+				A9ECC74E2400F9D700524238 /* shoppingCollectionCell.swift */,
+				A9ECC74F2400F9D700524238 /* shoppingCollectionCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -407,6 +419,7 @@
 				A9A59C3023FBCB9400F3B6D9 /* seguibl.ttf in Resources */,
 				A9A59C3623FBCB9400F3B6D9 /* seguisli.ttf in Resources */,
 				A9A59C3923FBCB9400F3B6D9 /* segoeui.ttf in Resources */,
+				A9ECC7512400F9D700524238 /* shoppingCollectionCell.xib in Resources */,
 				A9A59C3323FBCB9400F3B6D9 /* seguisb.ttf in Resources */,
 				A9A59C3723FBCB9400F3B6D9 /* segoeuiz.ttf in Resources */,
 				A9A59ADE23F9DDA200F3B6D9 /* LaunchScreen.storyboard in Resources */,
@@ -415,6 +428,7 @@
 				A9A59C3223FBCB9400F3B6D9 /* segoeuib.ttf in Resources */,
 				A9A59C3B23FBCB9400F3B6D9 /* segoeuisl.ttf in Resources */,
 				A9A59C3523FBCB9400F3B6D9 /* seguisbi.ttf in Resources */,
+				A9ECC74D2400F86A00524238 /* shoppingTableCell.xib in Resources */,
 				A9A59ADB23F9DDA200F3B6D9 /* Assets.xcassets in Resources */,
 				A9A59AD923F9DDA100F3B6D9 /* Main.storyboard in Resources */,
 				A9A59C3A23FBCB9400F3B6D9 /* segoeuii.ttf in Resources */,
@@ -551,12 +565,14 @@
 				A9A59AD623F9DDA100F3B6D9 /* ViewController.swift in Sources */,
 				A9A59BBB23F9F93700F3B6D9 /* Colors.swift in Sources */,
 				A9A59AD223F9DDA100F3B6D9 /* AppDelegate.swift in Sources */,
+				A9ECC7502400F9D700524238 /* shoppingCollectionCell.swift in Sources */,
 				A98D66FD23FCFE3D006B1791 /* ShoppingViewController.swift in Sources */,
 				A98D66FB23FCFD34006B1791 /* ProfileViewController.swift in Sources */,
 				A9A59AD423F9DDA100F3B6D9 /* SceneDelegate.swift in Sources */,
 				A98D66FF23FCFE4D006B1791 /* CartViewController.swift in Sources */,
 				A9A59BC123FB3B1300F3B6D9 /* contryCodes.swift in Sources */,
 				A98D66F923FCFD1E006B1791 /* ChatViewController.swift in Sources */,
+				A9ECC74C2400F86A00524238 /* shoppingTableCell.swift in Sources */,
 				A9A59C2223FB7DC100F3B6D9 /* VerifyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

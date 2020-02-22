@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gnH-6t-MHd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SdG-Gt-8az">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -223,14 +223,29 @@
                     <view key="view" contentMode="scaleToFill" id="dRn-qx-I1j">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b0w-tV-jlo">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="b0w-tV-jlo" firstAttribute="trailing" secondItem="Qs2-Ip-nMh" secondAttribute="trailing" id="2dY-c8-4rM"/>
+                            <constraint firstItem="b0w-tV-jlo" firstAttribute="bottom" secondItem="Qs2-Ip-nMh" secondAttribute="bottom" id="LmZ-9v-p54"/>
+                            <constraint firstItem="b0w-tV-jlo" firstAttribute="top" secondItem="Qs2-Ip-nMh" secondAttribute="top" id="TSx-ph-Scc"/>
+                            <constraint firstItem="b0w-tV-jlo" firstAttribute="leading" secondItem="Qs2-Ip-nMh" secondAttribute="leading" id="csf-V2-AwW"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Qs2-Ip-nMh"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Shopping" image="magnifyingglass" catalog="system" id="CWi-g7-R3H"/>
+                    <connections>
+                        <outlet property="tableView" destination="b0w-tV-jlo" id="7pL-cQ-Wa7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lMY-OF-6Lj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2038" y="900"/>
+            <point key="canvasLocation" x="2037.68115942029" y="900"/>
         </scene>
         <!--Chat-->
         <scene sceneID="hfa-Tv-IHa">

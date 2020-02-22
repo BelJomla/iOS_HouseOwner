@@ -17,4 +17,9 @@ struct K {
     static let verifyPhoneSegue = "verifyPhone"
     static let startAppSegue = "startApp"
     
+    //identifiers
+    static let shoppingTableCell = "shoppingTableCell"
+    static let shoppingCollectionCell = "shippingCollectionCell"
+   
+    
 }
