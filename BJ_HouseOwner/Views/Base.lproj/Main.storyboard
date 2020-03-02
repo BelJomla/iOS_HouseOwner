@@ -120,7 +120,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please type the verification code sent to +966 5xxxxxxxxx" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ca-PD-GTV">
-                                <rect key="frame" x="100.5" y="239" width="213" height="35"/>
+                                <rect key="frame" x="100.5" y="239" width="213" height="30.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="213" id="STU-K8-Ll5"/>
                                 </constraints>
@@ -164,17 +164,21 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="goQ-IM-ytv" firstAttribute="trailing" secondItem="8C6-cx-sCH" secondAttribute="trailing" constant="97" id="6UM-Ic-OZA"/>
                             <constraint firstItem="9Ca-PD-GTV" firstAttribute="top" secondItem="XfY-5j-2QH" secondAttribute="topMargin" constant="151" id="ADK-si-z9f"/>
                             <constraint firstItem="mac-lw-FhD" firstAttribute="top" secondItem="XfY-5j-2QH" secondAttribute="topMargin" constant="267" id="BEi-ZW-21z"/>
                             <constraint firstItem="xwg-Nw-LI1" firstAttribute="top" secondItem="XfY-5j-2QH" secondAttribute="topMargin" constant="348" id="Bg1-tO-VAc"/>
                             <constraint firstItem="9Ca-PD-GTV" firstAttribute="centerX" secondItem="XfY-5j-2QH" secondAttribute="centerX" id="Fmf-Ai-Wd8"/>
-                            <constraint firstItem="8C6-cx-sCH" firstAttribute="leading" secondItem="xwg-Nw-LI1" secondAttribute="trailing" constant="10" id="Xxu-0U-Wzb"/>
+                            <constraint firstItem="8C6-cx-sCH" firstAttribute="leading" secondItem="goQ-IM-ytv" secondAttribute="leading" constant="237" id="TvN-Tm-gAs"/>
+                            <constraint firstItem="8C6-cx-sCH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xwg-Nw-LI1" secondAttribute="trailing" constant="8" symbolic="YES" id="Xxu-0U-Wzb"/>
+                            <constraint firstItem="8C6-cx-sCH" firstAttribute="top" secondItem="mac-lw-FhD" secondAttribute="bottom" constant="21" id="Yqs-je-iCp"/>
                             <constraint firstItem="mac-lw-FhD" firstAttribute="centerX" secondItem="XfY-5j-2QH" secondAttribute="centerX" id="Yzc-IH-M1l"/>
                             <constraint firstItem="goQ-IM-ytv" firstAttribute="bottom" secondItem="8C6-cx-sCH" secondAttribute="bottom" constant="402" id="emn-s1-4LK"/>
                             <constraint firstItem="4Bp-iq-cWb" firstAttribute="top" secondItem="goQ-IM-ytv" secondAttribute="top" constant="101" id="gAQ-fM-RWY"/>
                             <constraint firstItem="xwg-Nw-LI1" firstAttribute="leading" secondItem="XfY-5j-2QH" secondAttribute="leading" constant="68" id="guM-o9-aH9"/>
                             <constraint firstItem="8C6-cx-sCH" firstAttribute="top" secondItem="mac-lw-FhD" secondAttribute="bottom" constant="21" id="i0r-S9-aoL"/>
                             <constraint firstItem="4Bp-iq-cWb" firstAttribute="centerX" secondItem="XfY-5j-2QH" secondAttribute="centerX" id="mcf-8S-15K"/>
+                            <constraint firstItem="goQ-IM-ytv" firstAttribute="bottom" secondItem="8C6-cx-sCH" secondAttribute="bottom" constant="402" id="xDI-Mr-kzL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="goQ-IM-ytv"/>
                     </view>
