@@ -13,10 +13,12 @@ import UIKit
 class ShoppingViewController: UIViewController{
     @IBOutlet weak var tableView: UITableView!
     
+//
+//    let model : [[UIColor]] = [[UIColor.red, UIColor.blue,UIColor.black,UIColor.red, UIColor.blue,UIColor.black,UIColor.red, UIColor.blue,UIColor.black]
+//
+//        ,[UIColor.orange, UIColor.white,UIColor.yellow,UIColor.orange, UIColor.white,UIColor.yellow,UIColor.orange, UIColor.white,UIColor.yellow]]
     
-    let model : [[UIColor]] = [[UIColor.red, UIColor.blue,UIColor.black,UIColor.red, UIColor.blue,UIColor.black,UIColor.red, UIColor.blue,UIColor.black]
-    
-        ,[UIColor.orange, UIColor.white,UIColor.yellow,UIColor.orange, UIColor.white,UIColor.yellow,UIColor.orange, UIColor.white,UIColor.yellow]]
+    var model : [[String]] = [["Frozen", "Soap", "Plastics", "Food Buttles", "Kitchen Needs","Frozen", "Soap", "Plastics", "Food Buttles", "Kitchen Needs"], ["Sub1", "Sub2","Sub3","Sub1", "Sub2","Sub3","Sub1", "Sub2"]]
     
     override func viewDidLoad() {
         print("shopping")
@@ -71,15 +73,25 @@ extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewData
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: K.shoppingCollectionCell, for: indexPath)
+        let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: K.shoppingCollectionCell, for: indexPath) as! shoppingCollectionCell
         
-        cell.backgroundColor = model[collectionView.tag][indexPath.item]
+        //cell.backgroundColor = model[collectionView.tag][indexPath.item]
+        cell.label.text = model[collectionView.tag][indexPath.item]
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Collection view at row \(collectionView.tag) selected index path \(indexPath)")
+        
+        let newIndexPath = IndexPath(row:model.count-1, section: 0)
+        self.model.append(["dynamic1","dynamic12","dynamic11"])
+
+        tableView.beginUpdates()
+        tableView.insertRows(at: [newIndexPath], with: .automatic)
+        tableView.endUpdates()
+        
+        
     }
 
     

@@ -151,6 +151,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A945F186240D4773007A13FA /* HorizontalScroll */ = {
+			isa = PBXGroup;
+			children = (
+				A9ECC74E2400F9D700524238 /* shoppingCollectionCell.swift */,
+				A9ECC74F2400F9D700524238 /* shoppingCollectionCell.xib */,
+			);
+			path = HorizontalScroll;
+			sourceTree = "<group>";
+		};
+		A945F187240D478F007A13FA /* VerticialScroll */ = {
+			isa = PBXGroup;
+			children = (
+				A9ECC74A2400F86A00524238 /* shoppingTableCell.swift */,
+				A9ECC74B2400F86A00524238 /* shoppingTableCell.xib */,
+			);
+			path = VerticialScroll;
+			sourceTree = "<group>";
+		};
+		A945F188240D47D7007A13FA /* ShoppingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A945F187240D478F007A13FA /* VerticialScroll */,
+				A945F186240D4773007A13FA /* HorizontalScroll */,
+			);
+			path = ShoppingScreen;
+			sourceTree = "<group>";
+		};
 		A98D66F323FCFCA9006B1791 /* TabScreens */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,10 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				A9A59AD723F9DDA100F3B6D9 /* Main.storyboard */,
-				A9ECC74A2400F86A00524238 /* shoppingTableCell.swift */,
-				A9ECC74B2400F86A00524238 /* shoppingTableCell.xib */,
-				A9ECC74E2400F9D700524238 /* shoppingCollectionCell.swift */,
-				A9ECC74F2400F9D700524238 /* shoppingCollectionCell.xib */,
+				A945F188240D47D7007A13FA /* ShoppingScreen */,
 			);
 			path = Views;
 			sourceTree = "<group>";
