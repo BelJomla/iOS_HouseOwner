@@ -1,16 +1,25 @@
 PODS:
   - iOSDropDown (0.3.4)
+  - PhoneNumberKit (3.2.0):
+    - PhoneNumberKit/PhoneNumberKitCore (= 3.2.0)
+    - PhoneNumberKit/UIKit (= 3.2.0)
+  - PhoneNumberKit/PhoneNumberKitCore (3.2.0)
+  - PhoneNumberKit/UIKit (3.2.0):
+    - PhoneNumberKit/PhoneNumberKitCore
 
 DEPENDENCIES:
   - iOSDropDown
+  - PhoneNumberKit (~> 3.1)
 
 SPEC REPOS:
   trunk:
     - iOSDropDown
+    - PhoneNumberKit
 
 SPEC CHECKSUMS:
   iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
+  PhoneNumberKit: df411d46177d1492da84e10b6c093846dd861452
 
-PODFILE CHECKSUM: 6d6b06cffd779e125ddd7d1a40d8b1635de5f4d2
+PODFILE CHECKSUM: ab30960b3a7e4c9f29f92fc91da055498ccaee6b
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.0

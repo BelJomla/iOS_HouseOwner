@@ -72,14 +72,27 @@
                                     <action selector="nextButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B7z-N2-WEB"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invalid phone number!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddJ-iQ-tfH">
+                                <rect key="frame" x="122" y="593" width="170" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Agd-MI-ozS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.94902592900000005" green="0.94900828599999998" blue="0.94902032609999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="uPs-jq-IJj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="23y-ZO-AFq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ddJ-iQ-tfH" secondAttribute="trailing" constant="122" id="Ft8-OB-ueY"/>
+                            <constraint firstItem="ddJ-iQ-tfH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="122" id="GRd-IB-oES"/>
                             <constraint firstItem="xib-fE-Fsf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Hs0-Fr-IVk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ddJ-iQ-tfH" secondAttribute="bottom" constant="248" id="Jkc-dY-hAM"/>
                             <constraint firstItem="uPs-jq-IJj" firstAttribute="top" secondItem="zTm-1F-Wqh" secondAttribute="bottom" constant="64" id="Juf-of-Fri"/>
                             <constraint firstItem="xib-fE-Fsf" firstAttribute="top" secondItem="2aF-QY-Pie" secondAttribute="bottom" constant="46" id="M9U-aX-xGT"/>
                             <constraint firstItem="zTm-1F-Wqh" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="85" id="PYz-jy-dMu"/>
+                            <constraint firstItem="ddJ-iQ-tfH" firstAttribute="top" secondItem="xib-fE-Fsf" secondAttribute="bottom" constant="30" id="RUH-0Y-1bR"/>
                             <constraint firstItem="zTm-1F-Wqh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Wxi-cN-xq4"/>
                             <constraint firstItem="RhA-6o-uxi" firstAttribute="top" secondItem="uPs-jq-IJj" secondAttribute="bottom" constant="40" id="cuo-cE-wN4"/>
                             <constraint firstItem="2aF-QY-Pie" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eQl-ql-dfq"/>
@@ -93,6 +106,7 @@
                         <outlet property="NextButton" destination="xib-fE-Fsf" id="Yl0-cK-NEh"/>
                         <outlet property="SignUpLabel" destination="uPs-jq-IJj" id="1bN-4g-zjc"/>
                         <outlet property="countryCodeTextField" destination="RhA-6o-uxi" id="uYT-ZP-6cf"/>
+                        <outlet property="invalidPhoneNumber" destination="ddJ-iQ-tfH" id="dfY-U3-9I3"/>
                         <outlet property="phoneTextField" destination="2aF-QY-Pie" id="uPN-53-sPL"/>
                         <segue destination="OER-mn-bcd" kind="show" identifier="verifyPhone" id="YRX-5J-vKf"/>
                     </connections>
@@ -120,7 +134,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please type the verification code sent to +966 5xxxxxxxxx" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ca-PD-GTV">
-                                <rect key="frame" x="100.5" y="239" width="213" height="35"/>
+                                <rect key="frame" x="100.5" y="239" width="213" height="30.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="213" id="STU-K8-Ll5"/>
                                 </constraints>

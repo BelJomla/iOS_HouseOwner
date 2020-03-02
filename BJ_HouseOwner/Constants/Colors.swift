@@ -7,6 +7,7 @@
 //
 
 struct Colors{
+    static let red =  0xFF0000
     static let gray = 0x6A6A6A
     static let darkBlue = 0x080E33
     static let mediumBlue = 0x2D3251 // for the cell inside verification field
