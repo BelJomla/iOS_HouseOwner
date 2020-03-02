@@ -7,43 +7,44 @@
 //
 
 import UIKit
-import iOSDropDown // from Dropdown pods for more info : https://github.com/jriosdev/iOSDropDown
+import iOSDropDown
+
 
 
 class ViewController: UIViewController{
     
-    @IBOutlet weak var SignUpLabel: UILabel!
-    @IBOutlet weak var NextButton: UIButton!
-    @IBOutlet weak var countryCodeTextField: DropDown!
-    @IBOutlet weak var phoneTextField: UITextField!
-    @IBOutlet weak var invalidPhoneNumber: UILabel!
+
     
-    override func viewDidLoad() {
-           super.viewDidLoad()
-        
-           styleUI() // next Function in the file
-           // using iOS dropDown pod, for dropdown menue (for countries)
-           // for more information about the pod go to: https://github.com/jriosdev/iOSDropDown
-           addCountryDropDownMenue()
-           
-    }
+    @IBOutlet weak var SignUpLabel: UILabel!
     
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
+        
         //NOTE: -Can use prepare for segue if needed
-        if let phoneNumber = phoneTextField.text {
-            LogInBrain.phoneNumber = phoneNumber
-            if LogInBrain.checkPhoneNumber() {
-                performSegue(withIdentifier: K.verifyPhoneSegue, sender: self)
-            } else {
-                invalidPhoneNumber.textColor = UIColor(rgb: Colors.red)
-            }
-        }
+        performSegue(withIdentifier: K.verifyPhoneSegue, sender: self)
     }
     
+    @IBOutlet weak var NextButton: UIButton!
+ 
+    @IBOutlet weak var countryCodeTextField: DropDown!
     @IBAction func countryFieldPressed(_ sender: DropDown) {
         countryCodeTextField.showList()
     }
+    
+    @IBOutlet weak var phoneTextField: UITextField!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        styleUI()
+        
+        // using iOS dropDown pod, for dropdown menue (for countries)
+        // for more information about the pod go to: https://github.com/jriosdev/iOSDropDown
+        addCountryDropDownMenue()
+        
+    
+    }
+
 
     /**
      This fuction updates the UI look and feel. Reason: hard to do using options
@@ -54,7 +55,9 @@ class ViewController: UIViewController{
         
         view.backgroundColor = smoke
         countryCodeTextField.backgroundColor = smoke
+        
         phoneTextField.backgroundColor = smoke
+        
         
         SignUpLabel.textColor = UIColor(rgb: Colors.gray)
         NextButton.backgroundColor = UIColor(rgb: Colors.darkBlue)
@@ -72,6 +75,7 @@ class ViewController: UIViewController{
         // and convert it to array so we can manipulate it
         // the array will contain the contry codes as [String]
         let  countryCodesArr: [String] = Array(countryCodes.values)
+        
         
         // casting country code string to int, ex: "966" -> 966
         // here we cast any string that can't be convert to Int to -1
@@ -97,7 +101,7 @@ class ViewController: UIViewController{
         countryCodeTextField.didSelect{(selectedText , index ,id) in
         let selected = "Selected String: \(selectedText) \n index: \(index) \n \(id)"
             print(selected)
-            LogInBrain.countryCode = String("+\(id)")
+            
         }
     }
     
@@ -115,7 +119,7 @@ class ViewController: UIViewController{
         // this url object is required to genrate Data object
         let url = URL(fileURLWithPath: path!)
         
-        do {
+        do{
             // this data object is needed for JSONDecoder object
             let data = try Data(contentsOf: url)
             // this is the result of the decoded json
@@ -137,7 +141,7 @@ class ViewController: UIViewController{
             
             return countryCodes
             
-        } catch {
+        }catch {
             print(" could not parse json \n")
             print(error)
             return nil

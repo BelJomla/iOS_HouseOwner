@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		258ED3B0240A708D000D2EB4 /* LogInBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258ED3AF240A708D000D2EB4 /* LogInBrain.swift */; };
 		8867E0EF5CC2D3525982AB12 /* Pods_BJ_HouseOwnerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B103F1423CA946A1A41D1B2 /* Pods_BJ_HouseOwnerTests.framework */; };
 		8ED084968A75E9DFF54DA1DA /* Pods_BJ_HouseOwner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62BB40D08274E2CD5DE5948D /* Pods_BJ_HouseOwner.framework */; };
 		A98D66F923FCFD1E006B1791 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98D66F823FCFD1E006B1791 /* ChatViewController.swift */; };
@@ -62,7 +61,6 @@
 /* Begin PBXFileReference section */
 		048B690C1F23AD5284222CB6 /* Pods-BJ_HouseOwner-BJ_HouseOwnerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BJ_HouseOwner-BJ_HouseOwnerUITests.debug.xcconfig"; path = "Target Support Files/Pods-BJ_HouseOwner-BJ_HouseOwnerUITests/Pods-BJ_HouseOwner-BJ_HouseOwnerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		1339B9727BA7FBA04067A284 /* Pods-BJ_HouseOwnerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BJ_HouseOwnerTests.release.xcconfig"; path = "Target Support Files/Pods-BJ_HouseOwnerTests/Pods-BJ_HouseOwnerTests.release.xcconfig"; sourceTree = "<group>"; };
-		258ED3AF240A708D000D2EB4 /* LogInBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInBrain.swift; sourceTree = "<group>"; };
 		33D48A1BB174F9863B9A064D /* Pods-BJ_HouseOwner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BJ_HouseOwner.release.xcconfig"; path = "Target Support Files/Pods-BJ_HouseOwner/Pods-BJ_HouseOwner.release.xcconfig"; sourceTree = "<group>"; };
 		62BB40D08274E2CD5DE5948D /* Pods_BJ_HouseOwner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BJ_HouseOwner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B103F1423CA946A1A41D1B2 /* Pods_BJ_HouseOwnerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BJ_HouseOwnerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -234,7 +232,6 @@
 			isa = PBXGroup;
 			children = (
 				A9A59BC023FB3B1300F3B6D9 /* contryCodes.swift */,
-				258ED3AF240A708D000D2EB4 /* LogInBrain.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -554,7 +551,6 @@
 				A9A59AD623F9DDA100F3B6D9 /* ViewController.swift in Sources */,
 				A9A59BBB23F9F93700F3B6D9 /* Colors.swift in Sources */,
 				A9A59AD223F9DDA100F3B6D9 /* AppDelegate.swift in Sources */,
-				258ED3B0240A708D000D2EB4 /* LogInBrain.swift in Sources */,
 				A98D66FD23FCFE3D006B1791 /* ShoppingViewController.swift in Sources */,
 				A98D66FB23FCFD34006B1791 /* ProfileViewController.swift in Sources */,
 				A9A59AD423F9DDA100F3B6D9 /* SceneDelegate.swift in Sources */,
