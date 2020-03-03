@@ -1,0 +1,21 @@
+{
+    "categories": [
+        {
+            "name" : "frozen",
+            "picture" : "ice.icon",
+            "subCategories" : ["meat","chicken","fries","meat","chicken","fries"]
+        },
+        {
+            "name" : "soap",
+            "picture" : "soap.icon",
+            "subCategories" : ["taid","fairy","erial","umo","taid","fairy","erial","umo"]
+        },
+        {
+            "name" : "plastic",
+            "picture" : "plastic.icon",
+            "subCategories" : ["dishes","knifes","spoons","dishes","knifes","spoons"]
+        }
+    
+    ]
+}
+
