@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gnH-6t-MHd">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -23,17 +23,17 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BJ_HouseOwner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ntc-5H-Bfk">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5vS-ML-3K2" userLabel="LogoView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="255"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="255"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="9jz-4C-Neg">
-                                                <rect key="frame" x="112.5" y="8" width="150" height="150"/>
+                                                <rect key="frame" x="132" y="8" width="150" height="150"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appstore" translatesAutoresizingMaskIntoConstraints="NO" id="zTm-1F-Wqh">
                                                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
@@ -48,7 +48,7 @@
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In/Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPs-jq-IJj">
-                                                <rect key="frame" x="148" y="190" width="79.5" height="20.5"/>
+                                                <rect key="frame" x="167.33333333333334" y="190" width="79.333333333333343" height="20.333333333333343"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -62,10 +62,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7EI-JZ-yMP" userLabel="TextFieldView">
-                                        <rect key="frame" x="0.0" y="271" width="375" height="352"/>
+                                        <rect key="frame" x="0.0" y="271" width="414" height="503"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="POn-dR-xqe">
-                                                <rect key="frame" x="83.5" y="0.0" width="208" height="222"/>
+                                                <rect key="frame" x="103" y="0.0" width="208" height="222"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Country Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RhA-6o-uxi" customClass="DropDown" customModule="iOSDropDown">
                                                         <rect key="frame" x="0.0" y="0.0" width="208" height="34"/>
@@ -78,7 +78,7 @@
                                                             <action selector="countryFieldPressed:" destination="BYZ-38-t0r" eventType="touchDown" id="Z3Q-WB-Maf"/>
                                                         </connections>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Number Here!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2aF-QY-Pie">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="555555555" borderStyle="roundedRect" placeholder="Your Number Here!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2aF-QY-Pie">
                                                         <rect key="frame" x="0.0" y="64" width="208" height="34"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="208" id="onK-iD-3Lk"/>
@@ -107,7 +107,7 @@
                                                             <constraint firstAttribute="height" constant="21" id="Agd-MI-ozS"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="textColor" red="0.94902592900000005" green="0.94900828599999998" blue="0.94902032609999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -154,79 +154,110 @@
             <objects>
                 <viewController id="OER-mn-bcd" customClass="VerifyViewController" customModule="BJ_HouseOwner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XfY-5j-2QH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verification Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Bp-iq-cWb">
-                                <rect key="frame" x="78.5" y="145" width="218" height="37"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gfS-ie-K0U" userLabel="TopView">
+                                <rect key="frame" x="0.0" y="88.000000000000014" width="414" height="162.33333333333337"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verification Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Bp-iq-cWb">
+                                        <rect key="frame" x="98" y="40" width="218" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="37" id="FhX-xM-MPa"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="218" id="fUL-h0-VTy"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SegoeUI-Semibold" family="Segoe UI" pointSize="28"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please type the verification code sent to +966 5xxxxxxxxx" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ca-PD-GTV">
+                                        <rect key="frame" x="97" y="99" width="220" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Xu0-Uo-nDQ"/>
+                                            <constraint firstAttribute="width" constant="220" id="YJJ-jV-VyF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SegoeUI-Semilight" family="Segoe UI" pointSize="13"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="FhX-xM-MPa"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="218" id="fUL-h0-VTy"/>
+                                    <constraint firstItem="4Bp-iq-cWb" firstAttribute="top" secondItem="gfS-ie-K0U" secondAttribute="top" constant="40" id="1YQ-hC-cZZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="9Ca-PD-GTV" secondAttribute="bottom" constant="23.333333333333371" id="2Zr-82-KPz"/>
+                                    <constraint firstItem="9Ca-PD-GTV" firstAttribute="centerX" secondItem="gfS-ie-K0U" secondAttribute="centerX" id="5Z9-jZ-tRp"/>
+                                    <constraint firstItem="9Ca-PD-GTV" firstAttribute="centerX" secondItem="gfS-ie-K0U" secondAttribute="centerX" id="HVz-pG-jcN"/>
+                                    <constraint firstItem="9Ca-PD-GTV" firstAttribute="top" secondItem="gfS-ie-K0U" secondAttribute="top" constant="99" id="KjE-C8-n4z"/>
+                                    <constraint firstItem="9Ca-PD-GTV" firstAttribute="centerX" secondItem="gfS-ie-K0U" secondAttribute="centerX" id="L3M-eC-NGi"/>
+                                    <constraint firstItem="4Bp-iq-cWb" firstAttribute="centerX" secondItem="gfS-ie-K0U" secondAttribute="centerX" id="Oog-6i-0Li"/>
+                                    <constraint firstItem="9Ca-PD-GTV" firstAttribute="top" secondItem="4Bp-iq-cWb" secondAttribute="bottom" constant="22" id="fWh-xK-LEa"/>
+                                    <constraint firstItem="9Ca-PD-GTV" firstAttribute="centerX" secondItem="gfS-ie-K0U" secondAttribute="centerX" id="lHx-tV-tIG"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="SegoeUI-Semibold" family="Segoe UI" pointSize="28"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please type the verification code sent to +966 5xxxxxxxxx" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ca-PD-GTV">
-                                <rect key="frame" x="81" y="195" width="213" height="30.5"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="njq-Rh-9ry" userLabel="BottomView">
+                                <rect key="frame" x="0.0" y="250.33333333333331" width="414" height="611.66666666666674"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pdh-cJ-BxF">
+                                        <rect key="frame" x="73.666666666666686" y="27.999999999999972" width="267" height="124"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mac-lw-FhD">
+                                                <rect key="frame" x="0.0" y="0.0" width="267" height="54"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="267" id="1tC-22-Jcz"/>
+                                                    <constraint firstAttribute="height" constant="54" id="N6h-iG-n70"/>
+                                                </constraints>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="SegoeUI-Semibold" family="Segoe UI" pointSize="40"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next" textContentType="one-time-code"/>
+                                                <connections>
+                                                    <action selector="fieldChanged:" destination="OER-mn-bcd" eventType="editingChanged" id="Ikb-2Z-zFT"/>
+                                                </connections>
+                                            </textField>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EPp-yx-2Rj" userLabel="Timer&amp;ResendView">
+                                                <rect key="frame" x="0.0" y="74" width="267" height="50"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xwg-Nw-LI1">
+                                                        <rect key="frame" x="0.0" y="0.0" width="159" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="159" id="lFJ-Ph-Kqq"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="SegoeUI-Semilight" family="Segoe UI" pointSize="13"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8C6-cx-sCH">
+                                                        <rect key="frame" x="169" y="0.0" width="98" height="28"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="b7Z-PT-dqx"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="13"/>
+                                                        <state key="normal" title="Resend SMS">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="213" id="STU-K8-Ll5"/>
+                                    <constraint firstAttribute="bottom" secondItem="pdh-cJ-BxF" secondAttribute="bottom" constant="459.66666666666674" id="QRe-vi-X60"/>
+                                    <constraint firstItem="pdh-cJ-BxF" firstAttribute="top" secondItem="njq-Rh-9ry" secondAttribute="top" constant="27.999999999999972" id="U30-L1-X16"/>
+                                    <constraint firstItem="pdh-cJ-BxF" firstAttribute="centerX" secondItem="njq-Rh-9ry" secondAttribute="centerX" id="oNl-1X-fp4"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="SegoeUI-Semilight" family="Segoe UI" pointSize="13"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mac-lw-FhD">
-                                <rect key="frame" x="54" y="162" width="267" height="54"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="267" id="1tC-22-Jcz"/>
-                                    <constraint firstAttribute="height" constant="54" id="N6h-iG-n70"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="SegoeUI-Semibold" family="Segoe UI" pointSize="40"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next" textContentType="one-time-code"/>
-                                <connections>
-                                    <action selector="fieldChanged:" destination="OER-mn-bcd" eventType="editingChanged" id="Ikb-2Z-zFT"/>
-                                </connections>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xwg-Nw-LI1">
-                                <rect key="frame" x="68" y="392" width="159" height="0.0"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="159" id="lFJ-Ph-Kqq"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="SegoeUI-Semilight" family="Segoe UI" pointSize="13"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8C6-cx-sCH">
-                                <rect key="frame" x="237" y="237" width="41" height="28"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="b7Z-PT-dqx"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="13"/>
-                                <state key="normal" title="Resend SMS">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="goQ-IM-ytv" firstAttribute="trailing" secondItem="8C6-cx-sCH" secondAttribute="trailing" constant="97" id="6UM-Ic-OZA"/>
-                            <constraint firstItem="9Ca-PD-GTV" firstAttribute="top" secondItem="XfY-5j-2QH" secondAttribute="topMargin" constant="151" id="ADK-si-z9f"/>
-                            <constraint firstItem="mac-lw-FhD" firstAttribute="top" secondItem="XfY-5j-2QH" secondAttribute="topMargin" constant="267" id="BEi-ZW-21z"/>
-                            <constraint firstItem="xwg-Nw-LI1" firstAttribute="top" secondItem="XfY-5j-2QH" secondAttribute="topMargin" constant="348" id="Bg1-tO-VAc"/>
-                            <constraint firstItem="9Ca-PD-GTV" firstAttribute="centerX" secondItem="XfY-5j-2QH" secondAttribute="centerX" id="Fmf-Ai-Wd8"/>
-                            <constraint firstItem="8C6-cx-sCH" firstAttribute="leading" secondItem="goQ-IM-ytv" secondAttribute="leading" constant="237" id="TvN-Tm-gAs"/>
-                            <constraint firstItem="8C6-cx-sCH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xwg-Nw-LI1" secondAttribute="trailing" constant="8" symbolic="YES" id="Xxu-0U-Wzb"/>
-                            <constraint firstItem="8C6-cx-sCH" firstAttribute="top" secondItem="mac-lw-FhD" secondAttribute="bottom" constant="21" id="Yqs-je-iCp"/>
-                            <constraint firstItem="mac-lw-FhD" firstAttribute="centerX" secondItem="XfY-5j-2QH" secondAttribute="centerX" id="Yzc-IH-M1l"/>
-                            <constraint firstItem="goQ-IM-ytv" firstAttribute="bottom" secondItem="8C6-cx-sCH" secondAttribute="bottom" constant="402" id="emn-s1-4LK"/>
-                            <constraint firstItem="4Bp-iq-cWb" firstAttribute="top" secondItem="goQ-IM-ytv" secondAttribute="top" constant="101" id="gAQ-fM-RWY"/>
-                            <constraint firstItem="xwg-Nw-LI1" firstAttribute="leading" secondItem="XfY-5j-2QH" secondAttribute="leading" constant="68" id="guM-o9-aH9"/>
-                            <constraint firstItem="8C6-cx-sCH" firstAttribute="top" secondItem="mac-lw-FhD" secondAttribute="bottom" constant="21" id="i0r-S9-aoL"/>
-                            <constraint firstItem="4Bp-iq-cWb" firstAttribute="centerX" secondItem="XfY-5j-2QH" secondAttribute="centerX" id="mcf-8S-15K"/>
-                            <constraint firstItem="goQ-IM-ytv" firstAttribute="bottom" secondItem="8C6-cx-sCH" secondAttribute="bottom" constant="402" id="xDI-Mr-kzL"/>
+                            <constraint firstItem="gfS-ie-K0U" firstAttribute="trailing" secondItem="goQ-IM-ytv" secondAttribute="trailing" id="0ot-Nt-zEd"/>
+                            <constraint firstItem="njq-Rh-9ry" firstAttribute="top" secondItem="gfS-ie-K0U" secondAttribute="bottom" id="4w7-mX-Mzp"/>
+                            <constraint firstItem="njq-Rh-9ry" firstAttribute="bottom" secondItem="goQ-IM-ytv" secondAttribute="bottom" id="6sO-pG-U5o"/>
+                            <constraint firstItem="gfS-ie-K0U" firstAttribute="leading" secondItem="goQ-IM-ytv" secondAttribute="leading" id="RDx-hB-2f2"/>
+                            <constraint firstItem="njq-Rh-9ry" firstAttribute="trailing" secondItem="goQ-IM-ytv" secondAttribute="trailing" id="UNI-f3-mGk"/>
+                            <constraint firstItem="njq-Rh-9ry" firstAttribute="leading" secondItem="goQ-IM-ytv" secondAttribute="leading" id="aQg-DK-IJo"/>
+                            <constraint firstItem="njq-Rh-9ry" firstAttribute="top" secondItem="gfS-ie-K0U" secondAttribute="bottom" id="gH6-4g-QHt"/>
+                            <constraint firstItem="gfS-ie-K0U" firstAttribute="top" secondItem="goQ-IM-ytv" secondAttribute="top" id="vgy-KR-IlI"/>
+                            <constraint firstItem="njq-Rh-9ry" firstAttribute="top" secondItem="gfS-ie-K0U" secondAttribute="bottom" id="wJk-TD-aOx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="goQ-IM-ytv"/>
                     </view>
@@ -246,11 +277,11 @@
             <objects>
                 <viewController id="BSG-gi-j6e" customClass="CartViewController" customModule="BJ_HouseOwner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cNV-lX-3o4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KTr-3p-H4p">
-                                <rect key="frame" x="87" y="341.5" width="201" height="18.5"/>
+                                <rect key="frame" x="87" y="385.66666666666669" width="240" height="126"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -273,11 +304,11 @@
             <objects>
                 <viewController id="I2a-3q-jz7" customClass="ShoppingViewController" customModule="BJ_HouseOwner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dRn-qx-I1j">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xdv-WA-wU9">
-                                <rect key="frame" x="87" y="341" width="201" height="18"/>
+                                <rect key="frame" x="87" y="385" width="240" height="125.66666666666669"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -300,11 +331,11 @@
             <objects>
                 <viewController id="huI-Uy-Nxt" customClass="ChatViewController" customModule="BJ_HouseOwner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YA8-0o-HrJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bubble.left.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1eO-Dq-zTn">
-                                <rect key="frame" x="67.5" y="270.5" width="240" height="127"/>
+                                <rect key="frame" x="87" y="385.66666666666663" width="240" height="126.33333333333331"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="Dng-HH-dY0"/>
                                     <constraint firstAttribute="height" constant="127.5" id="T1E-QY-JjR"/>
@@ -329,11 +360,11 @@
             <objects>
                 <viewController id="ugM-gk-ukI" customClass="ProfileViewController" customModule="BJ_HouseOwner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n56-fg-zaV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="D1X-3K-KCp">
-                                <rect key="frame" x="67.5" y="271.5" width="240" height="124"/>
+                                <rect key="frame" x="87" y="386.66666666666669" width="240" height="123.66666666666669"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="127" id="8aJ-IC-blU"/>
                                     <constraint firstAttribute="width" constant="240" id="yI4-FZ-nx1"/>
@@ -380,7 +411,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gnH-6t-MHd" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2Kr-KK-b6K">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
