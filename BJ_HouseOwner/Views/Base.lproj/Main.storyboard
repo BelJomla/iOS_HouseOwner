@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SdG-Gt-8az">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gnH-6t-MHd">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -214,38 +214,38 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qRr-Vo-6qU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2858" y="900"/>
+            <point key="canvasLocation" x="4678.2608695652179" y="900"/>
         </scene>
-        <!--Shopping-->
+        <!--Shopping View Controller-->
         <scene sceneID="xyC-ri-TF1">
             <objects>
-                <viewController id="I2a-3q-jz7" customClass="ShoppingViewController" customModule="BJ_HouseOwner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="I2a-3q-jz7" customClass="ShoppingViewController" customModule="BJ_HouseOwner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dRn-qx-I1j">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b0w-tV-jlo">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            <tableView opaque="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b0w-tV-jlo">
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.65265053510000004" green="0.16374573110000001" blue="0.1400781572" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="b0w-tV-jlo" firstAttribute="trailing" secondItem="Qs2-Ip-nMh" secondAttribute="trailing" id="2dY-c8-4rM"/>
                             <constraint firstItem="b0w-tV-jlo" firstAttribute="bottom" secondItem="Qs2-Ip-nMh" secondAttribute="bottom" id="LmZ-9v-p54"/>
-                            <constraint firstItem="b0w-tV-jlo" firstAttribute="top" secondItem="Qs2-Ip-nMh" secondAttribute="top" id="TSx-ph-Scc"/>
+                            <constraint firstItem="b0w-tV-jlo" firstAttribute="top" secondItem="Qs2-Ip-nMh" secondAttribute="top" id="QsU-sa-XuA"/>
                             <constraint firstItem="b0w-tV-jlo" firstAttribute="leading" secondItem="Qs2-Ip-nMh" secondAttribute="leading" id="csf-V2-AwW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qs2-Ip-nMh"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Shopping" image="magnifyingglass" catalog="system" id="CWi-g7-R3H"/>
+                    <navigationItem key="navigationItem" id="3Pl-8v-p6z"/>
                     <connections>
                         <outlet property="tableView" destination="b0w-tV-jlo" id="7pL-cQ-Wa7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lMY-OF-6Lj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2037.68115942029" y="900"/>
+            <point key="canvasLocation" x="3574" y="900"/>
         </scene>
         <!--Chat-->
         <scene sceneID="hfa-Tv-IHa">
@@ -274,7 +274,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HSH-QE-3ki" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3711" y="900"/>
+            <point key="canvasLocation" x="5530.434782608696" y="900"/>
         </scene>
         <!--Profile-->
         <scene sceneID="uLx-71-niW">
@@ -303,7 +303,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQI-dg-k4p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4465" y="900"/>
+            <point key="canvasLocation" x="6284.057971014493" y="900"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="W7t-fS-dLQ">
@@ -316,10 +316,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="I2a-3q-jz7" kind="relationship" relationship="viewControllers" id="45u-3f-bgd"/>
                         <segue destination="BSG-gi-j6e" kind="relationship" relationship="viewControllers" id="bfG-n1-ARq"/>
                         <segue destination="huI-Uy-Nxt" kind="relationship" relationship="viewControllers" id="fM4-Az-Kim"/>
                         <segue destination="ugM-gk-ukI" kind="relationship" relationship="viewControllers" id="f2d-Ve-EoL"/>
+                        <segue destination="iFs-Bo-Wha" kind="relationship" relationship="viewControllers" id="WNW-sy-0gi"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gdo-HX-MmI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -344,6 +344,35 @@
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="137.94642857142856"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="JtP-9H-NmA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iFs-Bo-Wha" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="7qP-l7-uWg"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="OpS-pv-1hn">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.65265053510000004" green="0.16374573110000001" blue="0.1400781572" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.65265053510000004" green="0.16374573110000001" blue="0.1400781572" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textShadowColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textShadowColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="I2a-3q-jz7" kind="relationship" relationship="rootViewController" id="ZWF-WW-80N"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eci-1K-Cjc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2786.9565217391305" y="900"/>
+        </scene>
     </scenes>
     <resources>
         <image name="appstore" width="1024" height="1024"/>
@@ -351,7 +380,6 @@
         <image name="bubble.left.fill" catalog="system" width="64" height="54"/>
         <image name="cart" catalog="system" width="64" height="50"/>
         <image name="cart.fill" catalog="system" width="64" height="50"/>
-        <image name="magnifyingglass" catalog="system" width="64" height="56"/>
         <image name="person" catalog="system" width="64" height="58"/>
         <image name="person.fill" catalog="system" width="64" height="60"/>
     </resources>

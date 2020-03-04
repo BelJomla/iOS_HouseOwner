@@ -14,7 +14,8 @@
             "name" : "plastic",
             "picture" : "plastic.icon",
             "subCategories" : ["dishes","knifes","spoons","dishes","knifes","spoons"]
-        }
+        },
+        
     
     ]
 }

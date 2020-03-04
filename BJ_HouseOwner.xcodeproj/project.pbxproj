@@ -11,6 +11,8 @@
 		8ED084968A75E9DFF54DA1DA /* Pods_BJ_HouseOwner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62BB40D08274E2CD5DE5948D /* Pods_BJ_HouseOwner.framework */; };
 		A945F18B240DB1A7007A13FA /* category.geojson in Resources */ = {isa = PBXBuildFile; fileRef = A945F18A240DB1A7007A13FA /* category.geojson */; };
 		A945F18D240DB412007A13FA /* shoppingCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = A945F18C240DB412007A13FA /* shoppingCategories.swift */; };
+		A945F18F24104648007A13FA /* DecodableJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = A945F18E24104648007A13FA /* DecodableJson.swift */; };
+		A945F19124104A5A007A13FA /* JsonReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A945F19024104A5A007A13FA /* JsonReader.swift */; };
 		A98D66F923FCFD1E006B1791 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98D66F823FCFD1E006B1791 /* ChatViewController.swift */; };
 		A98D66FB23FCFD34006B1791 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98D66FA23FCFD34006B1791 /* ProfileViewController.swift */; };
 		A98D66FD23FCFE3D006B1791 /* ShoppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98D66FC23FCFE3D006B1791 /* ShoppingViewController.swift */; };
@@ -73,6 +75,8 @@
 		6DF9FD64A56CC1D0D34DDC67 /* Pods-BJ_HouseOwnerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BJ_HouseOwnerTests.debug.xcconfig"; path = "Target Support Files/Pods-BJ_HouseOwnerTests/Pods-BJ_HouseOwnerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A945F18A240DB1A7007A13FA /* category.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = category.geojson; sourceTree = "<group>"; };
 		A945F18C240DB412007A13FA /* shoppingCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shoppingCategories.swift; sourceTree = "<group>"; };
+		A945F18E24104648007A13FA /* DecodableJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableJson.swift; sourceTree = "<group>"; };
+		A945F19024104A5A007A13FA /* JsonReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonReader.swift; sourceTree = "<group>"; };
 		A98D66F823FCFD1E006B1791 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		A98D66FA23FCFD34006B1791 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A98D66FC23FCFE3D006B1791 /* ShoppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingViewController.swift; sourceTree = "<group>"; };
@@ -280,7 +284,9 @@
 			isa = PBXGroup;
 			children = (
 				A9A59BC023FB3B1300F3B6D9 /* contryCodes.swift */,
+				A945F19024104A5A007A13FA /* JsonReader.swift */,
 				A945F18C240DB412007A13FA /* shoppingCategories.swift */,
+				A945F18E24104648007A13FA /* DecodableJson.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -606,7 +612,9 @@
 				A9A59AD223F9DDA100F3B6D9 /* AppDelegate.swift in Sources */,
 				A9ECC7502400F9D700524238 /* shoppingCollectionCell.swift in Sources */,
 				A945F18D240DB412007A13FA /* shoppingCategories.swift in Sources */,
+				A945F18F24104648007A13FA /* DecodableJson.swift in Sources */,
 				A98D66FD23FCFE3D006B1791 /* ShoppingViewController.swift in Sources */,
+				A945F19124104A5A007A13FA /* JsonReader.swift in Sources */,
 				A98D66FB23FCFD34006B1791 /* ProfileViewController.swift in Sources */,
 				A9A59AD423F9DDA100F3B6D9 /* SceneDelegate.swift in Sources */,
 				A98D66FF23FCFE4D006B1791 /* CartViewController.swift in Sources */,
