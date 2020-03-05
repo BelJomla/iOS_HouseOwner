@@ -28,20 +28,16 @@ class ShoppingViewController: UIViewController{
      */
     var mainCategories: [String] = []
     /*
-     displayedData: is 2d array that is similar to categoryData
+     subCategoryData: is 2d array that is similar to categoryData
      , but it contains only the data that is being
      displayed on the screen. It is updated in the
      code as the user clicks different category.
      an example:[['School','pencils','eraser']]
      
      */
-    var displayedData: [[String]] = []
+    var subCategoryData: [String] = []
     
-    /*
-     this flag indicates wheather the user has clicked
-     a cetegory or not
-     */
-    var subCategoryIsDisplayed:Bool = false
+ 
     
     override func viewDidLoad() {
         print("shopping")
@@ -52,7 +48,8 @@ class ShoppingViewController: UIViewController{
         let (categoryData,mainCategories) =  readCategoreisData()
         self.categoryData = categoryData ?? [["no data"]]
         self.mainCategories = mainCategories ?? ["no categoreis"]
-        self.displayedData = [self.mainCategories]
+        self.subCategoryData = categoryData?[0] ?? ["no sub categories"] // first list of subcategories
+
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -112,11 +109,7 @@ class ShoppingViewController: UIViewController{
             // contactinating the two arrays
             categoryData.append(temp + subCategories)
         }
-        
-        print(categoryData)
-        print("--")
-        print(mainCategories)
-        
+
         return (categoryData,mainCategories)
         
         
@@ -128,12 +121,23 @@ class ShoppingViewController: UIViewController{
 
 extension ShoppingViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return displayedData.count // one row // mainCategories
+        if (section==1 || section==0){ return 1}
+        return 30 // third section of items//return subCategoryData.count // one row // mainCategories
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.text = "category"
+        return label
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        //30
         let cell = tableView.dequeueReusableCell(withIdentifier: K.shoppingTableCell, for: indexPath)
         
         return cell
@@ -143,7 +147,10 @@ extension ShoppingViewController: UITableViewDelegate, UITableViewDataSource {
         
         guard let tableViewCell = cell as? shoppingTableCell else {return}
         
-        tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.item)
+       
+        print("\(indexPath.section)\(indexPath.item)")
+        
+        tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.section /*indexPath.item*/)
     }
     
 }
@@ -155,7 +162,17 @@ extension ShoppingViewController: UITableViewDelegate, UITableViewDataSource {
 extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return displayedData[collectionView.tag].count //categoryData[collectionView.tag].count
+        if collectionView.tag == 0 {
+            return mainCategories.count
+        }else if collectionView.tag == 1 {
+            return subCategoryData.count
+        }else{
+            return 2 // two products for the third section per row
+        }
+        
+        //return 3 //subCategoryData[collectionView.tag].count
+            //categoryData[collectionView.tag].count
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -163,7 +180,13 @@ extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewData
         let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: K.shoppingCollectionCell, for: indexPath) as! shoppingCollectionCell
         
         //cell.backgroundColor = categoryDict[collectionView.tag][indexPath.item]
-        cell.label.text = displayedData[collectionView.tag][indexPath.item]//categoryData[collectionView.tag][indexPath.item]
+        if collectionView.tag == 0 {
+            cell.label.text = mainCategories[indexPath.item]
+        }else if collectionView.tag == 1 {
+            cell.label.text = subCategoryData[indexPath.item]
+        }
+        //cell.label.text = subCategoryData[collectionView.tag][indexPath.item]
+            //categoryData[collectionView.tag][indexPath.item]//subCategoryData[collectionView.tag][indexPath.item]//categoryData[collectionView.tag][indexPath.item]
         
         return cell
     }
@@ -178,46 +201,39 @@ extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewData
 
 //MARK: -TableView Update Helpers
 extension ShoppingViewController {
-    func insertSubCategoryRow(for indexPath:IndexPath){
-        let newIndexPath = IndexPath(row:displayedData.count-1, section: 0)
+
+    func replaceSubCategoryRow(delete indexPath:IndexPath, section:Int){
         tableView.beginUpdates()
-        tableView.insertRows(at: [newIndexPath], with: .automatic)
-        tableView.endUpdates()
-    }
-    func deleteSubCategoryRow(for indexPath:IndexPath){
-        tableView.beginUpdates()
-        tableView.deleteRows(at: [indexPath], with: .fade)
+        tableView.deleteRows(at: [indexPath], with: .right)
+        
+        let indexPathToAdd = IndexPath(row:0, section: section)
+        
+        tableView.insertRows(at: [indexPathToAdd], with: .left)
         tableView.endUpdates()
     }
     
     func updateTableView(for indexPath:IndexPath){
-        if(!subCategoryIsDisplayed){
-            // updating the flag, so that we go to the 'else' statement next time
-            subCategoryIsDisplayed = true
-            // adding the subcategory data to displayDate
-            self.displayedData.append(categoryData[indexPath.row])
-            // inserting the row and updating the table
-            insertSubCategoryRow(for: indexPath)
-        }else if (subCategoryIsDisplayed){
+            
+
             /*
-             since displayedData is a 2D, the .count will return 2
+             since subCategoryData is a 2D, the .count will return 2
              and it is the row number the should be deleted
              */
-            let indexToDelete = displayedData.count-1
-            // creating an instance of IndexPath, since it is needed for deleteSubCategoryRow
-            let indexPathToDelete = IndexPath(row:displayedData.count-1, section: 0)
+            let indexToDelete = 0//subCategoryData.count-1
+            // creating an instance of IndexPath, sinindexToDeletece it is needed for deleteSubCategoryRow
+            let indexPathToDelete = IndexPath(row:indexToDelete, section: 1)
             // removing the subcatogy values from the array before updating the UITableView
-            self.displayedData.remove(at: indexToDelete)
-            
-            // removing the row and updating the table
-            deleteSubCategoryRow(for: indexPathToDelete)
-            /*
-             now, we add the subCategory for the category that the user has clicked on
-             */
-            self.displayedData.append(categoryData[indexPath.row])
-            //inserting the new row, and updating the table
-            insertSubCategoryRow(for: indexPath)
-            
+        
+
+            //self.subCategoryData.remove(at: indexToDelete)
+            self.subCategoryData = [] // deleting all elements
+            // adding the new subcategory
+            //self.subCategoryData.append(categoryData[indexPath.row])
+        for singleSubCategory in categoryData[indexPath.row]{
+            self.subCategoryData.append(singleSubCategory)
         }
+            // the actual addition, deletion and update of the uitableivew
+            replaceSubCategoryRow(delete: indexPathToDelete, section: 1)
+
     }
 }
