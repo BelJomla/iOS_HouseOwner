@@ -15,8 +15,22 @@ class shoppingTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        let nib = UINib(nibName: "shoppingCollectionCell", bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: K.shoppingCollectionCell)
+        //self.layer.cornerRadius = 20
+        //self.collectionView.layer.cornerRadius = 10
+        //        self.layer.cornerRadius = 50
+        //        self.collectionView.layer.cornerRadius = 30
+        //        self.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+        self.backgroundColor = UIColor(rgb: Colors.smokeWhite)
+        
+        let productNib = UINib(nibName: "ProductCollectionViewCell", bundle: nil)
+        collectionView.register(productNib, forCellWithReuseIdentifier:K.shoppingProductCell)
+        
+        
+        let categoryNib = UINib(nibName: "shoppingCollectionCell", bundle: nil)
+        collectionView.register(categoryNib, forCellWithReuseIdentifier: K.shoppingCollectionCell)
+        
+        collectionView.backgroundColor = UIColor(rgb: Colors.smokeWhite)
         
     }
     

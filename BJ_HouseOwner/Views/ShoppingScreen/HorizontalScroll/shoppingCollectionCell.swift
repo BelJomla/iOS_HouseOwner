@@ -16,7 +16,9 @@ class shoppingCollectionCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         
-
+        //background color of the cell
+        self.backgroundColor = .white
+        
         // dividing the width by 2 gives us a circular view
         let cellCornerRadius = self.layer.frame.size.width/2
         let mainViewCornerRadius = mainView.layer.frame.size.width/2
@@ -28,7 +30,7 @@ class shoppingCollectionCell: UICollectionViewCell {
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOpacity = 1
         self.layer.shadowOffset = .zero
-        self.layer.shadowRadius = 3
+        self.layer.shadowRadius = 5
         
     }
 

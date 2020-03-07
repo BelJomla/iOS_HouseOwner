@@ -15,6 +15,11 @@
             "picture" : "plastic.icon",
             "subCategories" : ["dishes","knifes","spoons","dishes","knifes","spoons"]
         },
+        {
+            "name" : "team work",
+            "picture" : "work.icon",
+            "subCategories" : ["no","body","is","...","knifes","spoons"]
+        }
         
     
     ]

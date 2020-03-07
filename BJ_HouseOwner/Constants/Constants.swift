@@ -20,6 +20,6 @@ struct K {
     //identifiers
     static let shoppingTableCell = "shoppingTableCell"
     static let shoppingCollectionCell = "shippingCollectionCell"
-   
+    static let shoppingProductCell = "productCell"
     
 }
