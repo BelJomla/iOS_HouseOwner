@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		251D5BA5241A76D700FF54A8 /* LogInBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251D5BA4241A76D700FF54A8 /* LogInBrain.swift */; };
 		8867E0EF5CC2D3525982AB12 /* Pods_BJ_HouseOwnerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B103F1423CA946A1A41D1B2 /* Pods_BJ_HouseOwnerTests.framework */; };
 		8ED084968A75E9DFF54DA1DA /* Pods_BJ_HouseOwner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62BB40D08274E2CD5DE5948D /* Pods_BJ_HouseOwner.framework */; };
 		A945F18B240DB1A7007A13FA /* category.geojson in Resources */ = {isa = PBXBuildFile; fileRef = A945F18A240DB1A7007A13FA /* category.geojson */; };
@@ -72,6 +73,7 @@
 /* Begin PBXFileReference section */
 		048B690C1F23AD5284222CB6 /* Pods-BJ_HouseOwner-BJ_HouseOwnerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BJ_HouseOwner-BJ_HouseOwnerUITests.debug.xcconfig"; path = "Target Support Files/Pods-BJ_HouseOwner-BJ_HouseOwnerUITests/Pods-BJ_HouseOwner-BJ_HouseOwnerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		1339B9727BA7FBA04067A284 /* Pods-BJ_HouseOwnerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BJ_HouseOwnerTests.release.xcconfig"; path = "Target Support Files/Pods-BJ_HouseOwnerTests/Pods-BJ_HouseOwnerTests.release.xcconfig"; sourceTree = "<group>"; };
+		251D5BA4241A76D700FF54A8 /* LogInBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInBrain.swift; sourceTree = "<group>"; };
 		33D48A1BB174F9863B9A064D /* Pods-BJ_HouseOwner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BJ_HouseOwner.release.xcconfig"; path = "Target Support Files/Pods-BJ_HouseOwner/Pods-BJ_HouseOwner.release.xcconfig"; sourceTree = "<group>"; };
 		62BB40D08274E2CD5DE5948D /* Pods_BJ_HouseOwner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BJ_HouseOwner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B103F1423CA946A1A41D1B2 /* Pods_BJ_HouseOwnerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BJ_HouseOwnerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -326,6 +328,7 @@
 				A945F19024104A5A007A13FA /* JsonReader.swift */,
 				A945F18C240DB412007A13FA /* shoppingCategories.swift */,
 				A945F18E24104648007A13FA /* DecodableJson.swift */,
+				251D5BA4241A76D700FF54A8 /* LogInBrain.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -666,6 +669,7 @@
 				A945F195241176ED007A13FA /* ProductCollectionViewCell.swift in Sources */,
 				A9A59C2223FB7DC100F3B6D9 /* VerifyViewController.swift in Sources */,
 				A945F19A24117EF0007A13FA /* ProductCollectionViewRow.swift in Sources */,
+				251D5BA5241A76D700FF54A8 /* LogInBrain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
