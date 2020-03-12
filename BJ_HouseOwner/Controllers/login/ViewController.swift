@@ -13,9 +13,9 @@ import iOSDropDown // from Dropdown pods for more info : https://github.com/jrio
 class ViewController: UIViewController{
     
     @IBOutlet weak var SignUpLabel: UILabel!
-    @IBOutlet weak var NextButton: UIButton!
     @IBOutlet weak var countryCodeTextField: DropDown!
     @IBOutlet weak var phoneTextField: UITextField!
+    @IBOutlet weak var NextButton: UIButton!
     @IBOutlet weak var invalidPhoneNumber: UILabel!
     
     override func viewDidLoad() {
@@ -52,8 +52,8 @@ class ViewController: UIViewController{
     func styleUI(){
         let smoke = UIColor(rgb: Colors.smokeWhite)
         
-        view.backgroundColor = smoke
-        countryCodeTextField.backgroundColor = smoke
+        view.backgroundColor = UIColor(rgb: Colors.smokeWhite)
+        countryCodeTextField.backgroundColor = UIColor(rgb: Colors.smokeWhite)
         phoneTextField.backgroundColor = smoke
         
         SignUpLabel.textColor = UIColor(rgb: Colors.gray)

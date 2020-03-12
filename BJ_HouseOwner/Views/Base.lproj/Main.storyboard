@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SdG-Gt-8az">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gnH-6t-MHd">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -74,6 +74,9 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="countryFieldPressed:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="U1A-Xj-dNq"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Number Here!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AVs-89-jJx">
                                                         <rect key="frame" x="0.0" y="64" width="208" height="34"/>
@@ -94,6 +97,9 @@
                                                         <state key="normal" title="Next">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="nextButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rdV-g2-x9A"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invalid phone number!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2q-Ik-Ktj">
                                                         <rect key="frame" x="0.0" y="201" width="208" height="21"/>
@@ -131,6 +137,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="TUZ-wr-dJL"/>
                     <connections>
+                        <outlet property="NextButton" destination="wdJ-jO-b3A" id="FIE-AT-Dsx"/>
+                        <outlet property="SignUpLabel" destination="qCn-J4-4Wa" id="3Ln-8W-PxI"/>
+                        <outlet property="countryCodeTextField" destination="67H-0U-log" id="I4w-Tf-BIF"/>
+                        <outlet property="invalidPhoneNumber" destination="Q2q-Ik-Ktj" id="r10-U2-cFY"/>
+                        <outlet property="phoneTextField" destination="AVs-89-jJx" id="Rl4-Nq-0Oc"/>
                         <segue destination="OER-mn-bcd" kind="show" identifier="verifyPhone" id="YRX-5J-vKf"/>
                     </connections>
                 </viewController>
@@ -194,6 +205,9 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="SegoeUI-Semibold" family="Segoe UI" pointSize="40"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next" textContentType="one-time-code"/>
+                                                <connections>
+                                                    <action selector="fieldChanged:" destination="OER-mn-bcd" eventType="editingDidEnd" id="KLP-tk-NDZ"/>
+                                                </connections>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EXl-eo-yJD" userLabel="Timer&amp;ResendView">
                                                 <rect key="frame" x="0.0" y="75" width="267" height="245"/>
@@ -246,6 +260,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="bO1-yY-U1i"/>
                     <connections>
+                        <outlet property="timeLabel" destination="LGl-m9-c54" id="pmL-j7-Fo1"/>
+                        <outlet property="verifyTextFeild" destination="Gqe-Xt-xG1" id="7dl-2I-BGx"/>
                         <segue destination="SdG-Gt-8az" kind="show" identifier="startApp" id="8y8-sI-xrG"/>
                     </connections>
                 </viewController>
