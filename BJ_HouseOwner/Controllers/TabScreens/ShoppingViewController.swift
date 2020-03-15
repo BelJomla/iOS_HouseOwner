@@ -16,133 +16,57 @@ class ShoppingViewController: UIViewController{
     
     
     /*
-     categoryData: a 2d array that contains the categories
-     and their sub-categoris. an example
-     is like this: [['School','pencils','eraser'],
-     ['Food','meat','chicken']]
+     The following properties are explained in detail in Category.swift under the Models layer
      */
     var categoryData: [[String]] = []
-    
-    /*
-     mainCategories: an array of the categoreies, an example is
-     like this ['School','Food']
-     */
     var mainCategories: [String] = []
-    /*
-     subCategoryData: is 2d array that is similar to categoryData
-     , but it contains only the data that is being
-     displayed on the screen. It is updated in the
-     code as the user clicks different category.
-     an example:[['School','pencils','eraser']]
-     
-     */
     var subCategoryData: [String] = []
+    var chosenCategoryIndex:Int = 0
+    var chosenSubcategoryIndex:Int = 0
     
-    // category coloring handling
-    var chosenCategoryIndex = 0
-    var chosenSubcategoryIndex = 0
+    let firstSection = ShoppingTableView.firstSectionIndex
+    let secondSection = ShoppingTableView.secondSectionIndex
+    let thirdSection = ShoppingTableView.thirdSectionIndex
     
     override func viewDidLoad() {
         print("shopping")
         
+        let stylingModel = ShoppingStyling()
         
-        styleNavigationBar()
+    stylingModel.styleNavigationBar(self.navigationItem, self.tabBarController, self.navigationController)
         
-        tableView.layer.cornerRadius = 50
+        stylingModel.styleTableView(tableView: self.tableView)
         
-        tableView.contentInset  = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0  )
+        // intialization of category arrays
+        initCategories()
         
-        let (categoryData,mainCategories) =  readCategoreisData()
-        self.categoryData = categoryData ?? [["no data"]]
-        self.mainCategories = mainCategories ?? ["no categoreis"]
-        self.subCategoryData = categoryData?[0] ?? ["no sub categories"] // first list of subcategories
         
-        tableView.backgroundColor = UIColor(rgb: Colors.smokeWhite)
-        
+        // plugging in data source and delegate
         tableView.delegate = self
         tableView.dataSource = self
         
-        let nib = UINib(nibName: "shoppingTableCell", bundle: nil)
         
+        // registering the custom cell
+        let nib = UINib(nibName: "shoppingTableCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: K.shoppingTableCell)
         
     }
     
-     func styleNavigationBar(){
-        // changes the title of the nav bar
-        navigationItem.title = "Shopping"
-        // chages the background color to non transparent
-        navigationController?.navigationBar.isTranslucent = false
-        /*
-         The following line hides the navigation bar propapigated from the tabBarController. If it was isHidden is assinged to false, it will appear again, but it will not look good.
-         */
-        self.tabBarController?.navigationController?.navigationBar.isHidden = true
-        
-        
-        // adding the search components
-        let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchBar.tintColor = UIColor(rgb: Colors.darkBlue)
-                
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = false
-        
-        // adding cart button
-        let cartButton = UIButton(type: .system)
-        cartButton.setImage(UIImage(systemName: "cart.fill"), for: .normal)
-        cartButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: cartButton)
-        
-        navigationItem.rightBarButtonItem?.action = #selector(buttonClicked)
-        
-        //background
-//        navigationController?.navigationBar.tintColor = UIColor(rgb: Colors.darkBlue)
-//        navigationController?.navigationBar.backgroundColor = UIColor(rgb: Colors.darkBlue)
+    func initCategories(){
+        let categoryModel = ShoppingCategroy()
+        self.categoryData = categoryModel.getCategoryData()
+        self.mainCategories = categoryModel.mainCategories
+        self.subCategoryData = categoryModel.getSubCategoryData()
     }
-    @objc func buttonClicked() {
-        print("x>X")
-    }
+    
+
+    
+     
     
     override func viewWillAppear(_ animated: Bool) {
         // hides the backbutton on the navigation bar, since the user
         // should not go back the verificaiton screen
         self.tabBarController?.navigationItem.hidesBackButton = true
-    }
-    
-    
-    
-    
-    /**
-     This method reads categories in category.geojson
-     Returns: a dictionary
-     */
-    func readCategoreisData() -> ([[String]]?,[String]?) {
-        
-        guard let decoded = JsonReader.readLocalJson(fileName: "category", fileType: "geojson", classType: shoppingCategories.self) else{
-            return (nil,nil)
-        }
-        
-        let categoryCount = decoded.categories.count
-        
-        
-        var categoryData :[[String]] = []
-        var mainCategories :[String] = []
-        
-        for index in (0..<categoryCount) {
-            let categoryName:String = decoded.categories[index].name
-            let viewAll:String = "View All"
-            
-            let temp:[String] = [viewAll]//[categoryName,viewAll]
-            let subCategories:[String] = decoded.categories[index].subCategories
-            
-            // building up the catgories array
-            mainCategories.append(categoryName)
-            // contactinating the two arrays
-            categoryData.append(temp + subCategories)
-        }
-        
-        return (categoryData,mainCategories)
-        
-        
     }
     
 }
@@ -152,31 +76,25 @@ class ShoppingViewController: UIViewController{
 extension ShoppingViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return ShoppingTableView.numberOfSections
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if (section==1 || section==0)
+        if (section==firstSection || section==secondSection)
             { return 1}
         else{
-            return 15
+            return ShoppingTableView.numberOfProducts
         }
         // third section of items//return subCategoryData.count // one row // mainCategories
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let label = UILabel()
-        label.textColor = UIColor(rgb: Colors.darkBlue)
         
-        if section==0{
-            label.text = "   Category"
-        }else if section==1{
-            label.text = "   Sub-Category"
-        }else{
-            label.text = "   Products"
-        }
-        label.font = UIFont.boldSystemFont(ofSize: 12)
-        
+        /*
+         getting the appropriate header for each section
+         */
+        let label = ShoppingTableView.getSectionHeader(forSection: section)
+
         return label
     }
     

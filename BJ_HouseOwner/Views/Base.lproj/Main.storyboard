@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gnH-6t-MHd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SdG-Gt-8az">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -171,7 +171,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please type the verification code sent to +966 5xxxxxxxxx" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qEC-DK-Q5V">
-                                        <rect key="frame" x="97" y="99" width="220" height="30.333333333333343"/>
+                                        <rect key="frame" x="97" y="99" width="220" height="34.666666666666657"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="220" id="pO5-jg-q4D"/>
                                         </constraints>
@@ -197,7 +197,7 @@
                                         <rect key="frame" x="73.666666666666686" y="28.000000000000028" width="267" height="320"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gqe-Xt-xG1">
-                                                <rect key="frame" x="0.0" y="0.0" width="267" height="55"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="267" height="62"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="267" id="Yix-BE-YKQ"/>
@@ -210,7 +210,7 @@
                                                 </connections>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EXl-eo-yJD" userLabel="Timer&amp;ResendView">
-                                                <rect key="frame" x="0.0" y="75" width="267" height="245"/>
+                                                <rect key="frame" x="0.0" y="82" width="267" height="238"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGl-m9-c54">
                                                         <rect key="frame" x="0.0" y="0.0" width="159" height="50"/>
@@ -222,7 +222,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2GR-Qb-2ld">
-                                                        <rect key="frame" x="169" y="0.0" width="98" height="28"/>
+                                                        <rect key="frame" x="169" y="0.0" width="98" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="zmS-ak-9Ny"/>
                                                         </constraints>
