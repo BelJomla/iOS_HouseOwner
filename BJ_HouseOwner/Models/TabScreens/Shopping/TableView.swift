@@ -32,6 +32,18 @@ struct ShoppingTableView{
     static let subCategoryHeader = "   Sub-Category"
     static let productHeader = "   Products"
     
+    /*
+     two products per row at the third section
+     */
+    static let numOfProductsInRow = 2
+    
+    
+    /*
+     Table cell height and width with respect to the screen dimentions. Note: it does not work very well on the ipad
+     */
+    static let cellWidth = CGFloat(UIScreen.main.bounds.height/9.5)
+    static let cellHeight = CGFloat( UIScreen.main.bounds.width/2)
+    
     init(){
         
     }
@@ -53,6 +65,5 @@ struct ShoppingTableView{
         
         return label
     }
-    
     
 }

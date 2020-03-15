@@ -19,6 +19,7 @@
 		A97DD29C241E9B6100FF31F3 /* ShoppingShopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97DD29B241E9B6100FF31F3 /* ShoppingShopping.swift */; };
 		A97DD29E241EA2B400FF31F3 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97DD29D241EA2B400FF31F3 /* Category.swift */; };
 		A97DD2A0241EAC3600FF31F3 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97DD29F241EAC3600FF31F3 /* TableView.swift */; };
+		A97DD2A2241EC3F400FF31F3 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97DD2A1241EC3F400FF31F3 /* CollectionView.swift */; };
 		A98D66F923FCFD1E006B1791 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98D66F823FCFD1E006B1791 /* ChatViewController.swift */; };
 		A98D66FB23FCFD34006B1791 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98D66FA23FCFD34006B1791 /* ProfileViewController.swift */; };
 		A98D66FD23FCFE3D006B1791 /* ShoppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98D66FC23FCFE3D006B1791 /* ShoppingViewController.swift */; };
@@ -89,6 +90,7 @@
 		A97DD29B241E9B6100FF31F3 /* ShoppingShopping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingShopping.swift; sourceTree = "<group>"; };
 		A97DD29D241EA2B400FF31F3 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		A97DD29F241EAC3600FF31F3 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		A97DD2A1241EC3F400FF31F3 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		A98D66F823FCFD1E006B1791 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		A98D66FA23FCFD34006B1791 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A98D66FC23FCFE3D006B1791 /* ShoppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingViewController.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 				A97DD29B241E9B6100FF31F3 /* ShoppingShopping.swift */,
 				A97DD29D241EA2B400FF31F3 /* Category.swift */,
 				A97DD29F241EAC3600FF31F3 /* TableView.swift */,
+				A97DD2A1241EC3F400FF31F3 /* CollectionView.swift */,
 			);
 			path = Shopping;
 			sourceTree = "<group>";
@@ -709,6 +712,7 @@
 				A945F195241176ED007A13FA /* ProductCollectionViewCell.swift in Sources */,
 				A9A59C2223FB7DC100F3B6D9 /* VerifyViewController.swift in Sources */,
 				A945F19A24117EF0007A13FA /* ProductCollectionViewRow.swift in Sources */,
+				A97DD2A2241EC3F400FF31F3 /* CollectionView.swift in Sources */,
 				251D5BA5241A76D700FF54A8 /* LogInBrain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

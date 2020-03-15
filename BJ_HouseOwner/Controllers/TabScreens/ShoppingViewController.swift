@@ -33,7 +33,7 @@ class ShoppingViewController: UIViewController{
         
         let stylingModel = ShoppingStyling()
         
-    stylingModel.styleNavigationBar(self.navigationItem, self.tabBarController, self.navigationController)
+        stylingModel.styleNavigationBar(self.navigationItem, self.tabBarController, self.navigationController)
         
         stylingModel.styleTableView(tableView: self.tableView)
         
@@ -59,9 +59,9 @@ class ShoppingViewController: UIViewController{
         self.subCategoryData = categoryModel.getSubCategoryData()
     }
     
-
     
-     
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         // hides the backbutton on the navigation bar, since the user
@@ -81,11 +81,10 @@ extension ShoppingViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (section==firstSection || section==secondSection)
-            { return 1}
+        { return 1}
         else{
             return ShoppingTableView.numberOfProducts
         }
-        // third section of items//return subCategoryData.count // one row // mainCategories
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -94,48 +93,54 @@ extension ShoppingViewController: UITableViewDelegate, UITableViewDataSource {
          getting the appropriate header for each section
          */
         let label = ShoppingTableView.getSectionHeader(forSection: section)
-
+        
         return label
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if(indexPath.section == 0 || indexPath.section == 1){
-            return CGFloat(95)
+            let categoryCellHeight = ShoppingTableView.cellWidth
+            
+            return categoryCellHeight//CGFloat(95)
+            
         }else{
-            return CGFloat(210)
+            let productCellHeight = ShoppingTableView.cellHeight
+            
+            return productCellHeight//CGFloat(210)
+            
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-            let cell = tableView.dequeueReusableCell(withIdentifier: K.shoppingTableCell, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.shoppingTableCell, for: indexPath)
         
-            return cell
+        return cell
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-         guard let tableViewCell = cell as? shoppingTableCell else {return}
+        guard let tableViewCell = cell as? shoppingTableCell else {return}
         
         if (indexPath.section==1 || indexPath.section==0){
             tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.section /*indexPath.item*/)
             
-
+            
             
             print("\(indexPath.section)\(indexPath.item)")
         }else{
             
-//            let collectionViewLayout = tableViewCell.collectionView.collectionViewLayout as? UICollectionViewFlowLayout
-//
-////            collectionViewLayout?.sectionInset = UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 50)
-//
-//            collectionViewLayout?.invalidateLayout()
-//            tableViewCell.collectionView.collectionViewLayout =
+            //            let collectionViewLayout = tableViewCell.collectionView.collectionViewLayout as? UICollectionViewFlowLayout
+            //
+            ////            collectionViewLayout?.sectionInset = UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 50)
+            //
+            //            collectionViewLayout?.invalidateLayout()
+            //            tableViewCell.collectionView.collectionViewLayout =
             tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: 2 + indexPath.item)
             
             print("\(indexPath.section)\(indexPath.item)")
         }
-            
+        
         
     }
     
@@ -148,46 +153,44 @@ extension ShoppingViewController: UITableViewDelegate, UITableViewDataSource {
 extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView.tag == 0 {
+        if collectionView.tag == firstSection {
             return mainCategories.count
-        }else if collectionView.tag == 1 {
+        }else if collectionView.tag == secondSection {
             return subCategoryData.count
         }else{
-            return 2 // two products for the third section per row
+            return ShoppingTableView.numOfProductsInRow
         }
-        
-        //return 3 //subCategoryData[collectionView.tag].count
-        //categoryData[collectionView.tag].count
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView.tag==0 || collectionView.tag==1{
-            return CGSize(width: CGFloat(60), height: CGFloat(60))
+        
+        
+        
+        if collectionView.tag==firstSection || collectionView.tag==secondSection{
+            
+            return CGSize(width: ShoppingCollectionView.categoryCellWidth, height: ShoppingCollectionView.cetegoryCellHeight)
+            //return CGSize(width: CGFloat(60), height: CGFloat(60))
         }else{
-            return CGSize(width: CGFloat(180), height: CGFloat(200))
+            //FixMe: -Dont Access the screen width every time! just store it.
+            
+            return CGSize(width: ShoppingCollectionView.productCellWidth, height: ShoppingCollectionView.productCellHeight)
+            //return CGSize(width: CGFloat(180), height: CGFloat(200))
         }
-    
+        
     }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         if collectionView.tag==0 || collectionView.tag==1{
-            return CGFloat(10)
+            return ShoppingCollectionView.categotyMinimumLineSpacing
         }else{
-            return CGFloat(30)
+            return ShoppingCollectionView.productMinimumLineSpacing
         }
     }
-
-    
-
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        
-        
-        //cell.backgroundColor = categoryDict[collectionView.tag][indexPath.item]
+    
         if collectionView.tag == 0 {
             let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: K.shoppingCollectionCell, for: indexPath) as! shoppingCollectionCell
             
@@ -218,17 +221,18 @@ extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewData
         //categoryData[collectionView.tag][indexPath.item]//subCategoryData[collectionView.tag][indexPath.item]//categoryData[collectionView.tag][indexPath.item]
     }
     
-
+    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Collection view at row \(collectionView.tag) selected index path \(indexPath)")
-        if (collectionView.tag == 0 ){
+        
+        if (collectionView.tag == firstSection ){
             updateTableView(for: indexPath)
             chosenCategoryIndex = indexPath.row
             //chosenSubcategoryIndex = 0
             collectionView.reloadData()
             
-        } else if ( collectionView.tag == 1){
+        } else if ( collectionView.tag == secondSection){
             chosenSubcategoryIndex = indexPath.row
             collectionView.reloadData()
         }else{
@@ -236,8 +240,8 @@ extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewData
         }
     }
     
-
-     
+    
+    
     
 }
 
