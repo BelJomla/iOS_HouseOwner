@@ -12,7 +12,7 @@
 		8ED084968A75E9DFF54DA1DA /* Pods_BJ_HouseOwner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62BB40D08274E2CD5DE5948D /* Pods_BJ_HouseOwner.framework */; };
 		A9135DBF2421153D00175497 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9135DBE2421153D00175497 /* SignUpController.swift */; };
 		A9135DC124212B2300175497 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9135DC024212B2300175497 /* SignUp.swift */; };
-		A9135DC324214FB200175497 /* ThankYouOrderPlaced.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9135DC224214FB200175497 /* ThankYouOrderPlaced.swift */; };
+		A9135DC62421627700175497 /* ThankYouOrderPlacedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9135DC52421627700175497 /* ThankYouOrderPlacedController.swift */; };
 		A945F18B240DB1A7007A13FA /* category.geojson in Resources */ = {isa = PBXBuildFile; fileRef = A945F18A240DB1A7007A13FA /* category.geojson */; };
 		A945F18D240DB412007A13FA /* shoppingCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = A945F18C240DB412007A13FA /* shoppingCategories.swift */; };
 		A945F19124104A5A007A13FA /* JsonReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A945F19024104A5A007A13FA /* JsonReader.swift */; };
@@ -86,7 +86,7 @@
 		6DF9FD64A56CC1D0D34DDC67 /* Pods-BJ_HouseOwnerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BJ_HouseOwnerTests.debug.xcconfig"; path = "Target Support Files/Pods-BJ_HouseOwnerTests/Pods-BJ_HouseOwnerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A9135DBE2421153D00175497 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		A9135DC024212B2300175497 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
-		A9135DC224214FB200175497 /* ThankYouOrderPlaced.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThankYouOrderPlaced.swift; sourceTree = "<group>"; };
+		A9135DC52421627700175497 /* ThankYouOrderPlacedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThankYouOrderPlacedController.swift; sourceTree = "<group>"; };
 		A945F18A240DB1A7007A13FA /* category.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = category.geojson; sourceTree = "<group>"; };
 		A945F18C240DB412007A13FA /* shoppingCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shoppingCategories.swift; sourceTree = "<group>"; };
 		A945F19024104A5A007A13FA /* JsonReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonReader.swift; sourceTree = "<group>"; };
@@ -177,6 +177,14 @@
 				6B103F1423CA946A1A41D1B2 /* Pods_BJ_HouseOwnerTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A9135DC42421623600175497 /* toBeOrganized */ = {
+			isa = PBXGroup;
+			children = (
+				A9135DC52421627700175497 /* ThankYouOrderPlacedController.swift */,
+			);
+			path = toBeOrganized;
 			sourceTree = "<group>";
 		};
 		A93082C3241920C800FC293C /* AppLifeCycle */ = {
@@ -366,9 +374,9 @@
 		A9A59BB523F9E3EA00F3B6D9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A9135DC42421623600175497 /* toBeOrganized */,
 				A98D670023FE3594006B1791 /* login */,
 				A98D66F323FCFCA9006B1791 /* TabScreens */,
-				A9135DC224214FB200175497 /* ThankYouOrderPlaced.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -721,7 +729,7 @@
 				A98D66F923FCFD1E006B1791 /* ChatViewController.swift in Sources */,
 				A9ECC74C2400F86A00524238 /* shoppingTableCell.swift in Sources */,
 				A945F195241176ED007A13FA /* ProductCollectionViewCell.swift in Sources */,
-				A9135DC324214FB200175497 /* ThankYouOrderPlaced.swift in Sources */,
+				A9135DC62421627700175497 /* ThankYouOrderPlacedController.swift in Sources */,
 				A9A59C2223FB7DC100F3B6D9 /* VerifyViewController.swift in Sources */,
 				A945F19A24117EF0007A13FA /* ProductCollectionViewRow.swift in Sources */,
 				A97DD2A2241EC3F400FF31F3 /* CollectionView.swift in Sources */,

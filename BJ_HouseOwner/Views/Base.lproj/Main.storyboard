@@ -188,7 +188,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please type the verification code sent to +966 5xxxxxxxxx" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qEC-DK-Q5V">
-                                        <rect key="frame" x="97" y="99" width="220" height="30.333333333333343"/>
+                                        <rect key="frame" x="97" y="99" width="220" height="34.666666666666657"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="220" id="pO5-jg-q4D"/>
                                         </constraints>
@@ -214,7 +214,7 @@
                                         <rect key="frame" x="73.666666666666686" y="28.000000000000028" width="267" height="320"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gqe-Xt-xG1">
-                                                <rect key="frame" x="0.0" y="0.0" width="267" height="55"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="267" height="62"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="267" id="Yix-BE-YKQ"/>
@@ -227,7 +227,7 @@
                                                 </connections>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EXl-eo-yJD" userLabel="Timer&amp;ResendView">
-                                                <rect key="frame" x="0.0" y="75" width="267" height="245"/>
+                                                <rect key="frame" x="0.0" y="82" width="267" height="238"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGl-m9-c54">
                                                         <rect key="frame" x="0.0" y="0.0" width="159" height="50"/>
@@ -239,7 +239,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2GR-Qb-2ld">
-                                                        <rect key="frame" x="169" y="0.0" width="98" height="28"/>
+                                                        <rect key="frame" x="169" y="0.0" width="98" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="zmS-ak-9Ny"/>
                                                         </constraints>
@@ -303,7 +303,6 @@
         <!--Sign Up-->
         <scene sceneID="D1A-Yx-zwp">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vmy-1t-IDa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="8bM-aH-dxb" customClass="SignUpController" customModule="BJ_HouseOwner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tLO-e5-Lpa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -401,6 +400,7 @@
                         <outlet property="mainView" destination="a1f-fb-cNz" id="sRt-Tl-ajh"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vmy-1t-IDa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2243.4782608695655" y="140.625"/>
         </scene>
@@ -568,10 +568,10 @@
             </objects>
             <point key="canvasLocation" x="-549" y="141"/>
         </scene>
-        <!--Thank You Order Placed-->
+        <!--Thank You Order Placed Controller-->
         <scene sceneID="00d-ql-lva">
             <objects>
-                <viewController id="UQ0-gA-Tqu" customClass="ThankYouOrderPlaced" customModule="BJ_HouseOwner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="UQ0-gA-Tqu" customClass="ThankYouOrderPlacedController" customModule="BJ_HouseOwner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Str-N2-ajs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -579,19 +579,20 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z6I-yW-0pZ">
                                 <rect key="frame" x="0.0" y="20" width="414" height="856"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="va1-ab-WVh">
-                                        <rect key="frame" x="67" y="180" width="280" height="496"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="111" translatesAutoresizingMaskIntoConstraints="NO" id="va1-ab-WVh">
+                                        <rect key="frame" x="67" y="132" width="280" height="592"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="OoV-Sz-qD4">
                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="222"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appstore" translatesAutoresizingMaskIntoConstraints="NO" id="pfy-JU-7Mi">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orderOnTheWay" translatesAutoresizingMaskIntoConstraints="NO" id="pfy-JU-7Mi">
                                                         <rect key="frame" x="0.0" y="0.0" width="280" height="179"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="179" id="MnL-N2-mrL"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you for using Beljomla 🤍" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWz-3D-IuZ">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you for using Beljomla ❤️" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWz-3D-IuZ">
                                                         <rect key="frame" x="0.0" y="199" width="280" height="23"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -600,15 +601,15 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your order with price 342$ has been saved and will reach within 48 hours" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1G-bx-QI4">
-                                                <rect key="frame" x="0.0" y="282" width="280" height="100"/>
+                                                <rect key="frame" x="0.0" y="333" width="280" height="100"/>
                                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="25"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YnV-ec-ou1">
-                                                <rect key="frame" x="0.0" y="442" width="280" height="54"/>
+                                                <rect key="frame" x="0.0" y="544" width="280" height="48"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <state key="normal" title="Ok, thank you">
                                                     <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -618,15 +619,14 @@
                                             <constraint firstItem="A1G-bx-QI4" firstAttribute="centerX" secondItem="va1-ab-WVh" secondAttribute="centerX" id="5s5-3l-qDZ"/>
                                             <constraint firstAttribute="width" constant="280" id="7JN-jQ-WCu"/>
                                             <constraint firstItem="A1G-bx-QI4" firstAttribute="centerX" secondItem="va1-ab-WVh" secondAttribute="centerX" id="Gxc-8c-cDo"/>
-                                            <constraint firstItem="YnV-ec-ou1" firstAttribute="centerX" secondItem="va1-ab-WVh" secondAttribute="centerX" id="VNr-wl-xfH"/>
-                                            <constraint firstItem="OoV-Sz-qD4" firstAttribute="centerX" secondItem="va1-ab-WVh" secondAttribute="centerX" id="WuS-Xm-dFW"/>
-                                            <constraint firstItem="YnV-ec-ou1" firstAttribute="centerX" secondItem="va1-ab-WVh" secondAttribute="centerX" id="vpH-5V-tQr"/>
+                                            <constraint firstItem="YnV-ec-ou1" firstAttribute="centerX" secondItem="va1-ab-WVh" secondAttribute="centerX" id="Soy-Jh-itU"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="va1-ab-WVh" firstAttribute="centerX" secondItem="z6I-yW-0pZ" secondAttribute="centerX" id="1d7-PR-dOk"/>
+                                    <constraint firstItem="va1-ab-WVh" firstAttribute="centerX" secondItem="z6I-yW-0pZ" secondAttribute="centerX" id="Iqb-Ap-pig"/>
                                     <constraint firstItem="va1-ab-WVh" firstAttribute="centerX" secondItem="z6I-yW-0pZ" secondAttribute="centerX" id="h9R-70-dhC"/>
                                     <constraint firstItem="va1-ab-WVh" firstAttribute="centerY" secondItem="z6I-yW-0pZ" secondAttribute="centerY" id="qWy-5o-xOT"/>
                                 </constraints>
@@ -641,10 +641,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zff-ld-XJ3"/>
                     </view>
+                    <connections>
+                        <outlet property="button" destination="YnV-ec-ou1" id="33m-AD-LsO"/>
+                        <outlet property="image" destination="pfy-JU-7Mi" id="d8e-DG-EJb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uMj-FF-LbY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1449" y="870"/>
+            <point key="canvasLocation" x="971.01449275362324" y="861.83035714285711"/>
         </scene>
         <!--Shopping-->
         <scene sceneID="JtP-9H-NmA">
@@ -684,6 +688,7 @@
         <image name="cart" catalog="system" width="64" height="50"/>
         <image name="cart.fill" catalog="system" width="64" height="50"/>
         <image name="house" catalog="system" width="64" height="54"/>
+        <image name="orderOnTheWay" width="512" height="512"/>
         <image name="person" catalog="system" width="64" height="58"/>
         <image name="person.fill" catalog="system" width="64" height="60"/>
     </resources>
