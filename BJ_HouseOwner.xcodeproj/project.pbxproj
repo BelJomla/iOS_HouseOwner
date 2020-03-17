@@ -10,6 +10,9 @@
 		251D5BA5241A76D700FF54A8 /* LogInBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251D5BA4241A76D700FF54A8 /* LogInBrain.swift */; };
 		8867E0EF5CC2D3525982AB12 /* Pods_BJ_HouseOwnerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B103F1423CA946A1A41D1B2 /* Pods_BJ_HouseOwnerTests.framework */; };
 		8ED084968A75E9DFF54DA1DA /* Pods_BJ_HouseOwner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62BB40D08274E2CD5DE5948D /* Pods_BJ_HouseOwner.framework */; };
+		A9135DBF2421153D00175497 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9135DBE2421153D00175497 /* SignUpController.swift */; };
+		A9135DC124212B2300175497 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9135DC024212B2300175497 /* SignUp.swift */; };
+		A9135DC324214FB200175497 /* ThankYouOrderPlaced.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9135DC224214FB200175497 /* ThankYouOrderPlaced.swift */; };
 		A945F18B240DB1A7007A13FA /* category.geojson in Resources */ = {isa = PBXBuildFile; fileRef = A945F18A240DB1A7007A13FA /* category.geojson */; };
 		A945F18D240DB412007A13FA /* shoppingCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = A945F18C240DB412007A13FA /* shoppingCategories.swift */; };
 		A945F19124104A5A007A13FA /* JsonReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A945F19024104A5A007A13FA /* JsonReader.swift */; };
@@ -81,6 +84,9 @@
 		62BB40D08274E2CD5DE5948D /* Pods_BJ_HouseOwner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BJ_HouseOwner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B103F1423CA946A1A41D1B2 /* Pods_BJ_HouseOwnerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BJ_HouseOwnerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DF9FD64A56CC1D0D34DDC67 /* Pods-BJ_HouseOwnerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BJ_HouseOwnerTests.debug.xcconfig"; path = "Target Support Files/Pods-BJ_HouseOwnerTests/Pods-BJ_HouseOwnerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A9135DBE2421153D00175497 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		A9135DC024212B2300175497 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		A9135DC224214FB200175497 /* ThankYouOrderPlaced.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThankYouOrderPlaced.swift; sourceTree = "<group>"; };
 		A945F18A240DB1A7007A13FA /* category.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = category.geojson; sourceTree = "<group>"; };
 		A945F18C240DB412007A13FA /* shoppingCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shoppingCategories.swift; sourceTree = "<group>"; };
 		A945F19024104A5A007A13FA /* JsonReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonReader.swift; sourceTree = "<group>"; };
@@ -258,6 +264,7 @@
 			children = (
 				A9A59BC023FB3B1300F3B6D9 /* contryCodes.swift */,
 				251D5BA4241A76D700FF54A8 /* LogInBrain.swift */,
+				A9135DC024212B2300175497 /* SignUp.swift */,
 			);
 			path = LoginScreens;
 			sourceTree = "<group>";
@@ -298,6 +305,7 @@
 			children = (
 				A9A59AD523F9DDA100F3B6D9 /* ViewController.swift */,
 				A9A59C2123FB7DC100F3B6D9 /* VerifyViewController.swift */,
+				A9135DBE2421153D00175497 /* SignUpController.swift */,
 			);
 			path = login;
 			sourceTree = "<group>";
@@ -360,6 +368,7 @@
 			children = (
 				A98D670023FE3594006B1791 /* login */,
 				A98D66F323FCFCA9006B1791 /* TabScreens */,
+				A9135DC224214FB200175497 /* ThankYouOrderPlaced.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -704,12 +713,15 @@
 				A98D66FB23FCFD34006B1791 /* ProfileViewController.swift in Sources */,
 				A97DD2A0241EAC3600FF31F3 /* TableView.swift in Sources */,
 				A9A59AD423F9DDA100F3B6D9 /* SceneDelegate.swift in Sources */,
+				A9135DBF2421153D00175497 /* SignUpController.swift in Sources */,
+				A9135DC124212B2300175497 /* SignUp.swift in Sources */,
 				A97DD29E241EA2B400FF31F3 /* Category.swift in Sources */,
 				A98D66FF23FCFE4D006B1791 /* CartViewController.swift in Sources */,
 				A9A59BC123FB3B1300F3B6D9 /* contryCodes.swift in Sources */,
 				A98D66F923FCFD1E006B1791 /* ChatViewController.swift in Sources */,
 				A9ECC74C2400F86A00524238 /* shoppingTableCell.swift in Sources */,
 				A945F195241176ED007A13FA /* ProductCollectionViewCell.swift in Sources */,
+				A9135DC324214FB200175497 /* ThankYouOrderPlaced.swift in Sources */,
 				A9A59C2223FB7DC100F3B6D9 /* VerifyViewController.swift in Sources */,
 				A945F19A24117EF0007A13FA /* ProductCollectionViewRow.swift in Sources */,
 				A97DD2A2241EC3F400FF31F3 /* CollectionView.swift in Sources */,

@@ -50,6 +50,9 @@ class ViewController: UIViewController{
      // reads json file, and returns country codes dictionary, ex: Saudi Arabia -> +966
      */
     func styleUI(){
+        
+        
+        
         let smoke = UIColor(rgb: Colors.smokeWhite)
         
         view.backgroundColor = UIColor(rgb: Colors.smokeWhite)
