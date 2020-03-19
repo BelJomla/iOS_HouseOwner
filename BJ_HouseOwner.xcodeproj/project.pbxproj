@@ -13,6 +13,8 @@
 		A9135DBF2421153D00175497 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9135DBE2421153D00175497 /* SignUpController.swift */; };
 		A9135DC124212B2300175497 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9135DC024212B2300175497 /* SignUp.swift */; };
 		A9135DC62421627700175497 /* ThankYouOrderPlacedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9135DC52421627700175497 /* ThankYouOrderPlacedController.swift */; };
+		A9135DC924216E0B00175497 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9135DC824216E0B00175497 /* Checkbox.swift */; };
+		A9135DCB2421795700175497 /* AddCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9135DCA2421795700175497 /* AddCardController.swift */; };
 		A945F18B240DB1A7007A13FA /* category.geojson in Resources */ = {isa = PBXBuildFile; fileRef = A945F18A240DB1A7007A13FA /* category.geojson */; };
 		A945F18D240DB412007A13FA /* shoppingCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = A945F18C240DB412007A13FA /* shoppingCategories.swift */; };
 		A945F19124104A5A007A13FA /* JsonReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A945F19024104A5A007A13FA /* JsonReader.swift */; };
@@ -87,6 +89,8 @@
 		A9135DBE2421153D00175497 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		A9135DC024212B2300175497 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		A9135DC52421627700175497 /* ThankYouOrderPlacedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThankYouOrderPlacedController.swift; sourceTree = "<group>"; };
+		A9135DC824216E0B00175497 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
+		A9135DCA2421795700175497 /* AddCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardController.swift; sourceTree = "<group>"; };
 		A945F18A240DB1A7007A13FA /* category.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = category.geojson; sourceTree = "<group>"; };
 		A945F18C240DB412007A13FA /* shoppingCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shoppingCategories.swift; sourceTree = "<group>"; };
 		A945F19024104A5A007A13FA /* JsonReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonReader.swift; sourceTree = "<group>"; };
@@ -183,8 +187,17 @@
 			isa = PBXGroup;
 			children = (
 				A9135DC52421627700175497 /* ThankYouOrderPlacedController.swift */,
+				A9135DCA2421795700175497 /* AddCardController.swift */,
 			);
 			path = toBeOrganized;
+			sourceTree = "<group>";
+		};
+		A9135DC724216DD800175497 /* CustomComponents */ = {
+			isa = PBXGroup;
+			children = (
+				A9135DC824216E0B00175497 /* Checkbox.swift */,
+			);
+			path = CustomComponents;
 			sourceTree = "<group>";
 		};
 		A93082C3241920C800FC293C /* AppLifeCycle */ = {
@@ -384,6 +397,7 @@
 		A9A59BB723F9E41200F3B6D9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A9135DC724216DD800175497 /* CustomComponents */,
 				A97DD298241E9A5900FF31F3 /* LoginScreens */,
 				A97DD297241E99BE00FF31F3 /* HelperModels */,
 				A97DD299241E9AA100FF31F3 /* TabScreens */,
@@ -719,6 +733,7 @@
 				A98D66FD23FCFE3D006B1791 /* ShoppingViewController.swift in Sources */,
 				A945F19124104A5A007A13FA /* JsonReader.swift in Sources */,
 				A98D66FB23FCFD34006B1791 /* ProfileViewController.swift in Sources */,
+				A9135DC924216E0B00175497 /* Checkbox.swift in Sources */,
 				A97DD2A0241EAC3600FF31F3 /* TableView.swift in Sources */,
 				A9A59AD423F9DDA100F3B6D9 /* SceneDelegate.swift in Sources */,
 				A9135DBF2421153D00175497 /* SignUpController.swift in Sources */,
@@ -733,6 +748,7 @@
 				A9A59C2223FB7DC100F3B6D9 /* VerifyViewController.swift in Sources */,
 				A945F19A24117EF0007A13FA /* ProductCollectionViewRow.swift in Sources */,
 				A97DD2A2241EC3F400FF31F3 /* CollectionView.swift in Sources */,
+				A9135DCB2421795700175497 /* AddCardController.swift in Sources */,
 				251D5BA5241A76D700FF54A8 /* LogInBrain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
