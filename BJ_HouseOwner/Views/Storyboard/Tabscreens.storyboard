@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Qz-wZ-Jwp">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Orders-->
+        <scene sceneID="Nwj-Er-oNo">
+            <objects>
+                <viewController id="AuY-HZ-u2B" customClass="CartViewController" customModule="BJ_HouseOwner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dFa-1B-CTy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1f7-9A-eFw">
+                                <rect key="frame" x="87" y="341.5" width="240" height="214.5"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="1f7-9A-eFw" firstAttribute="top" secondItem="UVl-To-GDg" secondAttribute="top" constant="296" id="IpK-DU-9do"/>
+                            <constraint firstItem="1f7-9A-eFw" firstAttribute="centerX" secondItem="dFa-1B-CTy" secondAttribute="centerX" id="q8m-iN-MeW"/>
+                            <constraint firstItem="1f7-9A-eFw" firstAttribute="leading" secondItem="UVl-To-GDg" secondAttribute="leading" constant="87" id="u3c-bh-6oD"/>
+                            <constraint firstItem="1f7-9A-eFw" firstAttribute="centerY" secondItem="dFa-1B-CTy" secondAttribute="centerY" id="v11-SL-OXm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UVl-To-GDg"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Orders" image="cart" catalog="system" id="UBW-1V-coH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="78K-NG-dIf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5588.4057971014499" y="900"/>
+        </scene>
+        <!--Shopping View Controller-->
+        <scene sceneID="8ae-DR-Bdc">
+            <objects>
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="eb3-eh-ak0" customClass="ShoppingViewController" customModule="BJ_HouseOwner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lHw-1x-Zld">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView opaque="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="06t-OO-fIo">
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.28211462500000001" green="0.61200994249999996" blue="0.83076250549999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="06t-OO-fIo" firstAttribute="top" secondItem="JEm-2M-8xn" secondAttribute="top" id="6mE-eL-o5f"/>
+                            <constraint firstItem="06t-OO-fIo" firstAttribute="leading" secondItem="JEm-2M-8xn" secondAttribute="leading" id="9uC-ww-5bx"/>
+                            <constraint firstItem="06t-OO-fIo" firstAttribute="trailing" secondItem="JEm-2M-8xn" secondAttribute="trailing" id="KJS-k0-Ejv"/>
+                            <constraint firstItem="06t-OO-fIo" firstAttribute="bottom" secondItem="JEm-2M-8xn" secondAttribute="bottom" id="uVb-32-oKX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="JEm-2M-8xn"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="63Z-wX-NdE"/>
+                    <connections>
+                        <outlet property="tableView" destination="06t-OO-fIo" id="wVh-LY-Zv0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bl5-XR-ift" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4484.057971014493" y="900"/>
+        </scene>
+        <!--Chat-->
+        <scene sceneID="f8k-mN-bvQ">
+            <objects>
+                <viewController id="dnD-cA-aSp" customClass="ChatViewController" customModule="BJ_HouseOwner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jT5-S2-Nap">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bubble.left.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="JaJ-mH-ffr">
+                                <rect key="frame" x="87" y="385" width="240" height="127"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Tcc-i2-NFz"/>
+                                    <constraint firstAttribute="height" constant="127.5" id="n71-xH-hss"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="JaJ-mH-ffr" firstAttribute="centerX" secondItem="jT5-S2-Nap" secondAttribute="centerX" id="3bM-q2-Mha"/>
+                            <constraint firstItem="JaJ-mH-ffr" firstAttribute="centerY" secondItem="jT5-S2-Nap" secondAttribute="centerY" id="JEx-Ya-0QN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="RUY-FN-7fr"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Chat" image="bubble.left" catalog="system" id="pnw-6K-J5z"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WZq-SK-iLt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6440.579710144928" y="900"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="utE-mF-MSI">
+            <objects>
+                <viewController id="nAK-Dm-wwf" customClass="ProfileViewController" customModule="BJ_HouseOwner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cqA-ij-vEV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Wze-BN-V9T">
+                                <rect key="frame" x="87" y="386" width="240" height="124"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="127" id="Jca-Mh-IjE"/>
+                                    <constraint firstAttribute="width" constant="240" id="ar8-Oj-jZI"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Wze-BN-V9T" firstAttribute="centerX" secondItem="cqA-ij-vEV" secondAttribute="centerX" id="CPG-dU-yC2"/>
+                            <constraint firstItem="Wze-BN-V9T" firstAttribute="centerY" secondItem="cqA-ij-vEV" secondAttribute="centerY" id="I1n-qe-5RR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="c2V-dg-Eoi"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" id="bFb-lP-5Dc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4J2-Ay-chC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7194.202898550725" y="900"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="vXd-hw-WG5">
+            <objects>
+                <tabBarController id="2Qz-wZ-Jwp" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="v8y-IZ-5We"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3Qn-Yi-5aJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="AuY-HZ-u2B" kind="relationship" relationship="viewControllers" id="ncy-ma-yb0"/>
+                        <segue destination="dnD-cA-aSp" kind="relationship" relationship="viewControllers" id="B0q-jI-R0e"/>
+                        <segue destination="nAK-Dm-wwf" kind="relationship" relationship="viewControllers" id="H8g-vm-DcF"/>
+                        <segue destination="6DR-J4-eSR" kind="relationship" relationship="viewControllers" id="hge-m6-3Gz"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YoF-n4-b7P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4994" y="141"/>
+        </scene>
+        <!--Shopping-->
+        <scene sceneID="iLg-Fl-tuY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6DR-J4-eSR" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Shopping" image="house" catalog="system" id="TzT-K6-WS6"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="34L-Jc-N1r"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="dWF-Hq-ZSF">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.28211462500000001" green="0.61200994249999996" blue="0.83076250549999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.28211462500000001" green="0.61200994249999996" blue="0.83076250549999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textShadowColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="eb3-eh-ak0" kind="relationship" relationship="rootViewController" id="Mhv-1t-8vG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1MX-Sx-RTh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3697.1014492753625" y="900"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bubble.left" catalog="system" width="64" height="54"/>
+        <image name="bubble.left.fill" catalog="system" width="64" height="54"/>
+        <image name="cart" catalog="system" width="64" height="50"/>
+        <image name="cart.fill" catalog="system" width="64" height="50"/>
+        <image name="house" catalog="system" width="64" height="54"/>
+        <image name="person" catalog="system" width="64" height="58"/>
+        <image name="person.fill" catalog="system" width="64" height="60"/>
+    </resources>
+</document>

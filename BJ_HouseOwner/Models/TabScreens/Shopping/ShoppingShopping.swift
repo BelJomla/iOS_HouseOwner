@@ -19,6 +19,7 @@ class ShoppingStyling {
     }
     
     func styleNavigationBar( _ navigationItem:UINavigationItem,_ tabBarController: UITabBarController?,_ navigationController: UINavigationController?){
+        
         // changes the title of the nav bar
         navigationItem.title = "Shopping"
         // chages the background color to non transparent
@@ -47,6 +48,7 @@ class ShoppingStyling {
         //background
         //        navigationController?.navigationBar.tintColor = UIColor(rgb: Colors.darkBlue)
         //        navigationController?.navigationBar.backgroundColor = UIColor(rgb: Colors.darkBlue)
+        //navigationController?.navigationBar.isHidden = true
     }
     @objc func buttonClicked() {
         print("button has been clicked")

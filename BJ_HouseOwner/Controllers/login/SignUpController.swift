@@ -17,6 +17,10 @@ class SignUpController: UIViewController{
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var firstNameTextFeild: UITextField!
     @IBOutlet weak var lastNameTextFeild: UITextField!
+    @IBAction func SignUpPressed(_ sender: UIButton) {
+        self.navigationController?.navigationBar.isHidden = true
+        performSegue(withIdentifier: "ToTabScreens", sender: self)
+    }
     
     override func viewDidLoad() {
         styleUI()

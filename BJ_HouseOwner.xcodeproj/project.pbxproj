@@ -54,6 +54,8 @@
 		A9A59C3923FBCB9400F3B6D9 /* segoeui.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9A59C2D23FBCB9400F3B6D9 /* segoeui.ttf */; };
 		A9A59C3A23FBCB9400F3B6D9 /* segoeuii.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9A59C2E23FBCB9400F3B6D9 /* segoeuii.ttf */; };
 		A9A59C3B23FBCB9400F3B6D9 /* segoeuisl.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9A59C2F23FBCB9400F3B6D9 /* segoeuisl.ttf */; };
+		A9E885352425BD8F00B6DF50 /* Temporary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E885342425BD8F00B6DF50 /* Temporary.storyboard */; };
+		A9E885372425BDE100B6DF50 /* Tabscreens.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E885362425BDE100B6DF50 /* Tabscreens.storyboard */; };
 		A9ECC74C2400F86A00524238 /* shoppingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ECC74A2400F86A00524238 /* shoppingTableCell.swift */; };
 		A9ECC74D2400F86A00524238 /* shoppingTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9ECC74B2400F86A00524238 /* shoppingTableCell.xib */; };
 		A9ECC7502400F9D700524238 /* shoppingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ECC74E2400F9D700524238 /* shoppingCollectionCell.swift */; };
@@ -136,6 +138,8 @@
 		A9A59C2D23FBCB9400F3B6D9 /* segoeui.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = segoeui.ttf; sourceTree = "<group>"; };
 		A9A59C2E23FBCB9400F3B6D9 /* segoeuii.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = segoeuii.ttf; sourceTree = "<group>"; };
 		A9A59C2F23FBCB9400F3B6D9 /* segoeuisl.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = segoeuisl.ttf; sourceTree = "<group>"; };
+		A9E885342425BD8F00B6DF50 /* Temporary.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Temporary.storyboard; sourceTree = "<group>"; };
+		A9E885362425BDE100B6DF50 /* Tabscreens.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tabscreens.storyboard; sourceTree = "<group>"; };
 		A9ECC74A2400F86A00524238 /* shoppingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shoppingTableCell.swift; sourceTree = "<group>"; };
 		A9ECC74B2400F86A00524238 /* shoppingTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = shoppingTableCell.xib; sourceTree = "<group>"; };
 		A9ECC74E2400F9D700524238 /* shoppingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shoppingCollectionCell.swift; sourceTree = "<group>"; };
@@ -270,6 +274,17 @@
 				A945F19924117EF0007A13FA /* ProductCollectionViewRow.swift */,
 			);
 			path = ContainerCollection;
+			sourceTree = "<group>";
+		};
+		A96BA1262425BD2C006E9E0F /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				A9A59ADC23F9DDA200F3B6D9 /* LaunchScreen.storyboard */,
+				A9A59AD723F9DDA100F3B6D9 /* Main.storyboard */,
+				A9E885342425BD8F00B6DF50 /* Temporary.storyboard */,
+				A9E885362425BDE100B6DF50 /* Tabscreens.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		A97DD297241E99BE00FF31F3 /* HelperModels */ = {
@@ -408,8 +423,7 @@
 		A9A59BB823F9E42200F3B6D9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A9A59ADC23F9DDA200F3B6D9 /* LaunchScreen.storyboard */,
-				A9A59AD723F9DDA100F3B6D9 /* Main.storyboard */,
+				A96BA1262425BD2C006E9E0F /* Storyboard */,
 				A945F188240D47D7007A13FA /* ShoppingScreen */,
 			);
 			path = Views;
@@ -580,6 +594,7 @@
 				A9A59C3623FBCB9400F3B6D9 /* seguisli.ttf in Resources */,
 				A945F196241176ED007A13FA /* ProductCollectionViewCell.xib in Resources */,
 				A9A59C3923FBCB9400F3B6D9 /* segoeui.ttf in Resources */,
+				A9E885352425BD8F00B6DF50 /* Temporary.storyboard in Resources */,
 				A945F18B240DB1A7007A13FA /* category.geojson in Resources */,
 				A9ECC7512400F9D700524238 /* shoppingCollectionCell.xib in Resources */,
 				A9A59C3323FBCB9400F3B6D9 /* seguisb.ttf in Resources */,
@@ -589,6 +604,7 @@
 				A9A59C3823FBCB9400F3B6D9 /* segoeuil.ttf in Resources */,
 				A9A59C3223FBCB9400F3B6D9 /* segoeuib.ttf in Resources */,
 				A9A59C3B23FBCB9400F3B6D9 /* segoeuisl.ttf in Resources */,
+				A9E885372425BDE100B6DF50 /* Tabscreens.storyboard in Resources */,
 				A9A59C3523FBCB9400F3B6D9 /* seguisbi.ttf in Resources */,
 				A9ECC74D2400F86A00524238 /* shoppingTableCell.xib in Resources */,
 				A9A59ADB23F9DDA200F3B6D9 /* Assets.xcassets in Resources */,
