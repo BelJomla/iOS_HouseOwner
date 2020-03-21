@@ -10,29 +10,35 @@
         <!--Orders-->
         <scene sceneID="Nwj-Er-oNo">
             <objects>
-                <viewController id="AuY-HZ-u2B" customClass="CartViewController" customModule="BJ_HouseOwner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="AuY-HZ-u2B" customClass="OrdersViewController" customModule="BJ_HouseOwner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dFa-1B-CTy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1f7-9A-eFw">
-                                <rect key="frame" x="87" y="341.5" width="240" height="214.5"/>
-                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2ay-Zs-sc6">
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexBackgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.28211462500000001" green="0.61200994249999996" blue="0.83076250549999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="1f7-9A-eFw" firstAttribute="top" secondItem="UVl-To-GDg" secondAttribute="top" constant="296" id="IpK-DU-9do"/>
-                            <constraint firstItem="1f7-9A-eFw" firstAttribute="centerX" secondItem="dFa-1B-CTy" secondAttribute="centerX" id="q8m-iN-MeW"/>
-                            <constraint firstItem="1f7-9A-eFw" firstAttribute="leading" secondItem="UVl-To-GDg" secondAttribute="leading" constant="87" id="u3c-bh-6oD"/>
-                            <constraint firstItem="1f7-9A-eFw" firstAttribute="centerY" secondItem="dFa-1B-CTy" secondAttribute="centerY" id="v11-SL-OXm"/>
+                            <constraint firstItem="2ay-Zs-sc6" firstAttribute="top" secondItem="UVl-To-GDg" secondAttribute="top" id="4CX-Cb-u2E"/>
+                            <constraint firstItem="UVl-To-GDg" firstAttribute="bottom" secondItem="2ay-Zs-sc6" secondAttribute="bottom" id="6I4-Yb-0Qk"/>
+                            <constraint firstItem="UVl-To-GDg" firstAttribute="trailing" secondItem="2ay-Zs-sc6" secondAttribute="trailing" id="A8p-bg-03J"/>
+                            <constraint firstItem="2ay-Zs-sc6" firstAttribute="leading" secondItem="UVl-To-GDg" secondAttribute="leading" id="dPe-un-hkH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UVl-To-GDg"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Orders" image="cart" catalog="system" id="UBW-1V-coH"/>
+                    <navigationItem key="navigationItem" title="Orders" id="LAV-Oq-rHc"/>
+                    <connections>
+                        <outlet property="tableView" destination="2ay-Zs-sc6" id="m5L-41-mu5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="78K-NG-dIf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5588.4057971014499" y="900"/>
+            <point key="canvasLocation" x="4993" y="1651"/>
         </scene>
         <!--Shopping View Controller-->
         <scene sceneID="8ae-DR-Bdc">
@@ -63,7 +69,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bl5-XR-ift" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4484.057971014493" y="900"/>
+            <point key="canvasLocation" x="3971" y="1641"/>
         </scene>
         <!--Chat-->
         <scene sceneID="f8k-mN-bvQ">
@@ -92,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WZq-SK-iLt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6440.579710144928" y="900"/>
+            <point key="canvasLocation" x="6241" y="909"/>
         </scene>
         <!--Profile-->
         <scene sceneID="utE-mF-MSI">
@@ -121,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4J2-Ay-chC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7194.202898550725" y="900"/>
+            <point key="canvasLocation" x="6877" y="909"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="vXd-hw-WG5">
@@ -134,7 +140,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="AuY-HZ-u2B" kind="relationship" relationship="viewControllers" id="ncy-ma-yb0"/>
+                        <segue destination="MjJ-0F-knC" kind="relationship" relationship="viewControllers" id="ncy-ma-yb0"/>
                         <segue destination="dnD-cA-aSp" kind="relationship" relationship="viewControllers" id="B0q-jI-R0e"/>
                         <segue destination="nAK-Dm-wwf" kind="relationship" relationship="viewControllers" id="H8g-vm-DcF"/>
                         <segue destination="6DR-J4-eSR" kind="relationship" relationship="viewControllers" id="hge-m6-3Gz"/>
@@ -173,14 +179,41 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1MX-Sx-RTh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3697.1014492753625" y="900"/>
+            <point key="canvasLocation" x="3972" y="900"/>
+        </scene>
+        <!--Orders-->
+        <scene sceneID="tBv-Mh-hSV">
+            <objects>
+                <navigationController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="MjJ-0F-knC" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Orders" image="cart" catalog="system" id="UBW-1V-coH"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="PKz-h2-Zro">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.28211462500000001" green="0.61200994249999996" blue="0.83076250549999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.28211462500000001" green="0.61200994249999996" blue="0.83076250549999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textShadowColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="AuY-HZ-u2B" kind="relationship" relationship="rootViewController" id="arx-1H-ESW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5fF-dA-ZCA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4993" y="910"/>
         </scene>
     </scenes>
     <resources>
         <image name="bubble.left" catalog="system" width="64" height="54"/>
         <image name="bubble.left.fill" catalog="system" width="64" height="54"/>
         <image name="cart" catalog="system" width="64" height="50"/>
-        <image name="cart.fill" catalog="system" width="64" height="50"/>
         <image name="house" catalog="system" width="64" height="54"/>
         <image name="person" catalog="system" width="64" height="58"/>
         <image name="person.fill" catalog="system" width="64" height="60"/>

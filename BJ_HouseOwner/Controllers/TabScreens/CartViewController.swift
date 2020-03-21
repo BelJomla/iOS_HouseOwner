@@ -10,10 +10,10 @@ import Foundation
 import UIKit
 
 
-class CartViewController: UIViewController{
+class OrdersViewController: UIViewController{
 
     override func viewDidLoad() {
-        print("Cart")
+        
     }
 
 }
