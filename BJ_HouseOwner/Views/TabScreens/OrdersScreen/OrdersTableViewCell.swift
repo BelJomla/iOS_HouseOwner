@@ -20,40 +20,29 @@ class OrdersTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        let nib = UINib(nibName: "ProductItemsTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "ItemCell")
+
+        let nib = UINib(nibName:K.UI.ordersInnerCellNibName , bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: K.UI.ordersInnerCellID)
         
+
+
         self.backgroundColor = UIColor(rgb: Colors.smokeWhite)
-        
         editButton.layer.cornerRadius  = 10
-        
         bottomView.backgroundColor = UIColor(rgb: 0xF6F6F6)
-        
         mainView.layer.shadowColor = UIColor.black.cgColor
         mainView.layer.shadowOpacity = 0.2
         mainView.layer.shadowOffset = .zero
         mainView.layer.shadowRadius = 2
-        
     }
+    
     
 
+//    override func setSelected(_ selected: Bool, animated: Bool) {
+//        super.setSelected(selected, animated: animated)
+//        // Configure the view for the selected state
+//    }
+//    
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("WJ???")
-        return tableView.dequeueReusableCell(withIdentifier: "ItemCell")!
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
-    }
-    
     func setInnerTableViewDataSourceDelegate(dataSourceDelegate: UITableViewDataSource & UITableViewDelegate, forRow row: Int) {
         tableView.delegate = dataSourceDelegate
         tableView.dataSource = dataSourceDelegate

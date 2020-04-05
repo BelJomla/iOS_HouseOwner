@@ -1,3 +1,10 @@
 ${PODS_ROOT}/Target Support Files/Pods-BJ_HouseOwner-BJ_HouseOwnerUITests/Pods-BJ_HouseOwner-BJ_HouseOwnerUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC-framework/openssl_grpc.framework
+${BUILT_PRODUCTS_DIR}/GTMSessionFetcher-framework/GTMSessionFetcher.framework
+${BUILT_PRODUCTS_DIR}/GoogleUtilities-framework/GoogleUtilities.framework
 ${BUILT_PRODUCTS_DIR}/PhoneNumberKit-framework/PhoneNumberKit.framework
-${BUILT_PRODUCTS_DIR}/iOSDropDown-framework/iOSDropDown.framework
+${BUILT_PRODUCTS_DIR}/abseil-framework/absl.framework
+${BUILT_PRODUCTS_DIR}/gRPC-C++-framework/grpcpp.framework
+${BUILT_PRODUCTS_DIR}/gRPC-Core-framework/grpc.framework
+${BUILT_PRODUCTS_DIR}/leveldb-library-framework/leveldb.framework
+${BUILT_PRODUCTS_DIR}/nanopb-framework/nanopb.framework

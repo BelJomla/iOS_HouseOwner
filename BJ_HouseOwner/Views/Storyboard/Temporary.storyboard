@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lAw-4v-QW8">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -96,7 +96,7 @@
             </objects>
             <point key="canvasLocation" x="2088" y="1207"/>
         </scene>
-        <!--Add Card-->
+        <!--Choose Payment Method-->
         <scene sceneID="flk-4J-UQ8">
             <objects>
                 <viewController id="IcQ-I1-wYV" customClass="AddCardController" customModule="BJ_HouseOwner" customModuleProvider="target" sceneMemberID="viewController">
@@ -447,7 +447,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OYW-0i-FmL"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Card" id="5ZS-lv-cRI"/>
+                    <navigationItem key="navigationItem" title="Choose Payment Method" id="5ZS-lv-cRI"/>
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
                         <outlet property="agreementButton" destination="Yp9-bO-yNT" id="pVE-qt-a54"/>

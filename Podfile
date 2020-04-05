@@ -1,11 +1,15 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '13.0'
 
-# pod for dropdown menue
-pod 'iOSDropDown'
 
 # pod to check phone number format  with the  given code number
 pod 'PhoneNumberKit', '~> 3.1'
+
+
+# add the Firebase
+pod 'Firebase/Auth'
+pod 'Firebase/Firestore'
+
 
 target 'BJ_HouseOwner' do
   # Comment the next line if you don't want to use dynamic frameworks

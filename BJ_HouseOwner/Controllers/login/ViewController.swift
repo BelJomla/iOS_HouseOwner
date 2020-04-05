@@ -7,13 +7,13 @@
 //
 
 import UIKit
-import iOSDropDown // from Dropdown pods for more info : https://github.com/jriosdev/iOSDropDown
 
 
 class ViewController: UIViewController{
     
     @IBOutlet weak var SignUpLabel: UILabel!
-    @IBOutlet weak var countryCodeTextField: DropDown!
+
+    @IBOutlet weak var countryCodeTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var NextButton: UIButton!
     @IBOutlet weak var invalidPhoneNumber: UILabel!
@@ -24,7 +24,7 @@ class ViewController: UIViewController{
            styleUI() // next Function in the file
            // using iOS dropDown pod, for dropdown menue (for countries)
            // for more information about the pod go to: https://github.com/jriosdev/iOSDropDown
-           addCountryDropDownMenue()
+//           addCountryDropDownMenue()
            
     }
     
@@ -41,9 +41,7 @@ class ViewController: UIViewController{
         }
     }
     
-    @IBAction func countryFieldPressed(_ sender: DropDown) {
-        countryCodeTextField.showList()
-    }
+
 
     /**
      This fuction updates the UI look and feel. Reason: hard to do using options
@@ -67,42 +65,42 @@ class ViewController: UIViewController{
     
 //MARK: - DropDown & country Codes
     
-    func addCountryDropDownMenue (){
-        
-        let countryCodes = getCountryCodes()! // this is a dictionary
-        
-        // here we take the (Dictionary<Key, Value>.Values) type
-        // and convert it to array so we can manipulate it
-        // the array will contain the contry codes as [String]
-        let  countryCodesArr: [String] = Array(countryCodes.values)
-        
-        // casting country code string to int, ex: "966" -> 966
-        // here we cast any string that can't be convert to Int to -1
-        // from our json that never happens, but swift requires this type of handling
-       let countryCodesArrInt  = countryCodesArr.map { (stringCode) -> Int in
-            (Int(stringCode) ?? -1)
-        }
-        
-        
-        // This is the acutal list of options that is displayed to the user
-        countryCodeTextField.optionArray = countryCodesArrInt.map({ (code) -> String in
-            let countryName = (countryCodes.someKey(forValue: String(code)) ?? "--")
-            return "\(countryName)   (+\(code))"
-        })
-        
-        countryCodeTextField.optionIds = countryCodesArrInt
-        
-        // the color that shows up after the user chooses an option
-        countryCodeTextField.selectedRowColor = .white
-        //countryCodeTextField.showList()  // To show the Drop Down Menu
-        
-        // just printing what the user clicked (not important)
-        countryCodeTextField.didSelect{(selectedText , index ,id) in
-        let selected = "Selected String: \(selectedText) \n index: \(index) \n \(id)"
-            print(selected)
-            LogInBrain.countryCode = String("+\(id)")
-        }
-    }
+//    func addCountryDropDownMenue (){
+//
+//        let countryCodes = getCountryCodes()! // this is a dictionary
+//
+//        // here we take the (Dictionary<Key, Value>.Values) type
+//        // and convert it to array so we can manipulate it
+//        // the array will contain the contry codes as [String]
+//        let  countryCodesArr: [String] = Array(countryCodes.values)
+//
+//        // casting country code string to int, ex: "966" -> 966
+//        // here we cast any string that can't be convert to Int to -1
+//        // from our json that never happens, but swift requires this type of handling
+//       let countryCodesArrInt  = countryCodesArr.map { (stringCode) -> Int in
+//            (Int(stringCode) ?? -1)
+//        }
+//
+//
+//        // This is the acutal list of options that is displayed to the user
+//        countryCodeTextField.optionArray = countryCodesArrInt.map({ (code) -> String in
+//            let countryName = (countryCodes.someKey(forValue: String(code)) ?? "--")
+//            return "\(countryName)   (+\(code))"
+//        })
+//
+//        countryCodeTextField.optionIds = countryCodesArrInt
+//
+//        // the color that shows up after the user chooses an option
+//        countryCodeTextField.selectedRowColor = .white
+//        //countryCodeTextField.showList()  // To show the Drop Down Menu
+//
+//        // just printing what the user clicked (not important)
+//        countryCodeTextField.didSelect{(selectedText , index ,id) in
+//        let selected = "Selected String: \(selectedText) \n index: \(index) \n \(id)"
+//            print(selected)
+//            LogInBrain.countryCode = String("+\(id)")
+//        }
+//    }
     
     /**
         This method reads country codes in countryCodes.json

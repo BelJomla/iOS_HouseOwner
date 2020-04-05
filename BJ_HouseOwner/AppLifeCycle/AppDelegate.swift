@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
+//        _ = User(withID: "3dtDfH0F7XUwQTYatwb1EsnttZO2")
+//        let shoppingCategories = ShoppingCategories(withName: K.db.CategoriesCollection.name)
+//        print(shoppingCategories.categories)
         
+
         // uncomeent the following
 //        // Override point for customization after application launch.
 //        // Sets background to a blank/empty image
