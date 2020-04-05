@@ -18,13 +18,15 @@ class OrdersTableViewCell: UITableViewCell {
     
     @IBOutlet weak var mainView: UIView!
     
+    var myDeligate:OrderCellDeligate? = nil
+    var innerTableStartingMarginForTag = 10000
     override func awakeFromNib() {
         super.awakeFromNib()
 
         let nib = UINib(nibName:K.UI.ordersInnerCellNibName , bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: K.UI.ordersInnerCellID)
         
-
+        
 
         self.backgroundColor = UIColor(rgb: Colors.smokeWhite)
         editButton.layer.cornerRadius  = 10
@@ -35,6 +37,14 @@ class OrdersTableViewCell: UITableViewCell {
         mainView.layer.shadowRadius = 2
     }
     
+    @IBAction func cancelClicked(_ sender: Any) {
+        print("my tag is \(self.tag)")
+        
+        myDeligate?.cancelClicked()
+    }
+    @IBAction func editClicked(_ sender: Any) {
+        myDeligate?.editClicked()
+    }
     
 
 //    override func setSelected(_ selected: Bool, animated: Bool) {
@@ -43,18 +53,21 @@ class OrdersTableViewCell: UITableViewCell {
 //    }
 //    
 
-    func setInnerTableViewDataSourceDelegate(dataSourceDelegate: UITableViewDataSource & UITableViewDelegate, forRow row: Int) {
+    func setInnerTableViewDataSourceDelegate(dataSourceDelegate: UITableViewDataSource & UITableViewDelegate & OrderCellDeligate, forRow row: Int) {
+        self.myDeligate = (dataSourceDelegate as OrderCellDeligate)
+        
         tableView.delegate = dataSourceDelegate
         tableView.dataSource = dataSourceDelegate
-        tableView.tag = row + 10
+        tableView.tag = row + innerTableStartingMarginForTag
         tableView.reloadData()
     }
     
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 20, bottom: 30, right: 20))
-    }
     
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//
+//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 20, bottom: 30, right: 20))
+//    }
+//    
 }

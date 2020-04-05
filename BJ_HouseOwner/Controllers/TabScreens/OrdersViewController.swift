@@ -11,7 +11,7 @@ import UIKit
 class OrdersViewController: UIViewController {
     
     let outTebleTag = 0
-    
+    let innerTableStartingMarginForTag = 10000
     
     let tagError:String = "_ERROR: Received an expected tableView tag"
     let content = [["Mann Filter For Heros - - - -"],["بطاطس حجم كبير جدا 232"],["3q234123"],["Mann Filter For Heros - - - -"],["Mann Filter For Heros - - - -"],["بطاطس حجم كبير جدا 232"],["3q234123"],["Mann Filter For Heros - - - -"]]
@@ -55,6 +55,7 @@ extension OrdersViewController: UITableViewDelegate,UITableViewDataSource{
             
             guard let tableViewCell = cell as? OrdersTableViewCell else { return }
             tableViewCell.setInnerTableViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
+            cell.tag = indexPath.row
         }
     }
     
@@ -63,7 +64,8 @@ extension OrdersViewController: UITableViewDelegate,UITableViewDataSource{
             return CGFloat(38)
         }else {
             assert(tableView.tag == outTebleTag, tagError)
-            let extraHeightForInnerRows = CGFloat(content.count * 38)
+            assert(indexPath.row < innerTableStartingMarginForTag, "Too many Orders, inner table tags and outer cell tags have similar numbers now")
+            let extraHeightForInnerRows = CGFloat(content.count * 39)
             print("additional height")
             print(extraHeightForInnerRows)
             return CGFloat(200) + extraHeightForInnerRows
@@ -95,3 +97,19 @@ extension OrdersViewController: UITableViewDelegate,UITableViewDataSource{
     
     
 }
+
+
+//MARK: -InnerCellDelegatation
+
+extension OrdersViewController: OrderCellDeligate{
+    func cancelClicked() {
+        print("hello cancel")
+    }
+    
+    func editClicked() {
+        print("hello edit")
+    }
+    
+
+}
+
