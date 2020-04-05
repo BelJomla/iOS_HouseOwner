@@ -38,12 +38,11 @@ class OrdersTableViewCell: UITableViewCell {
     }
     
     @IBAction func cancelClicked(_ sender: Any) {
-        print("my tag is \(self.tag)")
         
-        myDeligate?.cancelClicked()
+        myDeligate?.cancelClicked(tag: self.tag)
     }
     @IBAction func editClicked(_ sender: Any) {
-        myDeligate?.editClicked()
+        myDeligate?.editClicked(tag: self.tag)
     }
     
 

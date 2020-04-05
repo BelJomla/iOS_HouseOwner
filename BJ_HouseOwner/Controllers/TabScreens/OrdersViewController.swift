@@ -14,8 +14,7 @@ class OrdersViewController: UIViewController {
     let innerTableStartingMarginForTag = 10000
     
     let tagError:String = "_ERROR: Received an expected tableView tag"
-    let content = [["Mann Filter For Heros - - - -"],["بطاطس حجم كبير جدا 232"],["3q234123"],["Mann Filter For Heros - - - -"],["Mann Filter For Heros - - - -"],["بطاطس حجم كبير جدا 232"],["3q234123"],["Mann Filter For Heros - - - -"]]
-    
+    var content = [["rice","foon","mark"],["rice1","foon1","mark1"],["rice2","foon2","mark2"]]
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -74,10 +73,10 @@ extension OrdersViewController: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView.tag > outTebleTag{
-            return content.count
+            return content[tableView.tag-innerTableStartingMarginForTag].count
         }else {
             assert(tableView.tag == outTebleTag, tagError)
-            return 2
+            return content.count
         }
     }
     
@@ -102,11 +101,16 @@ extension OrdersViewController: UITableViewDelegate,UITableViewDataSource{
 //MARK: -InnerCellDelegatation
 
 extension OrdersViewController: OrderCellDeligate{
-    func cancelClicked() {
+    func cancelClicked(tag: Int) {
         print("hello cancel")
+        print("tag is \(tag)")
+        content.remove(at: tag)
+        //FIXME: -Deleting mulitple rows couse errors since the tag is same and array indecies change. Can use flag in array to indicate deletion instead
+        let indexPath = IndexPath(row: tag, section: 0)
+        self.tableView.deleteRows(at: [indexPath], with: .automatic)
     }
     
-    func editClicked() {
+    func editClicked(tag: Int) {
         print("hello edit")
     }
     

@@ -9,6 +9,6 @@
 import Foundation
 
 protocol OrderCellDeligate {
-    func cancelClicked()
-    func editClicked()
+    func cancelClicked(tag:Int)
+    func editClicked(tag:Int)
 }
