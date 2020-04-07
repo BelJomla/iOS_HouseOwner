@@ -12,125 +12,111 @@ import Firebase
 
 struct DB {
     static let db = Firestore.firestore()
-    static let auth = Auth.auth()
     
     
-    static func fetchCategory(withName name:String, completion: @escaping ( _ dataDocs:[[String:Any]])-> ()){
+    static func getDocument(with path:String, completion: @escaping (_ data:[String : Any]?)->() ){
         
-        var dataDocs:[[String:Any]] = [] // change this
+        var data:[String : Any]? = nil
         
         
-        let colRef = DB.db.collection(name)
+        let docRef = DB.db.document(path)
         
-        colRef.getDocuments { (querySnapshot, error) in
-            
-            let numberOfDocs = querySnapshot?.count
-            let docs = querySnapshot?.documents
-            
-            if let docs = docs, let numberOfDocs = numberOfDocs {
-                if numberOfDocs > 0 {
-                    for doc in docs {
-                        var tempDoc:[String:Any] = [:]
-                        
-                        for field in K.db.CategoryFields.getAll(){
-                            var defaultValue:Any? // in case wronge data type from db comes, we use this as a default one
-                            let fieldName = field["name"] as! String
-                            
-                            defaultValue = field["defaultValue"]!
-                            
-                            if let receivedFieldData = doc[fieldName]{
-                                print(defaultValue!)
-                                print(type(of: defaultValue!))
-                                
-                                if defaultValue! is Double{
-                                    tempDoc[fieldName] = receivedFieldData as? Double ?? defaultValue!
-                                } else if defaultValue! is Bool{
-                                    tempDoc[fieldName] = receivedFieldData as? Bool ?? defaultValue!
-                                } else if defaultValue! is Int {
-                                    tempDoc[fieldName] = receivedFieldData as? Int ?? defaultValue!
-                                } else if defaultValue! is String {
-                                    tempDoc[fieldName] = receivedFieldData as? String ?? defaultValue!
-                                } else if defaultValue! is [String] {
-                                    tempDoc[fieldName] = receivedFieldData as? [String] ?? defaultValue!
-                                } else if defaultValue! is [String:Any] {
-                                    tempDoc[fieldName] = receivedFieldData as? [String:String] ?? defaultValue!
-                                } else if defaultValue! is [[String:Any]] {
-                                    tempDoc[fieldName] = receivedFieldData as? [[String:Any]] ?? defaultValue!
-                                }
-                                else {
-                                    assert(false, "Should not happen")
-                                }
-                                
-                            }else{
-                                tempDoc[fieldName] = defaultValue
-                            }
-                        }
-                        dataDocs.append(tempDoc)
-                    }
-                }
+        docRef.getDocument { (documentSnapshot, error) in
+            if let document = documentSnapshot, document.exists {
+                
+                let dataDescription = document.data()
+                data = dataDescription
+                
+                completion(data)
+                
+            }else{
+                print("\n\n\n\n------!!!----------")
+                print(error!)
+                print("\n\n\n\n-------!----------")
+                assert(false, "Firebase Document Does Not Exist")
             }
         }
-        completion(dataDocs)
+    }
+    
+    
+    static func getUser(withID id:String) -> User?{
+        var user:User?
+        
+        DB.getDocument(with: "/users/2P6ANOpEfUUkF3Q0gf5aJExnzJH3"){
+            data in
+            
+            let ID = data?["id"] as! String
+            let firstName = data?["firstName"] as! String
+            let lastName = data?["lastName"]  as! String
+            let mobileNumber = data?["mobileNumber"] as! String
+            
+            let balance = data?["balance"] as! Double
+            let points = data?["points"] as! Int
+            let type = data?["type"] as! Int
+            
+            var locations = data?["locations"] as? [[String:String]] ?? [UserLocation().asDictionary()]
+            var creditCards = data?["creditCards"] as? [[String:Any]] ?? [CreditCard().asDictionary()]
+            
+            
+            let convertedLocations:[UserLocation] = []
+            var convertedCards:[CreditCard] = []
+            
+            
+            for index in 0..<locations.count {
+    
+                
+                let country = locations[index]["country"]
+                let city = locations[index]["city"]
+                let neightbour =  locations[index]["neighbour"]
+                let lat = locations[index]["lat"]
+                let long =  locations[index]["long"]
+                
+                
+                if  country == nil || city == nil
+                    || neightbour == nil ||  lat == nil || long == nil{
+                    
+                    print("INVALID LOCATION !!!")
+                    locations[index] = UserLocation().asDictionary()
+                    
+                }else {
+                   // same as card
+                }
+                
+            }
+            
+            for index in 0..<creditCards.count {
+
+                let holderName = creditCards[index]["holderName"] as? String
+                let expireDate = creditCards[index]["expireDate"] as? Date ?? Date()
+                let cardNumber = creditCards[index]["cardNumber"] as? String
+                let cvv = creditCards[index]["cvv"] as? String
+                
+                
+                if  holderName == nil
+                    || cardNumber == nil ||  cvv == nil {
+                    
+                    
+                    creditCards[index] = CreditCard().asDictionary()
+                    print("INVALID CARD !!!")
+                }else{
+                    convertedCards.append(CreditCard(holderName!, expireDate, cardNumber!, cvv!))
+                }
+                
+            }
+        
+            
+            
+            
+            let tempUser = User(ID, firstName, lastName, mobileNumber, balance, points, type, convertedLocations, convertedCards)
+            user = tempUser
+            
+            print(" - \n\n\n")
+            user?.toString()
+            print(" - - \n\n\n")
+            
+        }
+        return user
     }
 }
-
-
-//    static func fetchDocument(withID id: String, docRef:DocumentReference ,feilds:[[String : Any]],  completion: @escaping ( _ fetchedData:[String:Any]?)-> ()){
-//
-//        let docRef = DB.db.collection("collectionName").document(id)
-//        var fetchedData:[String:Any]? = [:]
-//
-//
-//        docRef.getDocument{  (documentSnapshot, error) in
-//            if let e = error{
-//                print("FIREBASE ERROR: \(e)")
-//                fetchedData = nil
-//            }
-//            else{
-//                if let documentSnapshot = documentSnapshot, documentSnapshot.exists{
-//
-//                    let data = documentSnapshot.data()
-//
-//                    if data == nil {
-//                        // this is done again in the botton, it is redundant
-//                        fetchedData = nil
-//                        completion(fetchedData)
-//                        return
-//                    }
-//
-//                    for field in K.db.UserFeilds.getAll(){
-//                        var defaultValue:Any? // in case wronge data type from db comes, we use this as a default one
-//                        let fieldName = field["name"] as! String
-//
-//                        defaultValue = field["defaultValue"]!
-//
-//                        if let receivedFieldData = data![fieldName]{
-//
-//                            if defaultValue! is Double{
-//                                fetchedData![fieldName] = receivedFieldData as? Double ?? defaultValue
-//                            } else if defaultValue! is Bool{
-//                                fetchedData![fieldName] = receivedFieldData as? Bool ?? defaultValue
-//                            } else if defaultValue! is Int {
-//                                fetchedData![fieldName] = receivedFieldData as? Int ?? defaultValue
-//                            } else if defaultValue! is String {
-//                                fetchedData![fieldName] = receivedFieldData as? String ?? defaultValue
-//                            } else {
-//                                assert(false, "No Data Type met, weird type received for the Database!")
-//                            }
-//
-//
-//                        }else{
-//                            fetchedData![fieldName] = defaultValue
-//                        }
-//                    }
-//                }else{
-//                    fetchedData = nil
-//                    completion(fetchedData)
-//                    return
-//                }
-//                completion(fetchedData)
-//            }
-//        }
-//    }
 
 

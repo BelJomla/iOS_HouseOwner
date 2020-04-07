@@ -23,4 +23,31 @@ class UserLocation{
         self.lat = lat
         self.long = long
     }
+    
+    init() {
+        self.country = ""
+        self.city = ""
+        self.neighbour = ""
+        self.lat = ""
+        self.long = ""
+    }
+    
+    func asDictionary() -> [String:String]{
+        let dict = ["country":country,
+                    "city":city,
+                    "neighbour":neighbour,
+                    "lat":lat,
+                    "long":long]
+        return dict
+    }
+    
+    func toString(){
+        
+        print("- country: \(country)")
+        print("- city: \(city)")
+        print("- neighbour: \(neighbour)")
+        print("- lat: \(lat)")
+        print("- long: \(long)")
+    }
+    
 }

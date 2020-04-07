@@ -20,12 +20,7 @@ class ViewController: UIViewController{
     
     override func viewDidLoad() {
            super.viewDidLoad()
-        
-           styleUI() // next Function in the file
-           // using iOS dropDown pod, for dropdown menue (for countries)
-           // for more information about the pod go to: https://github.com/jriosdev/iOSDropDown
-//           addCountryDropDownMenue()
-           
+           styleUI() //
     }
     
     

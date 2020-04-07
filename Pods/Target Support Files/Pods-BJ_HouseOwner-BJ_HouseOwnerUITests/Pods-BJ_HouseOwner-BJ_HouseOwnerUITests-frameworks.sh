@@ -162,7 +162,6 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC-framework/openssl_grpc.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/GTMSessionFetcher-framework/GTMSessionFetcher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GoogleUtilities-framework/GoogleUtilities.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PhoneNumberKit-framework/PhoneNumberKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/abseil-framework/absl.framework"
@@ -173,7 +172,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC-framework/openssl_grpc.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/GTMSessionFetcher-framework/GTMSessionFetcher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GoogleUtilities-framework/GoogleUtilities.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PhoneNumberKit-framework/PhoneNumberKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/abseil-framework/absl.framework"

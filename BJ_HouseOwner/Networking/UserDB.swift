@@ -40,7 +40,9 @@ class UserDB {
                         let fieldName = field["name"] as! String
                         
                         defaultValue = field["defaultValue"]!
-                        
+                        //
+                        // data is documentSnapshot.data()
+                        // fieldName is a String for field name
                         if let receivedFieldData = data![fieldName]{
                             print(defaultValue!)
                             print(type(of: defaultValue!))
@@ -54,7 +56,7 @@ class UserDB {
                             } else if defaultValue! is String {
                                 userData![fieldName] = receivedFieldData as? String ?? defaultValue
                             } else {
-                                assert(false, "No Data Type met, weird type received for the Database!")
+                                assert(false, "No Data Type met")
                             }
                             
                         }else{

@@ -10,42 +10,41 @@ import Foundation
 
 
 class User {
-    var ID:String = ""
-    var firstName:String = ""
-    var lastName:String = ""
-    var mobileNumber:String = ""
-    var balance:Double = 0.0
-    var points:Int = 0
-    var type:Int = 0
-    var locations:[UserLocation] = []
-    var creditCards:[CreditCard] = []
+    var ID:String
+    var firstName:String
+    var lastName:String
+    var mobileNumber:String
+    var balance:Double
+    var points:Int
+    var type:Int
+    var locations:[UserLocation] = [UserLocation()]
+    var creditCards:[CreditCard] = [CreditCard()]
     
-    init(withID id: String) {
-
-        UserDB.fetchUserDocument(withID: id) { (data) in
-            
-            if let data = data{
-
-                self.ID = data[K.db.UserFeilds.ID["name"] as! String] as! String
-                self.firstName = data[K.db.UserFeilds.firstName["name"] as! String] as! String
-                self.lastName = data[K.db.UserFeilds.lastName["name"] as! String] as! String
-                self.mobileNumber = data[K.db.UserFeilds.mobileNumber["name"] as! String] as! String
-
-                self.balance = data[K.db.UserFeilds.balance["name"] as! String] as! Double
-                self.points = data[K.db.UserFeilds.points["name"] as! String] as! Int
-                self.type = data[K.db.UserFeilds.type["name"] as! String] as! Int
-                
-
-                print("clousre done")
-            }else{
-                print("ERROR")
-            }
-            print("all output begins...>")
-            self.toString()
-            print("all output done...<")
-           
-        }
+    init(_ ID:String,_ firstName:String,_ lastName:String,_ mobileNumber:String,_ balance:Double,_ points:Int,_ type:Int,_ locations:[UserLocation],_ creditCards: [CreditCard]) {
+        
+        self.ID = ID
+        self.firstName = firstName
+        self.lastName = lastName
+        self.mobileNumber = mobileNumber
+        self.balance = balance
+        self.points = points
+        self.type = type
+        self.locations = locations
+        self.creditCards = creditCards
     }
+    
+    init() {
+        self.ID = ""
+        self.firstName = ""
+        self.lastName = ""
+        self.mobileNumber = ""
+        self.balance = 0.0
+        self.points = 0
+        self.type = 0
+        self.locations = [UserLocation()]
+        self.creditCards = [CreditCard()]
+    }
+    
     
     func toString(){
         print("ID: \(ID)")
@@ -55,7 +54,17 @@ class User {
         print("balance \(balance)")
         print("points \(points)")
         print("type \(type)")
-        print("locations \(locations)")
-        print("creditCards \(creditCards)")
+        
+        for location in locations {
+            print("A location: ")
+            location.toString()
+        }
+        
+        for card in creditCards {
+            print("A Card: ")
+            card.toString()
+        }
+        
+        
     }
 }

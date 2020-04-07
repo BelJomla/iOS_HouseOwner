@@ -9,9 +9,39 @@
 import Foundation
 
 class CreditCard{
-    let holderFirstName:String = ""
-    let holderLastName:String = ""
-    let expireDate:Date = Date()
-    let cardNumber:String = ""
-    let CCV:String = ""
+    let holderName:String
+    let expireDate:Date
+    let cardNumber:String
+    let cvv:String
+    
+    
+    init() {
+        self.holderName = ""
+        self.expireDate = Date()
+        self.cardNumber = ""
+        self.cvv = ""
+    }
+    
+    init(_ holderName:String, _ expireDate:Date, _ cardNumber:String, _ cvv:String) {
+        
+        self.holderName = holderName
+        self.expireDate = expireDate
+        self.cardNumber = cardNumber
+        self.cvv = cvv
+    }
+    
+    func asDictionary() -> [String:Any]{
+        let dict = ["holderName":holderName,
+                    "expireDate":expireDate,
+                    "cardNumber":cardNumber,
+                    "cvv":cvv] as [String : Any]
+        return dict
+    }
+    
+    func toString(){
+        print("- holderName: \(holderName)")
+        print("- expireDate: \(expireDate)")
+        print("- cardNumber: \(cardNumber)")
+        print("- cvv: \(cvv)")
+    }
 }

@@ -7,7 +7,7 @@ pod 'PhoneNumberKit', '~> 3.1'
 
 
 # add the Firebase
-pod 'Firebase/Auth'
+# pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
 
 
