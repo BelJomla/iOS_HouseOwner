@@ -21,6 +21,8 @@ class ViewController: UIViewController{
     override func viewDidLoad() {
            super.viewDidLoad()
            styleUI() //
+            // ERROR
+            DB.getUser(withID: "2P6ANOpEfUUkF3Q0gf5aJExnzJH3")
     }
     
     

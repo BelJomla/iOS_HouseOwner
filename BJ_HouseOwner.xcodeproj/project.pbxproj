@@ -18,6 +18,13 @@
 		A9135DC62421627700175497 /* ThankYouOrderPlacedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9135DC52421627700175497 /* ThankYouOrderPlacedController.swift */; };
 		A9135DC924216E0B00175497 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9135DC824216E0B00175497 /* Checkbox.swift */; };
 		A9135DCB2421795700175497 /* AddCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9135DCA2421795700175497 /* AddCardController.swift */; };
+		A91C3035243F447500D23142 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A91C3034243F447400D23142 /* GoogleService-Info.plist */; };
+		A91C3038243F67F000D23142 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C3037243F67F000D23142 /* Logger.swift */; };
+		A91C303C243F84BF00D23142 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A91C303B243F84BF00D23142 /* Profile.storyboard */; };
+		A91C303F243FA22700D23142 /* ProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C303E243FA22700D23142 /* ProfileSettingsViewController.swift */; };
+		A91C3041243FA26200D23142 /* MyCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C3040243FA26200D23142 /* MyCardsViewController.swift */; };
+		A91C3043243FA2AF00D23142 /* OrdersHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C3042243FA2AF00D23142 /* OrdersHistoryViewController.swift */; };
+		A91C3045243FA2DB00D23142 /* MyAddressesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C3044243FA2DB00D23142 /* MyAddressesViewController.swift */; };
 		A945F18B240DB1A7007A13FA /* category.geojson in Resources */ = {isa = PBXBuildFile; fileRef = A945F18A240DB1A7007A13FA /* category.geojson */; };
 		A945F18D240DB412007A13FA /* shoppingCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = A945F18C240DB412007A13FA /* shoppingCategories.swift */; };
 		A945F19124104A5A007A13FA /* JsonReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A945F19024104A5A007A13FA /* JsonReader.swift */; };
@@ -57,7 +64,6 @@
 		A9A59C3923FBCB9400F3B6D9 /* segoeui.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9A59C2D23FBCB9400F3B6D9 /* segoeui.ttf */; };
 		A9A59C3A23FBCB9400F3B6D9 /* segoeuii.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9A59C2E23FBCB9400F3B6D9 /* segoeuii.ttf */; };
 		A9A59C3B23FBCB9400F3B6D9 /* segoeuisl.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9A59C2F23FBCB9400F3B6D9 /* segoeuisl.ttf */; };
-		A9B806662431834800EFF400 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9B806652431834700EFF400 /* GoogleService-Info.plist */; };
 		A9B8066A2431D66200EFF400 /* UserDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B806692431D66200EFF400 /* UserDB.swift */; };
 		A9B8066D2431DC4C00EFF400 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B8066C2431DC4C00EFF400 /* User.swift */; };
 		A9B8066F2431DE2400EFF400 /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B8066E2431DE2400EFF400 /* UserLocation.swift */; };
@@ -110,6 +116,13 @@
 		A9135DC52421627700175497 /* ThankYouOrderPlacedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThankYouOrderPlacedController.swift; sourceTree = "<group>"; };
 		A9135DC824216E0B00175497 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		A9135DCA2421795700175497 /* AddCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardController.swift; sourceTree = "<group>"; };
+		A91C3034243F447400D23142 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A91C3037243F67F000D23142 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		A91C303B243F84BF00D23142 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		A91C303E243FA22700D23142 /* ProfileSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewController.swift; sourceTree = "<group>"; };
+		A91C3040243FA26200D23142 /* MyCardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardsViewController.swift; sourceTree = "<group>"; };
+		A91C3042243FA2AF00D23142 /* OrdersHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersHistoryViewController.swift; sourceTree = "<group>"; };
+		A91C3044243FA2DB00D23142 /* MyAddressesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAddressesViewController.swift; sourceTree = "<group>"; };
 		A945F18A240DB1A7007A13FA /* category.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = category.geojson; sourceTree = "<group>"; };
 		A945F18C240DB412007A13FA /* shoppingCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shoppingCategories.swift; sourceTree = "<group>"; };
 		A945F19024104A5A007A13FA /* JsonReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonReader.swift; sourceTree = "<group>"; };
@@ -155,7 +168,6 @@
 		A9A59C2D23FBCB9400F3B6D9 /* segoeui.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = segoeui.ttf; sourceTree = "<group>"; };
 		A9A59C2E23FBCB9400F3B6D9 /* segoeuii.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = segoeuii.ttf; sourceTree = "<group>"; };
 		A9A59C2F23FBCB9400F3B6D9 /* segoeuisl.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = segoeuisl.ttf; sourceTree = "<group>"; };
-		A9B806652431834700EFF400 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A9B806692431D66200EFF400 /* UserDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDB.swift; sourceTree = "<group>"; };
 		A9B8066C2431DC4C00EFF400 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A9B8066E2431DE2400EFF400 /* UserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
@@ -230,6 +242,42 @@
 				A9135DC824216E0B00175497 /* Checkbox.swift */,
 			);
 			path = CustomComponents;
+			sourceTree = "<group>";
+		};
+		A91C3036243F67D000D23142 /* HelperClasses */ = {
+			isa = PBXGroup;
+			children = (
+				A91C3037243F67F000D23142 /* Logger.swift */,
+			);
+			path = HelperClasses;
+			sourceTree = "<group>";
+		};
+		A91C3039243F844200D23142 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A91C303B243F84BF00D23142 /* Profile.storyboard */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		A91C303A243F845E00D23142 /* TapScreens */ = {
+			isa = PBXGroup;
+			children = (
+				A91C3039243F844200D23142 /* Profile */,
+			);
+			path = TapScreens;
+			sourceTree = "<group>";
+		};
+		A91C303D243FA1CB00D23142 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A90039872435A770002327E4 /* ProfileViewController.swift */,
+				A91C303E243FA22700D23142 /* ProfileSettingsViewController.swift */,
+				A91C3040243FA26200D23142 /* MyCardsViewController.swift */,
+				A91C3042243FA2AF00D23142 /* OrdersHistoryViewController.swift */,
+				A91C3044243FA2DB00D23142 /* MyAddressesViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		A93082C3241920C800FC293C /* AppLifeCycle */ = {
@@ -307,6 +355,7 @@
 		A96BA1262425BD2C006E9E0F /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				A91C303A243F845E00D23142 /* TapScreens */,
 				A9A59ADC23F9DDA200F3B6D9 /* LaunchScreen.storyboard */,
 				A9A59AD723F9DDA100F3B6D9 /* Main.storyboard */,
 				A9E885342425BD8F00B6DF50 /* Temporary.storyboard */,
@@ -356,9 +405,9 @@
 		A98D66F323FCFCA9006B1791 /* TabScreens */ = {
 			isa = PBXGroup;
 			children = (
+				A91C303D243FA1CB00D23142 /* Profile */,
 				A98D66FC23FCFE3D006B1791 /* ShoppingViewController.swift */,
 				A98D66F823FCFD1E006B1791 /* ChatViewController.swift */,
-				A90039872435A770002327E4 /* ProfileViewController.swift */,
 				A900398924377969002327E4 /* OrdersViewController.swift */,
 				A903F9BA2439CDFD00415B5D /* OrderCellDelegate.swift */,
 			);
@@ -400,7 +449,7 @@
 		A9A59AD023F9DDA100F3B6D9 /* BJ_HouseOwner */ = {
 			isa = PBXGroup;
 			children = (
-				A9B806652431834700EFF400 /* GoogleService-Info.plist */,
+				A91C3034243F447400D23142 /* GoogleService-Info.plist */,
 				A9B806682431D63C00EFF400 /* Networking */,
 				A9A59BC223FB3B6400F3B6D9 /* Resources */,
 				A93082C3241920C800FC293C /* AppLifeCycle */,
@@ -473,6 +522,7 @@
 		A9A59BC223FB3B6400F3B6D9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A91C3036243F67D000D23142 /* HelperClasses */,
 				A9A59BB923F9F91B00F3B6D9 /* Constants */,
 				A9A59C2323FBCB2F00F3B6D9 /* Fonts */,
 				A945F189240DB15C007A13FA /* data */,
@@ -690,7 +740,7 @@
 			files = (
 				A9A59C3023FBCB9400F3B6D9 /* seguibl.ttf in Resources */,
 				A9A59C3623FBCB9400F3B6D9 /* seguisli.ttf in Resources */,
-				A9B806662431834800EFF400 /* GoogleService-Info.plist in Resources */,
+				A91C3035243F447500D23142 /* GoogleService-Info.plist in Resources */,
 				A945F196241176ED007A13FA /* ProductCollectionViewCell.xib in Resources */,
 				A9A59C3923FBCB9400F3B6D9 /* segoeui.ttf in Resources */,
 				A95C6A512438F5C6003E180F /* InnerOrderTableViewCell.xib in Resources */,
@@ -706,6 +756,7 @@
 				A9A59C3223FBCB9400F3B6D9 /* segoeuib.ttf in Resources */,
 				A9A59C3B23FBCB9400F3B6D9 /* segoeuisl.ttf in Resources */,
 				A9E885372425BDE100B6DF50 /* Tabscreens.storyboard in Resources */,
+				A91C303C243F84BF00D23142 /* Profile.storyboard in Resources */,
 				A9A59C3523FBCB9400F3B6D9 /* seguisbi.ttf in Resources */,
 				A9ECC74D2400F86A00524238 /* shoppingTableCell.xib in Resources */,
 				A9A59ADB23F9DDA200F3B6D9 /* Assets.xcassets in Resources */,
@@ -842,13 +893,16 @@
 			files = (
 				A9B806712431E05D00EFF400 /* CreditCard.swift in Sources */,
 				A9A59BBF23FA183D00F3B6D9 /* Constants.swift in Sources */,
+				A91C3045243FA2DB00D23142 /* MyAddressesViewController.swift in Sources */,
 				A97DD29C241E9B6100FF31F3 /* ShoppingShopping.swift in Sources */,
 				A9DC40FD2425CFEA00E57760 /* OrdersTableViewCell.swift in Sources */,
 				A9E68F17243568A5009F8465 /* ShoppingSubCategory.swift in Sources */,
 				A903F9BB2439CDFD00415B5D /* OrderCellDelegate.swift in Sources */,
 				A9A59AD623F9DDA100F3B6D9 /* ViewController.swift in Sources */,
+				A91C303F243FA22700D23142 /* ProfileSettingsViewController.swift in Sources */,
 				A90039882435A770002327E4 /* ProfileViewController.swift in Sources */,
 				A9A59BBB23F9F93700F3B6D9 /* Colors.swift in Sources */,
+				A91C3043243FA2AF00D23142 /* OrdersHistoryViewController.swift in Sources */,
 				A9A59AD223F9DDA100F3B6D9 /* AppDelegate.swift in Sources */,
 				A95C6A502438F5C5003E180F /* InnerOrderTableViewCell.swift in Sources */,
 				A9ECC7502400F9D700524238 /* shoppingCollectionCell.swift in Sources */,
@@ -870,6 +924,7 @@
 				A9A59BC123FB3B1300F3B6D9 /* contryCodes.swift in Sources */,
 				A98D66F923FCFD1E006B1791 /* ChatViewController.swift in Sources */,
 				A9ECEF0D243349B300D5358F /* DB.swift in Sources */,
+				A91C3038243F67F000D23142 /* Logger.swift in Sources */,
 				A9ECC74C2400F86A00524238 /* shoppingTableCell.swift in Sources */,
 				A945F195241176ED007A13FA /* ProductCollectionViewCell.swift in Sources */,
 				A9135DC62421627700175497 /* ThankYouOrderPlacedController.swift in Sources */,
@@ -878,6 +933,7 @@
 				A97DD2A2241EC3F400FF31F3 /* CollectionView.swift in Sources */,
 				A9135DCB2421795700175497 /* AddCardController.swift in Sources */,
 				251D5BA5241A76D700FF54A8 /* LogInBrain.swift in Sources */,
+				A91C3041243FA26200D23142 /* MyCardsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

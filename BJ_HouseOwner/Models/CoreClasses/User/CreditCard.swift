@@ -13,6 +13,7 @@ class CreditCard{
     let expireDate:Date
     let cardNumber:String
     let cvv:String
+    let isValid:Bool
     
     
     init() {
@@ -20,21 +21,24 @@ class CreditCard{
         self.expireDate = Date()
         self.cardNumber = ""
         self.cvv = ""
+        self.isValid = false
     }
     
-    init(_ holderName:String, _ expireDate:Date, _ cardNumber:String, _ cvv:String) {
+    init(_ holderName:String, _ expireDate:Date, _ cardNumber:String, _ cvv:String, _ isValid:Bool) {
         
         self.holderName = holderName
         self.expireDate = expireDate
         self.cardNumber = cardNumber
         self.cvv = cvv
+        self.isValid = isValid
     }
     
     func asDictionary() -> [String:Any]{
         let dict = ["holderName":holderName,
                     "expireDate":expireDate,
                     "cardNumber":cardNumber,
-                    "cvv":cvv] as [String : Any]
+                    "cvv":cvv,
+                    "isValid":isValid] as [String : Any]
         return dict
     }
     
@@ -43,5 +47,6 @@ class CreditCard{
         print("- expireDate: \(expireDate)")
         print("- cardNumber: \(cardNumber)")
         print("- cvv: \(cvv)")
+        print("- isValid: \(isValid)")
     }
 }

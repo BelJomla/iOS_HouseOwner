@@ -31,7 +31,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:658292407251:ios:b75b9cdd352ab5a1708d26</string>
+	<string>1:658292407251:ios:e496ca5bf414fd7f708d26</string>
 	<key>DATABASE_URL</key>
 	<string>https://senior-project-f124e.firebaseio.com</string>
 </dict>
