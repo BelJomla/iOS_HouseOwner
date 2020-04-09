@@ -24,8 +24,16 @@ struct K {
             static let toOrderHistory = "toOrderHistory"
             static let toAddresses = "toAddresses"
         }
-        
-        
+    }
+    
+    struct UITableCells {
+
+            struct IDs {
+                static let profileSettings = "profileSettingsCell"
+            }
+            struct nibNames {
+                static let profileSettings = "SettingsTableViewCell"
+            }
     }
     
     //identifiers

@@ -25,6 +25,8 @@
 		A91C3041243FA26200D23142 /* MyCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C3040243FA26200D23142 /* MyCardsViewController.swift */; };
 		A91C3043243FA2AF00D23142 /* OrdersHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C3042243FA2AF00D23142 /* OrdersHistoryViewController.swift */; };
 		A91C3045243FA2DB00D23142 /* MyAddressesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C3044243FA2DB00D23142 /* MyAddressesViewController.swift */; };
+		A91C3049243FAEAE00D23142 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C3047243FAEAE00D23142 /* SettingsTableViewCell.swift */; };
+		A91C304A243FAEAE00D23142 /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91C3048243FAEAE00D23142 /* SettingsTableViewCell.xib */; };
 		A945F18B240DB1A7007A13FA /* category.geojson in Resources */ = {isa = PBXBuildFile; fileRef = A945F18A240DB1A7007A13FA /* category.geojson */; };
 		A945F18D240DB412007A13FA /* shoppingCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = A945F18C240DB412007A13FA /* shoppingCategories.swift */; };
 		A945F19124104A5A007A13FA /* JsonReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A945F19024104A5A007A13FA /* JsonReader.swift */; };
@@ -123,6 +125,8 @@
 		A91C3040243FA26200D23142 /* MyCardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardsViewController.swift; sourceTree = "<group>"; };
 		A91C3042243FA2AF00D23142 /* OrdersHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersHistoryViewController.swift; sourceTree = "<group>"; };
 		A91C3044243FA2DB00D23142 /* MyAddressesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAddressesViewController.swift; sourceTree = "<group>"; };
+		A91C3047243FAEAE00D23142 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		A91C3048243FAEAE00D23142 /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
 		A945F18A240DB1A7007A13FA /* category.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = category.geojson; sourceTree = "<group>"; };
 		A945F18C240DB412007A13FA /* shoppingCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shoppingCategories.swift; sourceTree = "<group>"; };
 		A945F19024104A5A007A13FA /* JsonReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonReader.swift; sourceTree = "<group>"; };
@@ -278,6 +282,15 @@
 				A91C3044243FA2DB00D23142 /* MyAddressesViewController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		A91C3046243FAE3400D23142 /* ProfileScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A91C3047243FAEAE00D23142 /* SettingsTableViewCell.swift */,
+				A91C3048243FAEAE00D23142 /* SettingsTableViewCell.xib */,
+			);
+			path = ProfileScreen;
 			sourceTree = "<group>";
 		};
 		A93082C3241920C800FC293C /* AppLifeCycle */ = {
@@ -600,6 +613,7 @@
 		A9E885382425CAE400B6DF50 /* TabScreens */ = {
 			isa = PBXGroup;
 			children = (
+				A91C3046243FAE3400D23142 /* ProfileScreen */,
 				A9E885392425CAF700B6DF50 /* OrdersScreen */,
 				A945F188240D47D7007A13FA /* ShoppingScreen */,
 			);
@@ -750,6 +764,7 @@
 				A9ECC7512400F9D700524238 /* shoppingCollectionCell.xib in Resources */,
 				A9A59C3323FBCB9400F3B6D9 /* seguisb.ttf in Resources */,
 				A9A59C3723FBCB9400F3B6D9 /* segoeuiz.ttf in Resources */,
+				A91C304A243FAEAE00D23142 /* SettingsTableViewCell.xib in Resources */,
 				A9A59ADE23F9DDA200F3B6D9 /* LaunchScreen.storyboard in Resources */,
 				A9A59C3123FBCB9400F3B6D9 /* seguibli.ttf in Resources */,
 				A9A59C3823FBCB9400F3B6D9 /* segoeuil.ttf in Resources */,
@@ -897,6 +912,7 @@
 				A97DD29C241E9B6100FF31F3 /* ShoppingShopping.swift in Sources */,
 				A9DC40FD2425CFEA00E57760 /* OrdersTableViewCell.swift in Sources */,
 				A9E68F17243568A5009F8465 /* ShoppingSubCategory.swift in Sources */,
+				A91C3049243FAEAE00D23142 /* SettingsTableViewCell.swift in Sources */,
 				A903F9BB2439CDFD00415B5D /* OrderCellDelegate.swift in Sources */,
 				A9A59AD623F9DDA100F3B6D9 /* ViewController.swift in Sources */,
 				A91C303F243FA22700D23142 /* ProfileSettingsViewController.swift in Sources */,

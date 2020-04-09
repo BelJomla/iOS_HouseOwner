@@ -9,22 +9,18 @@
 import UIKit
 
 class OrdersHistoryViewController: UIViewController {
-
+    @IBOutlet weak var tableView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("orders history")
-        // Do any additional setup after loading the view.
+        
+        styleUI()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    func styleUI() {
+           tableView.layer.cornerRadius = tableView.layer.frame.width/10
+       }
+    
 
 }
