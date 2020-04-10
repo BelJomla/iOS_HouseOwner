@@ -37,13 +37,7 @@ class ShoppingStyling {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         
-        // adding cart button
-        let cartButton = UIButton(type: .system)
-        cartButton.setImage(UIImage(systemName: "cart.fill"), for: .normal)
-        cartButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: cartButton)
         
-        navigationItem.rightBarButtonItem?.action = #selector(buttonClicked)
         
         //background
         //        navigationController?.navigationBar.tintColor = UIColor(rgb: Colors.darkBlue)

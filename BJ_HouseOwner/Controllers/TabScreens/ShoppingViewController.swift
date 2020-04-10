@@ -31,11 +31,9 @@ class ShoppingViewController: UIViewController{
     override func viewDidLoad() {
         print("shopping")
         
-        let stylingModel = ShoppingStyling()
+        styleUI()
         
-        stylingModel.styleNavigationBar(self.navigationItem, self.tabBarController, self.navigationController)
-        
-        stylingModel.styleTableView(tableView: self.tableView)
+
         
         // intialization of category arrays
         initCategories()
@@ -50,6 +48,21 @@ class ShoppingViewController: UIViewController{
         let nib = UINib(nibName: "shoppingTableCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: K.shoppingTableCell)
         
+
+
+    }
+    
+    @objc func rightBarButtonClicked(){
+        Logger.log(.success, "Clicked right button item")
+    }
+    
+    func styleUI(){
+        let stylingModel = ShoppingStyling()
+        stylingModel.styleNavigationBar(self.navigationItem, self.tabBarController, self.navigationController)
+        stylingModel.styleTableView(tableView: self.tableView)
+       
+        let cartIcon = UIBarButtonItem(image: UIImage(systemName: "cart.fill"), style: .plain, target: self, action: #selector(rightBarButtonClicked))
+        self.navigationItem.rightBarButtonItem  = cartIcon
     }
     
     func initCategories(){

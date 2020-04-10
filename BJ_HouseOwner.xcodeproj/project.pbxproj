@@ -365,7 +365,7 @@
 			path = ContainerCollection;
 			sourceTree = "<group>";
 		};
-		A96BA1262425BD2C006E9E0F /* Storyboard */ = {
+		A96BA1262425BD2C006E9E0F /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
 				A91C303A243F845E00D23142 /* TapScreens */,
@@ -374,7 +374,7 @@
 				A9E885342425BD8F00B6DF50 /* Temporary.storyboard */,
 				A9E885362425BDE100B6DF50 /* Tabscreens.storyboard */,
 			);
-			path = Storyboard;
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		A97DD297241E99BE00FF31F3 /* HelperModels */ = {
@@ -517,7 +517,7 @@
 		A9A59BB823F9E42200F3B6D9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A96BA1262425BD2C006E9E0F /* Storyboard */,
+				A96BA1262425BD2C006E9E0F /* Storyboards */,
 				A9E885382425CAE400B6DF50 /* TabScreens */,
 			);
 			path = Views;
