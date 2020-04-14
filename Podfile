@@ -8,6 +8,7 @@ pod 'PhoneNumberKit', '~> 3.1'
 
 # for Firebase
 pod 'Firebase/Firestore'
+pod 'Firebase/Auth'
 
 
 target 'BJ_HouseOwner' do

@@ -26,14 +26,100 @@ struct DB {
                 completion(data)
                 
             }else{
-                print("\n\n\n\n------!!!----------")
-                print(error!)
-                print("\n\n\n\n-------!----------")
-                assert(false, "Firebase Document Does Not Exist")
+                Logger.log(.warning, "Request Document Does not exist")
+            }
+            if let error = error {
+                Logger.log(.error, "Firebase Error: \n\(error)")
+            }
+            
+        }
+    }
+    
+    static func getDocuments(with collectionName:String, completion: @escaping (_ data:[Any]?)->()){
+        
+        var data:[[String:Any]]? = nil
+        let collectionRef = DB.db.collection(collectionName)
+        
+        collectionRef.getDocuments { (querySnapshot, error) in
+            if let querySnapshot = querySnapshot, !querySnapshot.isEmpty{
+                Logger.log(.success, "Collection Read successfully")
+                data = []
+                
+                let documents = querySnapshot.documents
+                
+                for document in documents {
+                    data?.append(document.data())
+                }
+                completion(data)
+                
+            }else{
+                Logger.log(.error, "NO Documents Found in Collection")
+            }
+            if let error = error {
+                Logger.log(.error, "Firebase Error: \n\(error)")
             }
         }
     }
     
+    static func getCategories(completion: @escaping (_ categories:[ShoppingCategory])->()) {
+        let collectionName = "categories"
+        var categories:[ShoppingCategory] = []
+        
+        DB.getDocuments(with: collectionName){
+            data in
+            
+            let documents = data as! [[String:Any]]?
+            var errorFlag = true
+            if let documents = documents {
+                for document in documents {
+                    // document here is a category
+                    
+                    guard let ID = document["id"] as? String else {return}
+                    guard let name = document["name"] as? [String:String] else {return}
+                    guard let imageURLs = document["imgURLs"]  as? [String] else {return}
+                    guard let hidden = document["hidden"] as? Bool else {return}
+                    
+                    var subCategories:[ShoppingSubCategory] = []
+                    let subCategoriesDB = document["subCategories"] as! [[String:Any]]
+                    let innerErrorFlag = true
+                    
+                    for i in 0..<subCategoriesDB.count{
+                        
+                        let subCat = subCategoriesDB[i]
+                        
+                        let subID = subCat["id"] as! String
+                        let subImageURL = subCat["imgURL"] as? String
+                        let subName = subCat["name"] as! [String:String]
+                        let subHidden = subCat["hidden"] as? Bool ?? true
+                        
+                        let subCategory = ShoppingSubCategory(subID, subImageURL, subName, subHidden)
+                        subCategories.append(subCategory)
+                        
+                    }
+                    
+                    if innerErrorFlag {
+                        Logger.log(.warning, "One of the subcategories is missing some fields")
+                    }
+                    
+                    errorFlag = false // no error happend
+                    
+                    let category = ShoppingCategory(ID, imageURLs, name,  subCategories, hidden)
+                    categories.append(category)
+                    
+                    errorFlag = false
+                }
+                
+                completion(categories)
+                
+                if (errorFlag) {
+                    Logger.log(.error, "Error In Reading Categories From The DB #1")
+                }
+                
+            }else{
+                Logger.log(.error, "Error In Reading Categories From The DB #2")
+            }
+        }
+    }
     
     static func getUser(withID id:String) -> User?{
         var user:User?
@@ -102,19 +188,59 @@ struct DB {
                     convertedCards.append(CreditCard(holderName!, expireDate!, cardNumber!, cvv!, true))
                     Logger.log(.success, "All Feilds are correct for the Credit Card")
                 }
-                
             }
-            
             let tempUser = User(ID, firstName, lastName, mobileNumber, balance, points, type, convertedLocations, convertedCards)
             user = tempUser
-            
-            print("\n\n-------> \n")
-            user?.toString()
-            print("\n-------< \n\n")
+        }
+        return user
+    }
+    
+    static func getDocuments( collectionName:String, whereField field:String, isEqualToValue value:String,  completion: @escaping (_ documents:[[String:Any]])->()){
+        let collectionRef = DB.db.collection(collectionName)
+        let query = collectionRef.whereField(field, isEqualTo: value)
+        var documents:[[String:Any]] = []
+        
+        query.getDocuments { (querySnapshot, error) in
+            if let querySnapshot = querySnapshot, !querySnapshot.isEmpty {
+                for document in querySnapshot.documents {
+                    documents.append(document.data())
+                }
+                completion(documents)
+            }else{
+                Logger.log(.error, "Requested querySnapshot is empty")
+            }
+            if let error = error {
+                Logger.log(.error, "Error in executing firebase query on \(collectionName) FIREBASE ERROR:\n\(error)")
+            }
             
         }
         
-        return user
+    }
+    
+    static func getProducts(withSubCollectionID ID:String, completion: @escaping (_ products: [Product])->()){
+        var products: [Product] = []
+        
+        DB.getDocuments(collectionName: "products", whereField: "subCategory", isEqualToValue: ID){
+             documents in
+             
+            for document in documents {
+                let ID = document["id"] as! String
+                let category = document["category"] as! String
+                let subCategory = document["subCategory"] as! String
+                let sellingPrice = document["sellingPrice"] as! Double
+                let imageURLs = document["imgURLs"] as! [String]
+                
+                let name = document["name"] as! [String:String]
+                let companyName = document["companyName"] as! [String:String]
+                let qualitativeSize = document["qualititveSize"] as! [String:String]
+                let quantitativeSize = document["quantativeSize"] as! [String:String]
+                
+                let oneProduct = Product(ID, category, subCategory, sellingPrice, imageURLs, name, companyName, qualitativeSize, quantitativeSize)
+                
+                products.append(oneProduct)
+            }
+            completion(products)
+         }
     }
 }
 

@@ -36,7 +36,7 @@ class ShoppingViewController: UIViewController{
 
         
         // intialization of category arrays
-        initCategories()
+//        initCategories()
         
         
         // plugging in data source and delegate
@@ -65,12 +65,12 @@ class ShoppingViewController: UIViewController{
         self.navigationItem.rightBarButtonItem  = cartIcon
     }
     
-    func initCategories(){
-        let categoryModel = ShoppingCategroy()
-        self.categoryData = categoryModel.getCategoryData()
-        self.mainCategories = categoryModel.mainCategories
-        self.subCategoryData = categoryModel.getSubCategoryData()
-    }
+//    func initCategories(){
+//        let categoryModel = ShoppingCategroy()
+//        self.categoryData = categoryModel.getCategoryData()
+//        self.mainCategories = categoryModel.mainCategories
+//        self.subCategoryData = categoryModel.getSubCategoryData()
+//    }
     
     
     

@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>FirebaseScreenReportingEnabled</key>
-	<false/>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -20,10 +16,37 @@
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.658292407251-cecg3pgaobtvjte9hfg190dia996io9t</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>FirebaseScreenReportingEnabled</key>
+	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>segoeui.ttf</string>
+		<string>segoeuib.ttf</string>
+		<string>segoeuii.ttf</string>
+		<string>segoeuisl.ttf</string>
+		<string>segoeuiz.ttf</string>
+		<string>seguibl.ttf</string>
+		<string>seguibli.ttf</string>
+		<string>seguili.ttf</string>
+		<string>seguisb.ttf</string>
+		<string>seguisbi.ttf</string>
+		<string>seguisli.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -64,19 +87,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>segoeui.ttf</string>
-		<string>segoeuib.ttf</string>
-		<string>segoeuii.ttf</string>
-		<string>segoeuisl.ttf</string>
-		<string>segoeuiz.ttf</string>
-		<string>seguibl.ttf</string>
-		<string>seguibli.ttf</string>
-		<string>seguili.ttf</string>
-		<string>seguisb.ttf</string>
-		<string>seguisbi.ttf</string>
-		<string>seguisli.ttf</string>
-	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

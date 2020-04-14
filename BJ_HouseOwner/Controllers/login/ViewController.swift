@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import FirebaseAuth
 
 class ViewController: UIViewController{
     
@@ -22,9 +22,37 @@ class ViewController: UIViewController{
            super.viewDidLoad()
            styleUI() //
             // ERROR
-            DB.getUser(withID: "2P6ANOpEfUUkF3Q0gf5aJExnzJH3")
-    }
+//            DB.getUser(withID: "2P6ANOpEfUUkF3Q0gf5aJExnzJH3")
+//
+//        PhoneAuthProvider.provider().verifyPhoneNumber("+966534225804", uiDelegate: nil) { (verificationID, error) in
+//          if let error = error {
+//            Logger.log(.error, " phone auth \(error)")
+//            return
+//          }
+//          // Sign in using the verificationID and the code sent to the user
+//          // ...
+//            print("verification id: \(verificationID)")
+//        }
+        
+//       DB.getCategories(){
+//            categories in
+//            print("in^^^")
+//            for cat in categories{
+//                cat.toString()
+//            }
+//        }
+        
+        DB.getProducts(withSubCollectionID: "4_2"){
+            products in
+            
+            Logger.log(.success, "products has been got")
+            for product in products {
+                product.toString()
+            }
+            
+        }
     
+    }
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         //NOTE: -Can use prepare for segue if needed
