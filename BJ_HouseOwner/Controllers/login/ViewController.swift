@@ -23,7 +23,7 @@ class ViewController: UIViewController{
            styleUI() //
             // ERROR
 //            DB.getUser(withID: "2P6ANOpEfUUkF3Q0gf5aJExnzJH3")
-//
+//  --------------------------------
 //        PhoneAuthProvider.provider().verifyPhoneNumber("+966534225804", uiDelegate: nil) { (verificationID, error) in
 //          if let error = error {
 //            Logger.log(.error, " phone auth \(error)")
@@ -33,7 +33,7 @@ class ViewController: UIViewController{
 //          // ...
 //            print("verification id: \(verificationID)")
 //        }
-        
+//  --------------------------------
 //       DB.getCategories(){
 //            categories in
 //            print("in^^^")
@@ -41,16 +41,23 @@ class ViewController: UIViewController{
 //                cat.toString()
 //            }
 //        }
+//  --------------------------------
+//        DB.getProducts(withSubCollectionID: "4_2"){
+//            products in
+//
+//            Logger.log(.success, "products has been got")
+//            for product in products {
+//                product.toString()
+//            }
+//
+//        }
+//  --------------------------------
+        SettingsUserDefaults.setPreferedLanguage(language: .Arabic)
         
-        DB.getProducts(withSubCollectionID: "4_2"){
-            products in
-            
-            Logger.log(.success, "products has been got")
-            for product in products {
-                product.toString()
-            }
-            
-        }
+        let lang = SettingsUserDefaults.defualts.string(forKey: "language")
+        
+        
+        Logger.log(.success, " success in persisting data. lang: \(lang)")
     
     }
     

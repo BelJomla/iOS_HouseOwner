@@ -50,7 +50,7 @@ class Product {
         let _quantitativeSize:[String:String]
         
         if category == nil {
-            _category = "1_1"
+            _category = "1"
         }else{
             _category = category!
         }

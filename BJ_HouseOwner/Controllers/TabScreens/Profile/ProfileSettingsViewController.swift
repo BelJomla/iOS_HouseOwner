@@ -51,7 +51,7 @@ class ProfileSettingsViewController: UIViewController {
 
 extension ProfileSettingsViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        Int.random(in: 2...4)
+        4
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         3

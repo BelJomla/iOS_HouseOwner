@@ -235,7 +235,7 @@ struct DB {
                 let qualitativeSize = document["qualititveSize"] as! [String:String]
                 let quantitativeSize = document["quantativeSize"] as! [String:String]
                 
-                let oneProduct = Product(ID, category, subCategory, sellingPrice, imageURLs, name, companyName, qualitativeSize, quantitativeSize)
+                let oneProduct = Product.optionalInit(ID, category, subCategory, sellingPrice, imageURLs, name, companyName, qualitativeSize, quantitativeSize)
                 
                 products.append(oneProduct)
             }
