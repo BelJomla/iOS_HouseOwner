@@ -105,12 +105,11 @@
                                                         </state>
                                                         <connections>
                                                             <action selector="nextButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rdV-g2-x9A"/>
-                                                            <segue destination="OER-mn-bcd" kind="show" id="ShK-Ct-m8p"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmn-MO-aTb">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmn-MO-aTb">
                                                 <rect key="frame" x="156" y="305" width="103" height="55"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                                 <state key="normal" title="Button">
@@ -446,6 +445,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="PrY-f3-HWw"/>
-        <segue reference="d2A-gc-Jd4"/>
+        <segue reference="YRX-5J-vKf"/>
     </inferredMetricsTieBreakers>
 </document>
