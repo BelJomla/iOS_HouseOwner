@@ -18,9 +18,11 @@ class ViewController: UIViewController{
     @IBOutlet weak var NextButton: UIButton!
     @IBOutlet weak var invalidPhoneNumber: UILabel!
     
+    let coutryCount = 6 // supported
+    var chosenIndex = 0 // the index of the country codes array, 0 i.e. the first item is the default
     var countryCodesMap:[[String]] = []// [ ['saudi +966','966'] , ['bahran +234', '234'] ...
+    var finalizaedPhoneNumber:String = ""
     
-    var defaultIndex = 0 // the index of the country codes array, 0 i.e. the first item is the default
     
     
     override func viewDidLoad() {
@@ -30,11 +32,13 @@ class ViewController: UIViewController{
         countryPicker.dataSource = self
         countryPicker.delegate = self
         countryCodeTextField.inputView = countryPicker
-        styleUI()
+        
         self.countryCodesMap = self.getCountryCodes()
+        let mapIndex:Int = findIndexOfDefaultCountry(with: "966", forCodes: countryCodesMap)
+        chosenIndex = mapIndex
+        countryCodeTextField.text = countryCodesMap[mapIndex][0]
         
-        
-        
+        styleUI()
         //
         // ERROR
         //            DB.getUser(withID: "2P6ANOpEfUUkF3Q0gf5aJExnzJH3")
@@ -81,6 +85,14 @@ class ViewController: UIViewController{
     
     
     
+    func findIndexOfDefaultCountry(with defaultCode:String, forCodes codes:[[String]]) -> Int{
+        for i in 0..<codes.count {
+            if codes[i][1] == defaultCode {
+                return i
+            }
+        }
+        return 0
+    }
     
     /**
      This fuction updates the UI look and feel. Reason: hard to do using options
@@ -103,11 +115,18 @@ class ViewController: UIViewController{
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         //NOTE: -Can use prepare for segue if needed
+        let isValidPhone:Bool
+        let numberString:String
+        
         if let phoneNumber = phoneTextField.text  {
             LogInBrain.phoneNumber = phoneNumber
-            LogInBrain.countryCode = countryCodesMap[defaultIndex][1]
-            if LogInBrain.checkPhoneNumber() {
+            LogInBrain.countryCode = countryCodesMap[chosenIndex][1]
+            
+            (isValidPhone, numberString) = LogInBrain.checkPhoneNumber()
+            finalizaedPhoneNumber = numberString
+            if  isValidPhone {
                 invalidPhoneNumber.isHidden = true
+                Logger.log(.success, "numberStirng: \(numberString)")
                 performSegue(withIdentifier: K.verifyPhoneSegue, sender: self)
             } else {
                 invalidPhoneNumber.isHidden = false
@@ -115,13 +134,20 @@ class ViewController: UIViewController{
             }
         }
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.verifyPhoneSegue{
+            let phoneVerifyVC = segue.destination as! VerifyViewController
+            phoneVerifyVC.phoneNumber = finalizaedPhoneNumber
+        }
+    }
     
-    //MARK: - DropDown & country Codes
+    //MARK: - country Codes handling
     
     func getCountryCodes () -> ([[String]]){
         
         let countryCodes = readCountryCodes()! // this is a dictionary
         
+        print(countryCodes)
         // here we take the (Dictionary<Key, Value>.Values) type
         // and convert it to array so we can manipulate it
         // the array will contain the contry codes as [String]
@@ -134,15 +160,6 @@ class ViewController: UIViewController{
             (Int(stringCode) ?? -1)
         }
         
-        
-//        // This is the acutal list of options that is displayed to the user
-//        let codesWithCountryName = countryCodesArrInt.map({ (code) -> String in
-//            let countryName = (countryCodes.someKey(forValue: String(code)) ?? "--")
-//            return "\(countryName) (+\(code))"
-//            }
-//        )
-//
-        
         //map
         // This is the acutal list of options that is displayed to the user
         let codesMap = countryCodesArrInt.map({ (code) -> [String] in
@@ -150,13 +167,6 @@ class ViewController: UIViewController{
             return ["\(countryName) (+\(code))", "\(code)"]
             }
         )
-        
-        
-        
-//        _ = countryCodesArrInt.map({ (code) -> String in
-//                   return "\(code)"
-//                   }
-//               )
         
         return codesMap
     }
@@ -191,7 +201,7 @@ class ViewController: UIViewController{
             
             
             //FIXME: -This is hardcoded, find a better way
-            let coutryCount = 7
+            
             var countryCodes :[String:String] = [:]
             
             for index in (0..<coutryCount) {
@@ -233,7 +243,7 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        defaultIndex = row
+        chosenIndex = row
         countryCodeTextField.text = countryCodesMap[row][0]
     }
     

@@ -246,7 +246,7 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GAR-BN-byh">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GAR-BN-byh">
                                         <rect key="frame" x="156" y="407" width="103" height="55"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                         <state key="normal" title="Button">
@@ -286,13 +286,14 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="bO1-yY-U1i"/>
                     <connections>
                         <outlet property="timeLabel" destination="LGl-m9-c54" id="pmL-j7-Fo1"/>
+                        <outlet property="upperMessageLabel" destination="qEC-DK-Q5V" id="U5S-IK-Mp0"/>
                         <outlet property="verifyTextFeild" destination="Gqe-Xt-xG1" id="7dl-2I-BGx"/>
                         <segue destination="8bM-aH-dxb" kind="show" identifier="startApp" id="PrY-f3-HWw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kbe-tB-EiA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1232" y="141"/>
+            <point key="canvasLocation" x="1175" y="141"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="D1A-Yx-zwp">

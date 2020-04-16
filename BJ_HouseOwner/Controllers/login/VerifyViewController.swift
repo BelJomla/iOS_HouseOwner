@@ -12,21 +12,17 @@ class VerifyViewController: UIViewController{
     
     var countDownTime = 60 // seconds
     var validationReady = false
+    var phoneNumber:String = ""
     
-    override func viewWillAppear(_ animated: Bool) {
-       // UIApplication.shared.statusBarStyle = .lightContent
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        //UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
-        
-    }
+    @IBOutlet weak var upperMessageLabel: UILabel!
+    
     
     
     @IBOutlet weak var verifyTextFeild: UITextField!
     
     override func viewDidAppear(_ animated: Bool) {
         verifyTextFeild.becomeFirstResponder()
+        upperMessageLabel.text = "Please type the verification code sent to \(phoneNumber)"
     }
     override func viewDidLoad() {
         verifyTextFeild.delegate = self
