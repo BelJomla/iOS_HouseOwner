@@ -10,15 +10,21 @@ import Foundation
 import UIKit
 class VerifyViewController: UIViewController{
     
-    var countDownTime = 60 // seconds
+    var countDownTime = 3 // seconds
     var validationReady = false
     var phoneNumber:String = ""
     
+    let maxNumberOfResending = 7
+    var numberOfTimesResendPressed = 0
+    
     @IBOutlet weak var upperMessageLabel: UILabel!
-    
-    
-    
     @IBOutlet weak var verifyTextFeild: UITextField!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var resendButton: UIButton!
+    
+    @IBAction func resendPressed(_ sender: Any) {
+     print("resend pressed")
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         verifyTextFeild.becomeFirstResponder()
@@ -26,6 +32,7 @@ class VerifyViewController: UIViewController{
     }
     override func viewDidLoad() {
         verifyTextFeild.delegate = self
+        resendButton.isHidden = true
         styleUI()
         //FIXME: -Should be called after Firebase message has been sent
         decreaseTimer()
@@ -33,7 +40,7 @@ class VerifyViewController: UIViewController{
     }
     
     
-    @IBOutlet weak var timeLabel: UILabel!
+
     
     func decreaseTimer(){
         
@@ -45,7 +52,8 @@ class VerifyViewController: UIViewController{
             timeLabel.text = "Did not receive SMS in \(countDownTime)s?"
             countDownTime -= 1
         }else{
-            timeLabel.text = "Send SMS again if not recieved"
+            timeLabel.text = "Did you receive the SMS?"
+            resendButton.isHidden = false
         }
     }
     
@@ -53,7 +61,7 @@ class VerifyViewController: UIViewController{
     func styleUI (){
         view.backgroundColor = UIColor(rgb: Colors.darkBlue)
         verifyTextFeild.backgroundColor = UIColor(rgb: Colors.mediumBlue)
-        timeLabel.textColor = UIColor(rgb: Colors.lightGray)
+        timeLabel.textColor = .white
     }
 }
 

@@ -109,23 +109,9 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmn-MO-aTb">
-                                                <rect key="frame" x="156" y="305" width="103" height="55"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                                <state key="normal" title="Button">
-                                                    <color key="titleColor" red="0.65265053510000004" green="0.16374573110000001" blue="0.1400781572" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                </state>
-                                                <connections>
-                                                    <segue destination="OER-mn-bcd" kind="show" id="d2A-gc-Jd4"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="xmn-MO-aTb" secondAttribute="trailing" constant="155" id="Ak0-dM-tZQ"/>
                                             <constraint firstItem="04p-ht-635" firstAttribute="top" secondItem="4n1-LJ-b0z" secondAttribute="top" id="LgB-a8-GN6"/>
-                                            <constraint firstAttribute="bottom" secondItem="xmn-MO-aTb" secondAttribute="bottom" constant="143" id="Mux-2b-QaH"/>
-                                            <constraint firstItem="xmn-MO-aTb" firstAttribute="leading" secondItem="4n1-LJ-b0z" secondAttribute="leading" constant="156" id="P4c-k7-w3R"/>
-                                            <constraint firstItem="xmn-MO-aTb" firstAttribute="top" secondItem="04p-ht-635" secondAttribute="bottom" constant="83" id="aI1-cb-3qG"/>
                                             <constraint firstItem="04p-ht-635" firstAttribute="centerX" secondItem="4n1-LJ-b0z" secondAttribute="centerX" id="ais-RE-x1i"/>
                                             <constraint firstItem="04p-ht-635" firstAttribute="centerX" secondItem="4n1-LJ-b0z" secondAttribute="centerX" id="qcI-Bd-4V2"/>
                                             <constraint firstItem="04p-ht-635" firstAttribute="centerX" secondItem="4n1-LJ-b0z" secondAttribute="centerX" id="v9h-tF-CJ0"/>
@@ -216,16 +202,14 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="SegoeUI-Semibold" family="Segoe UI" pointSize="40"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next" textContentType="one-time-code"/>
-                                                <connections>
-                                                    <action selector="fieldChanged:" destination="OER-mn-bcd" eventType="editingDidEnd" id="KLP-tk-NDZ"/>
-                                                </connections>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EXl-eo-yJD" userLabel="Timer&amp;ResendView">
                                                 <rect key="frame" x="0.0" y="82" width="267" height="238"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGl-m9-c54">
-                                                        <rect key="frame" x="0.0" y="0.0" width="159" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="159" height="30"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="auP-KD-1ib"/>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="159" id="fvT-lV-9em"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="SegoeUI-Semilight" family="Segoe UI" pointSize="13"/>
@@ -235,36 +219,26 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2GR-Qb-2ld">
                                                         <rect key="frame" x="169" y="0.0" width="98" height="30"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="df5-bZ-4xH"/>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="zmS-ak-9Ny"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="13"/>
                                                         <state key="normal" title="Resend SMS">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="resendPressed:" destination="OER-mn-bcd" eventType="touchUpInside" id="g8V-wW-Qmo"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GAR-BN-byh">
-                                        <rect key="frame" x="156" y="407" width="103" height="55"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleColor" red="0.65265053510000004" green="0.16374573110000001" blue="0.1400781572" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="8bM-aH-dxb" kind="show" id="89A-6l-4Uk"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="GAR-BN-byh" secondAttribute="trailing" constant="155" id="8Rs-Ce-nLK"/>
                                     <constraint firstAttribute="bottom" secondItem="Nr5-2t-OJP" secondAttribute="bottom" constant="263.5" id="9RM-fy-mNO"/>
                                     <constraint firstItem="Nr5-2t-OJP" firstAttribute="centerX" secondItem="UcQ-mp-Z1L" secondAttribute="centerX" id="LPl-BC-AVw"/>
-                                    <constraint firstItem="GAR-BN-byh" firstAttribute="leading" secondItem="UcQ-mp-Z1L" secondAttribute="leading" constant="156" id="NFw-Hk-9Jh"/>
                                     <constraint firstItem="Nr5-2t-OJP" firstAttribute="top" secondItem="UcQ-mp-Z1L" secondAttribute="top" constant="28" id="Rw6-5G-bHO"/>
-                                    <constraint firstItem="GAR-BN-byh" firstAttribute="top" secondItem="Nr5-2t-OJP" secondAttribute="bottom" constant="59" id="Twt-9C-VaW"/>
-                                    <constraint firstAttribute="bottom" secondItem="GAR-BN-byh" secondAttribute="bottom" constant="149.33000000000001" id="ZHf-Jf-ooO"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -285,9 +259,10 @@
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="bO1-yY-U1i"/>
                     <connections>
+                        <outlet property="resendButton" destination="2GR-Qb-2ld" id="azJ-W7-dsF"/>
                         <outlet property="timeLabel" destination="LGl-m9-c54" id="pmL-j7-Fo1"/>
                         <outlet property="upperMessageLabel" destination="qEC-DK-Q5V" id="U5S-IK-Mp0"/>
-                        <outlet property="verifyTextFeild" destination="Gqe-Xt-xG1" id="7dl-2I-BGx"/>
+                        <outlet property="verifyTextFeild" destination="Gqe-Xt-xG1" id="0W8-6S-GPS"/>
                         <segue destination="8bM-aH-dxb" kind="show" identifier="startApp" id="PrY-f3-HWw"/>
                     </connections>
                 </viewController>
@@ -444,8 +419,4 @@
     <resources>
         <image name="appstore" width="1024" height="1024"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="PrY-f3-HWw"/>
-        <segue reference="YRX-5J-vKf"/>
-    </inferredMetricsTieBreakers>
 </document>
