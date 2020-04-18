@@ -221,8 +221,8 @@ struct DB {
         var products: [Product] = []
         
         DB.getDocuments(collectionName: "products", whereField: "subCategory", isEqualToValue: ID){
-             documents in
-             
+            documents in
+            
             for document in documents {
                 let ID = document["id"] as! String
                 let category = document["category"] as! String
@@ -240,8 +240,22 @@ struct DB {
                 products.append(oneProduct)
             }
             completion(products)
-         }
+        }
     }
+    static func getUserIfExists() -> (User?,Bool){
+        // this will be used to forward the user to get his info, or just login.
+        // to do next
+        // correct back the categories
+        // get back adding items to the cart
+        // logout, related to Auth, and use userDefualts when the user logs in, so that phon verify is not required everytime
+        // profile data assignmet
+        // correctly loading the products, using get product by subcategory
+        // add simple animations
+        
+        return (nil,false)
+    }
+    
 }
+
 
 

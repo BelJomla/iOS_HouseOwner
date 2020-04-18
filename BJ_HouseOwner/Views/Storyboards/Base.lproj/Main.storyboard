@@ -191,7 +191,7 @@
                                 <rect key="frame" x="0.0" y="250.66666666666669" width="414" height="611.33333333333326"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Nr5-2t-OJP">
-                                        <rect key="frame" x="73.666666666666686" y="28.000000000000028" width="267" height="320"/>
+                                        <rect key="frame" x="73.666666666666686" y="28.000000000000028" width="267" height="150"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gqe-Xt-xG1">
                                                 <rect key="frame" x="0.0" y="0.0" width="267" height="62"/>
@@ -204,7 +204,7 @@
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next" textContentType="one-time-code"/>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EXl-eo-yJD" userLabel="Timer&amp;ResendView">
-                                                <rect key="frame" x="0.0" y="82" width="267" height="238"/>
+                                                <rect key="frame" x="0.0" y="82" width="267" height="68"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGl-m9-c54">
                                                         <rect key="frame" x="0.0" y="0.0" width="159" height="30"/>
@@ -233,12 +233,41 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="ebu-W1-6A9"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Wc4-NM-V8p">
+                                        <rect key="frame" x="107" y="190.00000000000003" width="200" height="40"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NSi-Qf-xgb">
+                                                <rect key="frame" x="0.0" y="1" width="40" height="38.666666666666671"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="rBG-sc-iKD"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHh-bo-nYn">
+                                                <rect key="frame" x="56" y="0.0" width="144" height="40"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="Verify "/>
+                                                <connections>
+                                                    <action selector="verifyButtonPressed:" destination="OER-mn-bcd" eventType="touchUpInside" id="S4j-0y-Ra6"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="3fK-zD-MXd"/>
+                                            <constraint firstAttribute="height" constant="40" id="EuB-SW-ux7"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Nr5-2t-OJP" secondAttribute="bottom" constant="263.5" id="9RM-fy-mNO"/>
+                                    <constraint firstItem="Wc4-NM-V8p" firstAttribute="top" secondItem="Nr5-2t-OJP" secondAttribute="bottom" constant="12" id="0cr-xG-0MO"/>
                                     <constraint firstItem="Nr5-2t-OJP" firstAttribute="centerX" secondItem="UcQ-mp-Z1L" secondAttribute="centerX" id="LPl-BC-AVw"/>
-                                    <constraint firstItem="Nr5-2t-OJP" firstAttribute="top" secondItem="UcQ-mp-Z1L" secondAttribute="top" constant="28" id="Rw6-5G-bHO"/>
+                                    <constraint firstItem="Nr5-2t-OJP" firstAttribute="top" secondItem="UcQ-mp-Z1L" secondAttribute="top" constant="28" id="Ugh-vw-RUX"/>
+                                    <constraint firstItem="Wc4-NM-V8p" firstAttribute="centerX" secondItem="UcQ-mp-Z1L" secondAttribute="centerX" id="jiu-fU-AE6"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -253,22 +282,25 @@
                             <constraint firstItem="UcQ-mp-Z1L" firstAttribute="bottom" secondItem="pOz-7e-Dug" secondAttribute="bottom" id="eOr-uP-Tsd"/>
                             <constraint firstItem="UcQ-mp-Z1L" firstAttribute="trailing" secondItem="pOz-7e-Dug" secondAttribute="trailing" id="nSE-HW-KJ1"/>
                             <constraint firstItem="UcQ-mp-Z1L" firstAttribute="top" secondItem="Kqv-uw-I2D" secondAttribute="top" constant="250.5" id="oZM-Gv-X5p"/>
+                            <constraint firstAttribute="bottom" secondItem="UcQ-mp-Z1L" secondAttribute="bottom" constant="34" id="oaj-UY-2fM"/>
                             <constraint firstItem="UcQ-mp-Z1L" firstAttribute="leading" secondItem="pOz-7e-Dug" secondAttribute="leading" id="pL0-x2-qHG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pOz-7e-Dug"/>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="bO1-yY-U1i"/>
                     <connections>
+                        <outlet property="checkmarkIcon" destination="NSi-Qf-xgb" id="Qzg-4K-de3"/>
                         <outlet property="resendButton" destination="2GR-Qb-2ld" id="azJ-W7-dsF"/>
                         <outlet property="timeLabel" destination="LGl-m9-c54" id="pmL-j7-Fo1"/>
                         <outlet property="upperMessageLabel" destination="qEC-DK-Q5V" id="U5S-IK-Mp0"/>
+                        <outlet property="verifyButton" destination="hHh-bo-nYn" id="4tm-zX-TSr"/>
                         <outlet property="verifyTextFeild" destination="Gqe-Xt-xG1" id="0W8-6S-GPS"/>
                         <segue destination="8bM-aH-dxb" kind="show" identifier="startApp" id="PrY-f3-HWw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kbe-tB-EiA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1175" y="141"/>
+            <point key="canvasLocation" x="1173.913043478261" y="140.625"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="D1A-Yx-zwp">
@@ -418,5 +450,6 @@
     </scenes>
     <resources>
         <image name="appstore" width="1024" height="1024"/>
+        <image name="checkmark.circle.fill" catalog="system" width="64" height="60"/>
     </resources>
 </document>

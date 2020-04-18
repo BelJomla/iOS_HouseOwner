@@ -70,6 +70,8 @@
 		A9B8066D2431DC4C00EFF400 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B8066C2431DC4C00EFF400 /* User.swift */; };
 		A9B8066F2431DE2400EFF400 /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B8066E2431DE2400EFF400 /* UserLocation.swift */; };
 		A9B806712431E05D00EFF400 /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B806702431E05D00EFF400 /* CreditCard.swift */; };
+		A9DA74DA24493D5B0085FAEB /* SwiftExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DA74D924493D5B0085FAEB /* SwiftExtentions.swift */; };
+		A9DA74DC244958C00085FAEB /* FirebaseAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DA74DB244958C00085FAEB /* FirebaseAuth.swift */; };
 		A9DC40FD2425CFEA00E57760 /* OrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC40FB2425CFEA00E57760 /* OrdersTableViewCell.swift */; };
 		A9DC40FE2425CFEA00E57760 /* OrdersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC40FC2425CFEA00E57760 /* OrdersTableViewCell.xib */; };
 		A9E68F15243567FA009F8465 /* ShoppingCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E68F14243567FA009F8465 /* ShoppingCategory.swift */; };
@@ -175,6 +177,8 @@
 		A9B8066C2431DC4C00EFF400 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A9B8066E2431DE2400EFF400 /* UserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
 		A9B806702431E05D00EFF400 /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
+		A9DA74D924493D5B0085FAEB /* SwiftExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftExtentions.swift; sourceTree = "<group>"; };
+		A9DA74DB244958C00085FAEB /* FirebaseAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuth.swift; sourceTree = "<group>"; };
 		A9DC40FB2425CFEA00E57760 /* OrdersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewCell.swift; sourceTree = "<group>"; };
 		A9DC40FC2425CFEA00E57760 /* OrdersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrdersTableViewCell.xib; sourceTree = "<group>"; };
 		A9E68F14243567FA009F8465 /* ShoppingCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCategory.swift; sourceTree = "<group>"; };
@@ -250,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				A91C3037243F67F000D23142 /* Logger.swift */,
+				A9DA74D924493D5B0085FAEB /* SwiftExtentions.swift */,
 			);
 			path = HelperClasses;
 			sourceTree = "<group>";
@@ -573,6 +578,7 @@
 			isa = PBXGroup;
 			children = (
 				A9ECEF0C243349B300D5358F /* DB.swift */,
+				A9DA74DB244958C00085FAEB /* FirebaseAuth.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -912,6 +918,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9DA74DC244958C00085FAEB /* FirebaseAuth.swift in Sources */,
 				A9B806712431E05D00EFF400 /* CreditCard.swift in Sources */,
 				A9A59BBF23FA183D00F3B6D9 /* Constants.swift in Sources */,
 				A91C3045243FA2DB00D23142 /* MyAddressesViewController.swift in Sources */,
@@ -924,6 +931,7 @@
 				A91C303F243FA22700D23142 /* ProfileSettingsViewController.swift in Sources */,
 				A90039882435A770002327E4 /* ProfileViewController.swift in Sources */,
 				A9A59BBB23F9F93700F3B6D9 /* Colors.swift in Sources */,
+				A9DA74DA24493D5B0085FAEB /* SwiftExtentions.swift in Sources */,
 				A91C3043243FA2AF00D23142 /* OrdersHistoryViewController.swift in Sources */,
 				A9A59AD223F9DDA100F3B6D9 /* AppDelegate.swift in Sources */,
 				A95C6A502438F5C5003E180F /* InnerOrderTableViewCell.swift in Sources */,
