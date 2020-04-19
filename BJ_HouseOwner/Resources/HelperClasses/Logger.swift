@@ -13,7 +13,7 @@ enum LogType: String{
     case warning
     case success
     case action
-    case canceled
+    case info
 }
 
 class Logger{
@@ -24,15 +24,15 @@ class Logger{
         
         switch logType {
         case LogType.error:
-            print("\n📕 Error: LogCat(\(Logger.logCount)) \(message)\n")
+            print("\n❌ Error: LogCat(\(Logger.logCount)) \(message)\n")
         case LogType.warning:
-            print("\n📙 Warning: LogCat(\(Logger.logCount)) \(message)\n")
+            print("\n⚠️ Warning: LogCat(\(Logger.logCount)) \(message)\n")
         case LogType.success:
-            print("\n📗 Success: LogCat(\(Logger.logCount)) \(message)\n")
+            print("\n✅ Success: LogCat(\(Logger.logCount)) \(message)\n")
         case LogType.action:
-            print("\n📘 Action: LogCat(\(Logger.logCount)) \(message)\n")
-        case LogType.canceled:
-            print("\n📓 Cancelled: LogCat(\(Logger.logCount)) \(message)\n")
+            print("\n🔷 Action: LogCat(\(Logger.logCount)) \(message)\n")
+        case LogType.info:
+            print("\n♈️ Info : LogCat(\(Logger.logCount)) \(message)\n")
         }
     }
     

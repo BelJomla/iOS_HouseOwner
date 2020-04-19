@@ -33,11 +33,14 @@ class ShoppingViewController: UIViewController{
         
         styleUI()
         
-
+        
         
         // intialization of category arrays
 //        initCategories()
         
+        if let navigationbar = self.navigationController?.navigationBar {
+            navigationbar.barTintColor = UIColor.white
+        }
         
         // plugging in data source and delegate
         tableView.delegate = self

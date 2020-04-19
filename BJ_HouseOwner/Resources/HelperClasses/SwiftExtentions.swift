@@ -31,3 +31,15 @@ extension String {
         return String(self[startIndex..<endIndex])
     }
 }
+
+extension UIViewController {
+
+  func okAlert( title: String, message : String) {
+    let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    let OKAction = UIAlertAction(title: "OK", style: .default) { action in
+        //print("You've pressed OK Button")
+    }
+    alertController.addAction(OKAction)
+    self.present(alertController, animated: true, completion: nil)
+  }
+}

@@ -39,6 +39,7 @@ class VerifyViewController: UIViewController{
     @IBAction func verifyButtonPressed(_ sender: Any) {
         if(!messageSendingRequested){
             // message not requested yet from firebase
+            Logger.log(.warning, "user clicked vetify before the sms message is requested from firebase")
         }else{
             if let enteredCode = verifyTextFeild?.text {
                 if enteredCode == "" {
@@ -50,6 +51,11 @@ class VerifyViewController: UIViewController{
                         isSuccessful in
                         
                         if isSuccessful{
+                            
+                            // testing
+                            FirebaseAuthStruct.isUserSignedIn()
+                            // end testing
+                            self.checkmarkIcon.tintColor = .green
                             self.performSegue(withIdentifier: K.registerNewUser, sender: self)
                         }else{
                             self.okAlert(title: "Incorrect Code", message: "Please make sure you enter the correct verfication code")
@@ -76,23 +82,13 @@ class VerifyViewController: UIViewController{
         }else{
             okAlert(title: "Max SMS Requests Reached", message: "You have reached the maximum number of SMS requests, check your network connectivity, and try again in few minutes")
             
+            
             print("Invalid press")
         }
     }
     
-    func okAlert(title:String, message:String){
-        // create the alert
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        
-        // add an action (button)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        
-        // show the alert
-        self.present(alert, animated: true, completion: nil)
-    }
-    
     func sendVerificationCode(forPhone phone:String){
-        FirebaseAuth.sendVerficationMessage(forPhone: phone){
+        FirebaseAuthStruct.sendVerficationMessage(forPhone: phone){
             verificationID in
             self.messageSendingRequested = true
             self.verificationID = verificationID
@@ -100,7 +96,7 @@ class VerifyViewController: UIViewController{
     }
     func verifyCode(verificationCode:String, verificationID:String , completion: @escaping (_ isSuccessful:Bool)->()){
         //FIXME: isMFAendabled is fixed to true. It is not know what it does
-        FirebaseAuth.verifyCode(verificationID: verificationID, verificationCode: verificationCode, isMFAEnabled: true){
+        FirebaseAuthStruct.verifyCode(verificationID: verificationID, verificationCode: verificationCode, isMFAEnabled: true){
             isSuccessful in
             
             completion(isSuccessful)
@@ -168,4 +164,6 @@ extension VerifyViewController:UITextFieldDelegate {
     
     
 }
+
+
 

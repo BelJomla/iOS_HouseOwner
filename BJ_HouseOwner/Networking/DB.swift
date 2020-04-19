@@ -242,20 +242,36 @@ struct DB {
             completion(products)
         }
     }
-    static func getUserIfExists() -> (User?,Bool){
-        // this will be used to forward the user to get his info, or just login.
-        // to do next
-        // correct back the categories
-        // get back adding items to the cart
-        // logout, related to Auth, and use userDefualts when the user logs in, so that phon verify is not required everytime
-        // profile data assignmet
-        // correctly loading the products, using get product by subcategory
-        // add simple animations
+    static func getUserIfExists(withPhone phone:String) -> (User?,Bool){
+        DB.getDocuments(collectionName: "users", whereField: "mobileNumber", isEqualToValue: phone){
+            documents in
+            
+            if documents.isEmpty{
+             // user is not registered
+                Logger.log(.info, "looks like the user is not registered")
+            }else{
+             // user is registered
+                Logger.log(.info, "horay! the user has been found!")
+                print(documents)
+            }
+        }
         
         return (nil,false)
     }
     
+
+    
+    
 }
+
+// this will be used to forward the user to get his info, or just login.
+// to do next
+// correct back the categories
+// get back adding items to the cart
+// logout, related to Auth, and use userDefualts when the user logs in, so that phon verify is not required everytime
+// profile data assignmet
+// correctly loading the products, using get product by subcategory
+// add simple animations
 
 
 

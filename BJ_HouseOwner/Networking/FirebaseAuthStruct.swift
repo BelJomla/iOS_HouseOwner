@@ -12,7 +12,8 @@ import FirebaseAuth
 import UIKit
 
 
-struct FirebaseAuth {
+struct FirebaseAuthStruct {
+    static let auth = Auth.auth()
     static func sendVerficationMessage(forPhone phone:String, completion: @escaping (_ verificationCode:String)->()){
         PhoneAuthProvider.provider().verifyPhoneNumber(phone, uiDelegate: nil) { (verificationID, error) in
             if let error = error {
@@ -58,6 +59,41 @@ struct FirebaseAuth {
             // ...
             Logger.log(.success, "user signed ")
             completion(true)
+        }
+    }
+    
+    static func createNewUser(_ phoneNumber:String, _ firstName:String, _ lastName:String){
+        //        FirebaseAuth.auth.createUser
+    }
+    static func signout(completion:@escaping (_ success:Bool)->()){
+        let firebaseAuth = FirebaseAuthStruct.auth
+        do {
+            try firebaseAuth.signOut()
+            completion(true)
+        } catch let signOutError as NSError {
+            Logger.log(.error, "Could not sign the user out")
+            print ("Error signing out: %@", signOutError)
+            completion(false)
+        }
+    }
+    static func stateDidChange(){
+        let handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            // ...
+        }
+    }
+    static func isUserSignedIn() -> Bool{
+        if FirebaseAuthStruct.auth.currentUser != nil {
+            // User is signed in.
+            // ...
+            Logger.log(.info, "user is signed in")
+//            print(FirebaseAuthStruct.auth.currentUser?.phoneNumber)
+            return true
+        } else {
+            // No user is signed in.
+            // ...
+            Logger.log(.warning
+                , "user not signed in")
+            return false
         }
     }
     

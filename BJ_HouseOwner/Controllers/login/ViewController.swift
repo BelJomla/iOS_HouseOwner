@@ -39,19 +39,16 @@ class ViewController: UIViewController{
         countryCodeTextField.text = countryCodesMap[mapIndex][0]
         
         styleUI()
+        // testing // FirebaseAuthStruct.signout();
+       
+         FirebaseAuthStruct.isUserSignedIn()
+        
+        //DB.getUserIfExists(withPhone: "") // use Auth
+        
         //
         // ERROR
         //            DB.getUser(withID: "2P6ANOpEfUUkF3Q0gf5aJExnzJH3")
-        //  --------------------------------
-        //        PhoneAuthProvider.provider().verifyPhoneNumber("+966534225804", uiDelegate: nil) { (verificationID, error) in
-        //          if let error = error {
-        //            Logger.log(.error, " phone auth \(error)")
-        //            return
-        //          }
-        //          // Sign in using the verificationID and the code sent to the user
-        //          // ...
-        //            print("verification id: \(verificationID)")
-        //        }
+        
         //  --------------------------------
         //       DB.getCategories(){
         //            categories in

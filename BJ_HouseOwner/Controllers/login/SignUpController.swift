@@ -18,18 +18,45 @@ class SignUpController: UIViewController{
     @IBOutlet weak var firstNameTextFeild: UITextField!
     @IBOutlet weak var lastNameTextFeild: UITextField!
     @IBAction func SignUpPressed(_ sender: UIButton) {
+        
+        if let firstNameTextFeildText = firstNameTextFeild.text, let lastNameTextFeildText = lastNameTextFeild.text {
+            
+            if ( firstNameTextFeildText == "" || lastNameTextFeildText == "" ){
+                okAlert(title: "Information Needed", message: "We need your name, so we can register you in our system", viewController: self)
+            }else{
+                // info entered
+            }
+            
+        }else{
+            okAlert(title: "Information Needed", message: "We need your name, so we can register you in our system", viewController: self)
+        }
+        
+        // style
         self.navigationController?.navigationBar.isHidden = true
         performSegue(withIdentifier: "ToTabScreens", sender: self)
+        
+        // register user in Firestore
+        
     }
     
     override func viewDidLoad() {
         styleUI()
-    
         navigationItem.hidesBackButton = true
+        print("Singup Screens")
         
-        print("please sign up")
     }
     
+    
+    func okAlert(title:String, message:String, viewController:UIViewController){
+        // create the alert
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        
+        // show the alert
+        viewController.present(alert, animated: true, completion: nil)
+    }
    
     func styleUI(){
         
@@ -71,3 +98,6 @@ extension UITextField {
         layer.addSublayer(bottomLine)
     }
 }
+
+
+

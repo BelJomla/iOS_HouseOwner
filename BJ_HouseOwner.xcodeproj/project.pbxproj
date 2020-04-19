@@ -71,7 +71,11 @@
 		A9B8066F2431DE2400EFF400 /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B8066E2431DE2400EFF400 /* UserLocation.swift */; };
 		A9B806712431E05D00EFF400 /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B806702431E05D00EFF400 /* CreditCard.swift */; };
 		A9DA74DA24493D5B0085FAEB /* SwiftExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DA74D924493D5B0085FAEB /* SwiftExtentions.swift */; };
-		A9DA74DC244958C00085FAEB /* FirebaseAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DA74DB244958C00085FAEB /* FirebaseAuth.swift */; };
+		A9DA74DC244958C00085FAEB /* FirebaseAuthStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DA74DB244958C00085FAEB /* FirebaseAuthStruct.swift */; };
+		A9DA74E0244BB8010085FAEB /* ClickableSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DA74DE244BB8010085FAEB /* ClickableSettingsTableViewCell.swift */; };
+		A9DA74E1244BB8010085FAEB /* ClickableSettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DA74DF244BB8010085FAEB /* ClickableSettingsTableViewCell.xib */; };
+		A9DA74E4244BB8240085FAEB /* SwitchSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DA74E2244BB8240085FAEB /* SwitchSettingsTableViewCell.swift */; };
+		A9DA74E5244BB8240085FAEB /* SwitchSettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DA74E3244BB8240085FAEB /* SwitchSettingsTableViewCell.xib */; };
 		A9DC40FD2425CFEA00E57760 /* OrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC40FB2425CFEA00E57760 /* OrdersTableViewCell.swift */; };
 		A9DC40FE2425CFEA00E57760 /* OrdersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC40FC2425CFEA00E57760 /* OrdersTableViewCell.xib */; };
 		A9E68F15243567FA009F8465 /* ShoppingCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E68F14243567FA009F8465 /* ShoppingCategory.swift */; };
@@ -178,7 +182,11 @@
 		A9B8066E2431DE2400EFF400 /* UserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
 		A9B806702431E05D00EFF400 /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
 		A9DA74D924493D5B0085FAEB /* SwiftExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftExtentions.swift; sourceTree = "<group>"; };
-		A9DA74DB244958C00085FAEB /* FirebaseAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuth.swift; sourceTree = "<group>"; };
+		A9DA74DB244958C00085FAEB /* FirebaseAuthStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthStruct.swift; sourceTree = "<group>"; };
+		A9DA74DE244BB8010085FAEB /* ClickableSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickableSettingsTableViewCell.swift; sourceTree = "<group>"; };
+		A9DA74DF244BB8010085FAEB /* ClickableSettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClickableSettingsTableViewCell.xib; sourceTree = "<group>"; };
+		A9DA74E2244BB8240085FAEB /* SwitchSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchSettingsTableViewCell.swift; sourceTree = "<group>"; };
+		A9DA74E3244BB8240085FAEB /* SwitchSettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchSettingsTableViewCell.xib; sourceTree = "<group>"; };
 		A9DC40FB2425CFEA00E57760 /* OrdersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewCell.swift; sourceTree = "<group>"; };
 		A9DC40FC2425CFEA00E57760 /* OrdersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrdersTableViewCell.xib; sourceTree = "<group>"; };
 		A9E68F14243567FA009F8465 /* ShoppingCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCategory.swift; sourceTree = "<group>"; };
@@ -263,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				A91C303B243F84BF00D23142 /* Profile.storyboard */,
+				A9DA74DD244BB7C70085FAEB /* SettingsScreen */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -578,7 +587,7 @@
 			isa = PBXGroup;
 			children = (
 				A9ECEF0C243349B300D5358F /* DB.swift */,
-				A9DA74DB244958C00085FAEB /* FirebaseAuth.swift */,
+				A9DA74DB244958C00085FAEB /* FirebaseAuthStruct.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -591,6 +600,33 @@
 				A9E68F1824356CE0009F8465 /* Category */,
 			);
 			path = CoreClasses;
+			sourceTree = "<group>";
+		};
+		A9DA74DD244BB7C70085FAEB /* SettingsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A9DA74E6244BB82B0085FAEB /* Clickable */,
+				A9DA74E8244BB83E0085FAEB /* Switchable */,
+			);
+			path = SettingsScreen;
+			sourceTree = "<group>";
+		};
+		A9DA74E6244BB82B0085FAEB /* Clickable */ = {
+			isa = PBXGroup;
+			children = (
+				A9DA74DE244BB8010085FAEB /* ClickableSettingsTableViewCell.swift */,
+				A9DA74DF244BB8010085FAEB /* ClickableSettingsTableViewCell.xib */,
+			);
+			path = Clickable;
+			sourceTree = "<group>";
+		};
+		A9DA74E8244BB83E0085FAEB /* Switchable */ = {
+			isa = PBXGroup;
+			children = (
+				A9DA74E2244BB8240085FAEB /* SwitchSettingsTableViewCell.swift */,
+				A9DA74E3244BB8240085FAEB /* SwitchSettingsTableViewCell.xib */,
+			);
+			path = Switchable;
 			sourceTree = "<group>";
 		};
 		A9DC40FF2425E52200E57760 /* InnerTableView */ = {
@@ -765,6 +801,7 @@
 			files = (
 				A9A59C3023FBCB9400F3B6D9 /* seguibl.ttf in Resources */,
 				A9A59C3623FBCB9400F3B6D9 /* seguisli.ttf in Resources */,
+				A9DA74E1244BB8010085FAEB /* ClickableSettingsTableViewCell.xib in Resources */,
 				A91C3035243F447500D23142 /* GoogleService-Info.plist in Resources */,
 				A945F196241176ED007A13FA /* ProductCollectionViewCell.xib in Resources */,
 				A9A59C3923FBCB9400F3B6D9 /* segoeui.ttf in Resources */,
@@ -788,6 +825,7 @@
 				A9ECC74D2400F86A00524238 /* shoppingTableCell.xib in Resources */,
 				A9A59ADB23F9DDA200F3B6D9 /* Assets.xcassets in Resources */,
 				A9A59AD923F9DDA100F3B6D9 /* Main.storyboard in Resources */,
+				A9DA74E5244BB8240085FAEB /* SwitchSettingsTableViewCell.xib in Resources */,
 				A9A59C3A23FBCB9400F3B6D9 /* segoeuii.ttf in Resources */,
 				A9A59C3423FBCB9400F3B6D9 /* seguili.ttf in Resources */,
 				A9A59BC423FB3B8400F3B6D9 /* countryCodes.json in Resources */,
@@ -918,13 +956,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9DA74DC244958C00085FAEB /* FirebaseAuth.swift in Sources */,
+				A9DA74DC244958C00085FAEB /* FirebaseAuthStruct.swift in Sources */,
 				A9B806712431E05D00EFF400 /* CreditCard.swift in Sources */,
 				A9A59BBF23FA183D00F3B6D9 /* Constants.swift in Sources */,
 				A91C3045243FA2DB00D23142 /* MyAddressesViewController.swift in Sources */,
 				A97DD29C241E9B6100FF31F3 /* ShoppingStyling.swift in Sources */,
 				A9DC40FD2425CFEA00E57760 /* OrdersTableViewCell.swift in Sources */,
 				A9E68F17243568A5009F8465 /* ShoppingSubCategory.swift in Sources */,
+				A9DA74E0244BB8010085FAEB /* ClickableSettingsTableViewCell.swift in Sources */,
 				A91C3049243FAEAE00D23142 /* SettingsTableViewCell.swift in Sources */,
 				A903F9BB2439CDFD00415B5D /* OrderCellDelegate.swift in Sources */,
 				A9A59AD623F9DDA100F3B6D9 /* ViewController.swift in Sources */,
@@ -949,6 +988,7 @@
 				A9135DBF2421153D00175497 /* SignUpController.swift in Sources */,
 				A9135DC124212B2300175497 /* SignUp.swift in Sources */,
 				A9A59BC123FB3B1300F3B6D9 /* contryCodes.swift in Sources */,
+				A9DA74E4244BB8240085FAEB /* SwitchSettingsTableViewCell.swift in Sources */,
 				A997BAC5244645EA00C205E7 /* SettingsUserDefaults.swift in Sources */,
 				A98D66F923FCFD1E006B1791 /* ChatViewController.swift in Sources */,
 				A9ECEF0D243349B300D5358F /* DB.swift in Sources */,

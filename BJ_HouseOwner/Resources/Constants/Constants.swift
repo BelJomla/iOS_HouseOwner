@@ -30,9 +30,13 @@ struct K {
 
             struct IDs {
                 static let profileSettings = "profileSettingsCell"
+                static let clickableSettingsCell = "ClickableSettingsTableViewCell"
+                static let switchSettingsCell = "SwitchSettingsTableViewCell"
             }
             struct nibNames {
                 static let profileSettings = "SettingsTableViewCell"
+                static let clickableSettingsCell = "ClickableSettingsTableViewCell"
+                static let switchSettingsCell = "SwitchSettingsTableViewCell"
             }
     }
     

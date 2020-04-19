@@ -262,10 +262,24 @@
                                             <constraint firstAttribute="height" constant="40" id="EuB-SW-ux7"/>
                                         </constraints>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DtE-yV-0wh">
+                                        <rect key="frame" x="134" y="307" width="158" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="Pass Screen">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="8bM-aH-dxb" kind="show" id="IML-nf-kh8"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Wc4-NM-V8p" firstAttribute="top" secondItem="Nr5-2t-OJP" secondAttribute="bottom" constant="12" id="0cr-xG-0MO"/>
+                                    <constraint firstAttribute="bottom" secondItem="DtE-yV-0wh" secondAttribute="bottom" constant="256.32999999999998" id="EaT-Ff-j9o"/>
                                     <constraint firstItem="Nr5-2t-OJP" firstAttribute="centerX" secondItem="UcQ-mp-Z1L" secondAttribute="centerX" id="LPl-BC-AVw"/>
+                                    <constraint firstItem="DtE-yV-0wh" firstAttribute="top" secondItem="Wc4-NM-V8p" secondAttribute="bottom" constant="77" id="N7j-Am-NOr"/>
+                                    <constraint firstAttribute="trailing" secondItem="DtE-yV-0wh" secondAttribute="trailing" constant="122" id="Ndl-fm-y4r"/>
+                                    <constraint firstItem="DtE-yV-0wh" firstAttribute="leading" secondItem="UcQ-mp-Z1L" secondAttribute="leading" constant="134" id="Nk7-f4-dPf"/>
                                     <constraint firstItem="Nr5-2t-OJP" firstAttribute="top" secondItem="UcQ-mp-Z1L" secondAttribute="top" constant="28" id="Ugh-vw-RUX"/>
                                     <constraint firstItem="Wc4-NM-V8p" firstAttribute="centerX" secondItem="UcQ-mp-Z1L" secondAttribute="centerX" id="jiu-fU-AE6"/>
                                 </constraints>
@@ -452,4 +466,7 @@
         <image name="appstore" width="1024" height="1024"/>
         <image name="checkmark.circle.fill" catalog="system" width="64" height="60"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="PrY-f3-HWw"/>
+    </inferredMetricsTieBreakers>
 </document>
