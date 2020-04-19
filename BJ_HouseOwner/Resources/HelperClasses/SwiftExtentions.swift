@@ -34,10 +34,13 @@ extension String {
 
 extension UIViewController {
 
-  func okAlert( title: String, message : String) {
+    func okAlert( _ title: String, _ message : String,_ completionFunc: (()->())?) {
     let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
     let OKAction = UIAlertAction(title: "OK", style: .default) { action in
         //print("You've pressed OK Button")
+        if let completionFunc = completionFunc {
+            completionFunc()
+        }
     }
     alertController.addAction(OKAction)
     self.present(alertController, animated: true, completion: nil)

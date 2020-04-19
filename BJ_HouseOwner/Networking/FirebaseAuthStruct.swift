@@ -76,25 +76,28 @@ struct FirebaseAuthStruct {
             completion(false)
         }
     }
-    static func stateDidChange(){
-        let handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-            // ...
-        }
-    }
+
     static func isUserSignedIn() -> Bool{
-        if FirebaseAuthStruct.auth.currentUser != nil {
+        let user = FirebaseAuthStruct.auth.currentUser
+        if user != nil {
             // User is signed in.
-            // ...
-            Logger.log(.info, "user is signed in")
-//            print(FirebaseAuthStruct.auth.currentUser?.phoneNumber)
+            Logger.log(.info, "user is signed in wit id: \(user!.uid)")
+            // print(FirebaseAuthStruct.auth.currentUser?.phoneNumber)
             return true
         } else {
             // No user is signed in.
-            // ...
             Logger.log(.warning
                 , "user not signed in")
             return false
         }
     }
-    
 }
+
+// this will be used to forward the user to get his info, or just login.
+// to do next
+// correct back the categories
+// get back adding items to the cart
+// logout, related to Auth, and use userDefualts when the user logs in, so that phon verify is not required everytime
+// profile data assignmet
+// correctly loading the products, using get product by subcategory
+// add simple animations

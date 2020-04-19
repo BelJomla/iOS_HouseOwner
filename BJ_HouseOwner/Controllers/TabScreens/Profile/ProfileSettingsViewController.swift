@@ -27,11 +27,11 @@ class ProfileSettingsViewController: UIViewController {
         FirebaseAuthStruct.signout(){
             success in
             if(success){
-                self.okAlert(title: "Signed Out", message: "You have been successfully signed out, you may exit the app now.")
+                self.okAlert("Signed Out", "You have been successfully signed out, you may exit the app now.", nil)
                 // should pop to rootViewController
                 
             }else{
-                self.okAlert(title: "Error", message: "There has been an error siging you out")
+                self.okAlert( "Error",  "There has been an error siging you out", nil)
             }
         }
     }

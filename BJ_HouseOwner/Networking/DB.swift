@@ -100,15 +100,11 @@ struct DB {
                     if innerErrorFlag {
                         Logger.log(.warning, "One of the subcategories is missing some fields")
                     }
-                    
                     errorFlag = false // no error happend
-                    
                     let category = ShoppingCategory(ID, imageURLs, name,  subCategories, hidden)
                     categories.append(category)
-                    
                     errorFlag = false
                 }
-                
                 completion(categories)
                 
                 if (errorFlag) {
@@ -121,11 +117,33 @@ struct DB {
         }
     }
     
-    static func getUser(withID id:String) -> User?{
+    static func getUser(withID id:String, completion:@escaping (_ user:User?)->()){
         var user:User?
         
         DB.getDocument(with: "/users/\(id)"){
             data in
+            
+            user = DB.parseUser(data)
+            completion(user)
+        }
+    }
+    
+    static func getUser(withPhone phone:String, completion: @escaping (_ user:User?)->()){
+        getDocuments(collectionName: "users", whereField: "mobileNumber", isEqualToValue: phone){
+            data in
+            // data[0] since we are expecting phone number to act as the primary key
+            
+            var user:User? = nil
+            if data.isEmpty {
+                
+            }else{
+                user = parseUser(data[0])
+            }
+            completion(user)
+        }
+    }
+    
+    static func parseUser(_ data:[String : Any]?)->User?{
             
             let ID = data?["id"] as! String
             let firstName = data?["firstName"] as! String
@@ -136,29 +154,34 @@ struct DB {
             let points = data?["points"] as! Int
             let type = data?["type"] as! Int
             
-            var locations = data?["locations"] as? [[String:Any]] ?? [UserLocation().asDictionary()]
+            let locations = data?["locations"] as? [[String:Any]] ?? [UserLocation().asDictionary()]
             var creditCards = data?["creditCards"] as? [[String:Any]] ?? [CreditCard().asDictionary()]
             var convertedLocations:[UserLocation] = []
             var convertedCards:[CreditCard] = []
-            
             
             for index in 0..<locations.count {
                 
                 let country = locations[index]["country"] as? String
                 let city = locations[index]["city"] as? String
                 let neightbour =  locations[index]["neighbour"] as? String
-                let lat = locations[index]["lat"] as? String
-                let long =  locations[index]["long"] as? String
+                //                let lat = locations[index]["lat"] as? String
+                //                let long =  locations[index]["long"] as? String
+                let coordinates = locations[index]["coordinates"] as? GeoPoint
+                let lat = coordinates?.latitude
+                let long = coordinates?.longitude
+                Logger.log(.info, "lat: \(String(describing: lat))")
+                Logger.log(.info, "long: \(String(describing: long))")
                 
                 if  (country == nil || city == nil
-                    || neightbour == nil ||  lat == nil || long == nil){
+                    || neightbour == nil ||  coordinates == nil){
                     
                     Logger.log(.warning, "Incomplete Location Received From the DB [containing Nil]")
                     // making a default location that can't be used for actual delivery
-                    locations[index] = UserLocation().asDictionary()
+                    // locations[index] = UserLocation().asDictionary()
+                    convertedLocations.append(UserLocation(country, city, neightbour, lat, long, false))
                     
                 }else {
-                    convertedLocations.append(UserLocation(country!, city!, neightbour!, lat!, long!, true))
+                    convertedLocations.append(UserLocation(country!, city!, neightbour!, lat, long, true))
                 }
             }
             
@@ -189,79 +212,76 @@ struct DB {
                     Logger.log(.success, "All Feilds are correct for the Credit Card")
                 }
             }
-            let tempUser = User(ID, firstName, lastName, mobileNumber, balance, points, type, convertedLocations, convertedCards)
-            user = tempUser
-        }
-        return user
-    }
-    
-    static func getDocuments( collectionName:String, whereField field:String, isEqualToValue value:String,  completion: @escaping (_ documents:[[String:Any]])->()){
-        let collectionRef = DB.db.collection(collectionName)
-        let query = collectionRef.whereField(field, isEqualTo: value)
-        var documents:[[String:Any]] = []
-        
-        query.getDocuments { (querySnapshot, error) in
-            if let querySnapshot = querySnapshot, !querySnapshot.isEmpty {
-                for document in querySnapshot.documents {
-                    documents.append(document.data())
-                }
-                completion(documents)
-            }else{
-                Logger.log(.error, "Requested querySnapshot is empty")
-            }
-            if let error = error {
-                Logger.log(.error, "Error in executing firebase query on \(collectionName) FIREBASE ERROR:\n\(error)")
-            }
-            
-        }
+            let user = User(ID, firstName, lastName, mobileNumber, balance, points, type, convertedLocations, convertedCards)
+    //        user = tempUser
+    //        completion(user)
+            return user
         
     }
     
-    static func getProducts(withSubCollectionID ID:String, completion: @escaping (_ products: [Product])->()){
-        var products: [Product] = []
-        
-        DB.getDocuments(collectionName: "products", whereField: "subCategory", isEqualToValue: ID){
-            documents in
-            
-            for document in documents {
-                let ID = document["id"] as! String
-                let category = document["category"] as! String
-                let subCategory = document["subCategory"] as! String
-                let sellingPrice = document["sellingPrice"] as! Double
-                let imageURLs = document["imgURLs"] as! [String]
-                
-                let name = document["name"] as! [String:String]
-                let companyName = document["companyName"] as! [String:String]
-                let qualitativeSize = document["qualititveSize"] as! [String:String]
-                let quantitativeSize = document["quantativeSize"] as! [String:String]
-                
-                let oneProduct = Product.optionalInit(ID, category, subCategory, sellingPrice, imageURLs, name, companyName, qualitativeSize, quantitativeSize)
-                
-                products.append(oneProduct)
-            }
-            completion(products)
-        }
-    }
-    static func getUserIfExists(withPhone phone:String) -> (User?,Bool){
-        DB.getDocuments(collectionName: "users", whereField: "mobileNumber", isEqualToValue: phone){
-            documents in
-            
-            if documents.isEmpty{
-             // user is not registered
-                Logger.log(.info, "looks like the user is not registered")
-            }else{
-             // user is registered
-                Logger.log(.info, "horay! the user has been found!")
-                print(documents)
-            }
-        }
-        
-        return (nil,false)
-    }
+static func getDocuments( collectionName:String, whereField field:String, isEqualToValue value:String,  completion: @escaping (_ documents:[[String:Any]])->()){
+    let collectionRef = DB.db.collection(collectionName)
+    let query = collectionRef.whereField(field, isEqualTo: value)
+    var documents:[[String:Any]] = []
     
+    query.getDocuments { (querySnapshot, error) in
+        if let querySnapshot = querySnapshot, !querySnapshot.isEmpty {
+            for document in querySnapshot.documents {
+                documents.append(document.data())
+            }
+            completion(documents)
+        }else{
+            Logger.log(.error, "Requested querySnapshot is empty")
+            completion(documents)
+        }
+        if let error = error {
+            
+            Logger.log(.error, "Error in executing firebase query on \(collectionName) FIREBASE ERROR:\n\(error)")
+            completion(documents)
+        }
+    }
+}
 
+static func getProducts(withSubCollectionID ID:String, completion: @escaping (_ products: [Product])->()){
+    var products: [Product] = []
     
-    
+    DB.getDocuments(collectionName: "products", whereField: "subCategory", isEqualToValue: ID){
+        documents in
+        
+        for document in documents {
+            let ID = document["id"] as! String
+            let category = document["category"] as! String
+            let subCategory = document["subCategory"] as! String
+            let sellingPrice = document["sellingPrice"] as! Double
+            let imageURLs = document["imgURLs"] as! [String]
+            
+            let name = document["name"] as! [String:String]
+            let companyName = document["companyName"] as! [String:String]
+            let qualitativeSize = document["qualititveSize"] as! [String:String]
+            let quantitativeSize = document["quantativeSize"] as! [String:String]
+            
+            let oneProduct = Product.optionalInit(ID, category, subCategory, sellingPrice, imageURLs, name, companyName, qualitativeSize, quantitativeSize)
+            
+            products.append(oneProduct)
+        }
+        completion(products)
+    }
+}
+static func getUserIfExists(withPhone phone:String) -> (User?,Bool){
+    DB.getDocuments(collectionName: "users", whereField: "mobileNumber", isEqualToValue: phone){
+        documents in
+        
+        if documents.isEmpty{
+            // user is not registered
+            Logger.log(.info, "looks like the user is not registered")
+        }else{
+            // user is registered
+            Logger.log(.info, "horay! the user has been found!")
+            print(documents)
+        }
+    }
+    return (nil,false)
+}
 }
 
 // this will be used to forward the user to get his info, or just login.

@@ -23,8 +23,6 @@ class ViewController: UIViewController{
     var countryCodesMap:[[String]] = []// [ ['saudi +966','966'] , ['bahran +234', '234'] ...
     var finalizaedPhoneNumber:String = ""
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,8 +38,30 @@ class ViewController: UIViewController{
         
         styleUI()
         // testing // FirebaseAuthStruct.signout();
-       
-         FirebaseAuthStruct.isUserSignedIn()
+//        let user = DB.getUser(withID: "6HSWnOt8voX0pEhV0xbwpw2chZB3"){
+//            user in
+//            user?.toString()
+//        }
+        
+//        DB.getUser(withPhone: "+9665096339176"){
+//            user in
+//
+//            if let user = user {
+//            user.toString()
+//            }else{
+//                Logger.log(.error, "user not found")
+//            }
+//
+//        }
+//        DB.getUser(withID: "6HSWnOt8voX0pEhV0xbwpw2chZB3"){
+//            user in
+//            user?.toString()
+//        }
+//
+//        DB.getUserIfExists(withPhone: "+966509633917")
+        
+//        FirebaseAuthStruct.isUserSignedIn()
+         
         
         //DB.getUserIfExists(withPhone: "") // use Auth
         
@@ -96,15 +116,10 @@ class ViewController: UIViewController{
      // reads json file, and returns country codes dictionary, ex: Saudi Arabia -> +966
      */
     func styleUI(){
-        
-        
-        
         let smoke = UIColor(rgb: Colors.smokeWhite)
-        
         view.backgroundColor = UIColor(rgb: Colors.smokeWhite)
         countryCodeTextField.backgroundColor = UIColor(rgb: Colors.smokeWhite)
         phoneTextField.backgroundColor = smoke
-        
         SignUpLabel.textColor = UIColor(rgb: Colors.gray)
         NextButton.backgroundColor = UIColor(rgb: Colors.darkBlue)
         NextButton.layer.cornerRadius = K.cornerRadius
@@ -120,11 +135,13 @@ class ViewController: UIViewController{
             LogInBrain.countryCode = countryCodesMap[chosenIndex][1]
             
             (isValidPhone, numberString) = LogInBrain.checkPhoneNumber()
-            finalizaedPhoneNumber = numberString
+            self.finalizaedPhoneNumber = String(numberString.filter { !" \n\t\r".contains($0)})
+            print(" 33 44 55 ".filter({ !" \n\t\r".contains($0)}))
+            
             if  isValidPhone {
                 invalidPhoneNumber.isHidden = true
-                Logger.log(.success, "numberStirng: \(numberString)")
-                performSegue(withIdentifier: K.verifyPhoneSegue, sender: self)
+                self.performSegue(withIdentifier: K.verifyPhoneSegue, sender: self)
+                
             } else {
                 invalidPhoneNumber.isHidden = false
                 invalidPhoneNumber.textColor = UIColor(rgb: Colors.red)
@@ -167,12 +184,6 @@ class ViewController: UIViewController{
         
         return codesMap
     }
-    
-    
-    
-    
-    
-    
     /**
      This method reads country codes in countryCodes.json
      Returns: a dictionary, mapping country -> code
@@ -279,3 +290,5 @@ extension Dictionary where Value: Equatable {
         return first(where: { $1 == val })?.key
     }
 }
+
+

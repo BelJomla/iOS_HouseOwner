@@ -32,9 +32,12 @@ class VerifyViewController: UIViewController{
         verifyTextFeild.delegate = self
         resendButton.isHidden = true
         styleUI()
-        sendVerificationCode(forPhone: "+966512345678")
-//        sendVerificationCode(forPhone: self.phoneNumber)
-        decreaseTimer()
+        okAlert("reCAPTCHA verfication", "We will verifiy that you are not a robot, until the final release of the app, when we use PushNotifications",{
+            //self.sendVerificationCode(forPhone: "+966512345678")
+            self.sendVerificationCode(forPhone: self.phoneNumber)
+            self.decreaseTimer()
+        })
+        //        sendVerificationCode(forPhone: self.phoneNumber)
     }
     @IBAction func verifyButtonPressed(_ sender: Any) {
         if(!messageSendingRequested){
@@ -43,7 +46,7 @@ class VerifyViewController: UIViewController{
         }else{
             if let enteredCode = verifyTextFeild?.text {
                 if enteredCode == "" {
-                    okAlert(title: "Code Needed", message: "Please enter the verfication code")
+                    okAlert( "Code Needed", "Please enter the verfication code", nil)
                 }else{
                     // some code entered (may not be correct)
                     //let verificationCode = "111222"
@@ -51,19 +54,36 @@ class VerifyViewController: UIViewController{
                         isSuccessful in
                         
                         if isSuccessful{
-                            
                             // testing
-                            FirebaseAuthStruct.isUserSignedIn()
+                            // FirebaseAuthStruct.isUserSignedIn()
                             // end testing
                             self.checkmarkIcon.tintColor = .green
-                            self.performSegue(withIdentifier: K.registerNewUser, sender: self)
+                            DB.getUser(withPhone: String(self.phoneNumber)){
+                                user in
+                                
+                                if let user = user {
+                                    // forward to screens
+                                    // save user here using Realm
+                                    // update in user defaults
+                                    
+                                    Logger.log(.info, "user regestered")
+                                    self.navigationController?.navigationBar.isHidden = true
+                                    self.navigationItem.hidesBackButton = true
+                                    self.performSegue(withIdentifier: K.segues.verifyScreen.toTabScreensWithoutRegistration, sender: self)
+                                }else{
+                                    // user is already registered in our db
+                                    
+                                    Logger.log(.info, "user NOT regestered")
+                                    self.performSegue(withIdentifier: K.segues.verifyScreen.registerNewUser, sender: self)
+                                }
+                            }
                         }else{
-                            self.okAlert(title: "Incorrect Code", message: "Please make sure you enter the correct verfication code")
+                            self.okAlert( "Incorrect Code" ,"Please make sure you enter the correct verfication code", nil)
                         }
                     }
                 }
             }else{
-                okAlert(title: "Code Needed", message: "Please enter the verfication code")
+                okAlert("Code Needed", "Please enter the verfication code", nil)
             }
         }
     }
@@ -80,7 +100,7 @@ class VerifyViewController: UIViewController{
             decreaseTimer()
             numberOfTimesResendPressed += 1
         }else{
-            okAlert(title: "Max SMS Requests Reached", message: "You have reached the maximum number of SMS requests, check your network connectivity, and try again in few minutes")
+            okAlert( "Max SMS Requests Reached",  "You have reached the maximum number of SMS requests, check your network connectivity, and try again in few minutes", nil)
             
             
             print("Invalid press")

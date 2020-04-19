@@ -43,7 +43,7 @@ class SignUpController: UIViewController{
         styleUI()
         navigationItem.hidesBackButton = true
         print("Singup Screens")
-        
+        FirebaseAuthStruct.isUserSignedIn()
     }
     
     
@@ -59,15 +59,13 @@ class SignUpController: UIViewController{
     }
    
     func styleUI(){
-        
+        self.navigationItem.hidesBackButton = true
+
     
         button.backgroundColor = UIColor(rgb: Colors.darkBlue)
         firstNameLabel.textColor = UIColor(rgb: Colors.darkBlue)
-        
         lastNameLabel.textColor = UIColor(rgb: Colors.darkBlue)
-        
         navigationController?.navigationBar.backgroundColor = UIColor(rgb: Colors.darkBlue)
-        
         view.backgroundColor = UIColor(rgb: Colors.darkBlue)
         
         button.layer.cornerRadius = 10
@@ -81,8 +79,6 @@ class SignUpController: UIViewController{
         lastNameTextFeild.backgroundColor = UIColor(rgb: Colors.smokeWhite)
         
         let navBar = self.navigationController?.navigationBar
-        
-        
         
          mainView.layer.cornerRadius = 50
     }

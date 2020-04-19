@@ -144,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="341" y="141"/>
+            <point key="canvasLocation" x="300" y="141"/>
         </scene>
         <!--Verify View Controller-->
         <scene sceneID="Tbz-Dd-jSa">
@@ -309,12 +309,13 @@
                         <outlet property="upperMessageLabel" destination="qEC-DK-Q5V" id="U5S-IK-Mp0"/>
                         <outlet property="verifyButton" destination="hHh-bo-nYn" id="4tm-zX-TSr"/>
                         <outlet property="verifyTextFeild" destination="Gqe-Xt-xG1" id="0W8-6S-GPS"/>
-                        <segue destination="8bM-aH-dxb" kind="show" identifier="startApp" id="PrY-f3-HWw"/>
+                        <segue destination="8bM-aH-dxb" kind="show" identifier="registerNewUser" id="PrY-f3-HWw"/>
+                        <segue destination="7y3-8M-Zy5" kind="show" identifier="directlyToTabScreens" id="71g-nA-FY3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kbe-tB-EiA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1173.913043478261" y="140.625"/>
+            <point key="canvasLocation" x="1075" y="141"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="D1A-Yx-zwp">
@@ -422,7 +423,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vmy-1t-IDa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2243.4782608695655" y="140.625"/>
+            <point key="canvasLocation" x="1848" y="-252"/>
         </scene>
         <!--Tabscreens-->
         <scene sceneID="kau-Ht-4RD">
@@ -432,7 +433,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SWc-XA-b75" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3131" y="132"/>
+            <point key="canvasLocation" x="1848" y="127"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KQF-Mj-7Ee">
@@ -467,6 +468,7 @@
         <image name="checkmark.circle.fill" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="71g-nA-FY3"/>
         <segue reference="PrY-f3-HWw"/>
     </inferredMetricsTieBreakers>
 </document>
