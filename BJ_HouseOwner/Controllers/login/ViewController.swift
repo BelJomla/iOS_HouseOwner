@@ -60,7 +60,7 @@ class ViewController: UIViewController{
 //
 //        DB.getUserIfExists(withPhone: "+966509633917")
         
-//        FirebaseAuthStruct.isUserSignedIn()
+
          
         
         //DB.getUserIfExists(withPhone: "") // use Auth
@@ -70,13 +70,13 @@ class ViewController: UIViewController{
         //            DB.getUser(withID: "2P6ANOpEfUUkF3Q0gf5aJExnzJH3")
         
         //  --------------------------------
-        //       DB.getCategories(){
-        //            categories in
-        //            print("in^^^")
-        //            for cat in categories{
-        //                cat.toString()
-        //            }
-        //        }
+//               DB.getCategories(){
+//                    categories in
+//                    print("in^^^")
+//                    for cat in categories{
+//                        cat.toString()
+//                    }
+//                }
         //  --------------------------------
         //        DB.getProducts(withSubCollectionID: "4_2"){
         //            products in
@@ -228,12 +228,8 @@ class ViewController: UIViewController{
             return nil
         }
         
-        
     }
-    
-    
-    
-    
+
 }
 
 //MARK: -UIPicker

@@ -28,21 +28,11 @@ class OrdersViewController: UIViewController {
         tableView.register(nib, forCellReuseIdentifier: K.UI.ordersCellID)
         
     }
-    
-    
-    
-    
 }
 
 //MARK: -UITableView
 
 extension OrdersViewController: UITableViewDelegate,UITableViewDataSource{
-    
-    
-
-    
-    
-        
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 
@@ -89,12 +79,8 @@ extension OrdersViewController: UITableViewDelegate,UITableViewDataSource{
             assert(tableView.tag == outTebleTag, tagError)
  
             return tableView.dequeueReusableCell(withIdentifier: K.UI.ordersCellID, for: indexPath)
-
         }
-        
     }
-    
-    
 }
 
 

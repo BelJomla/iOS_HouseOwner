@@ -14,13 +14,27 @@ import CoreGraphics
 class ShoppingViewController: UIViewController{
     @IBOutlet weak var tableView: UITableView!
     
-    
     /*
-     The following properties are explained in detail in Category.swift under the Models layer
+     categoryData: a 2d array that contains the categories
+     and their sub-categoris. an example
+     is like this: [['School','pencils','erasers'],
+     ['Food','meat','chicken']]
      */
     var categoryData: [[String]] = []
+    /*
+     mainCategories: an array of the categoreies, an example is
+     like this ['School','Food']
+     */
     var mainCategories: [String] = []
-    var subCategoryData: [String] = []
+    /*
+     displayedSubCategoryData: is 2d array that is similar to categoryData
+     , but it contains only the data that is being
+     displayed on the screen. It is updated in the
+     code as the user clicks different category.
+     an example:[['School','pencils','eraser']]
+     */
+    var displayedSubCategoryData: [String] = []
+    
     var chosenCategoryIndex:Int = 0
     var chosenSubcategoryIndex:Int = 0
     
@@ -32,7 +46,7 @@ class ShoppingViewController: UIViewController{
         print("shopping")
         styleUI()
         // intialization of category arrays
-        //        initCategories()
+        initCategories()
         
         if let navigationbar = self.navigationController?.navigationBar {
             navigationbar.barTintColor = UIColor.white
@@ -60,12 +74,28 @@ class ShoppingViewController: UIViewController{
         self.navigationItem.rightBarButtonItem  = cartIcon
     }
     
-    //    func initCategories(){
-    //        let categoryModel = ShoppingCategroy()
-    //        self.categoryData = categoryModel.getCategoryData()
-    //        self.mainCategories = categoryModel.mainCategories
-    //        self.subCategoryData = categoryModel.getSubCategoryData()
-    //    }
+    func initCategories(){
+        DB.getCategories(){
+            categories in
+            
+            
+            for i in 0..<categories.count{
+                if(!categories[i].hidden){
+                    let categoryName = categories[i].name["en"]!
+                    self.mainCategories.append(categoryName)
+                    
+                    var catWithSubCat:[String] = []
+                    catWithSubCat.append(categoryName)
+                    
+                    for subCat in categories[i].subCategories{
+                        catWithSubCat.append(subCat.name["en"]!)
+                    }
+                    self.categoryData.append(catWithSubCat)
+                }
+            }
+            self.tableView.reloadData()
+        }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         // hides the backbutton on the navigation bar, since the user
@@ -123,8 +153,6 @@ extension ShoppingViewController: UITableViewDelegate, UITableViewDataSource {
         if (indexPath.section==1 || indexPath.section==0){
             tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.section /*indexPath.item*/)
             
-            
-            
             print("\(indexPath.section)\(indexPath.item)")
         }else{
             
@@ -141,9 +169,6 @@ extension ShoppingViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-
-
-
 //MARK: -CollectionView methods
 extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
@@ -151,7 +176,7 @@ extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewData
         if collectionView.tag == firstSection {
             return mainCategories.count
         }else if collectionView.tag == secondSection {
-            return subCategoryData.count
+            return displayedSubCategoryData.count
         }else{
             return ShoppingTableView.numOfProductsInRow
         }
@@ -199,8 +224,7 @@ extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewData
             }else{
                 cell.backgroundColor = .white
             }
-            
-            cell.label.text = subCategoryData[indexPath.item]
+            cell.label.text = displayedSubCategoryData[indexPath.item]
             return cell
         }else{
             let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: K.shoppingProductCell, for: indexPath) as! ProductCollectionViewCell
@@ -252,11 +276,11 @@ extension ShoppingViewController {
         // removing the subcatogy values from the array before updating the UITableView
         
         //self.subCategoryData.remove(at: indexToDelete)
-        self.subCategoryData = [] // deleting all elements
+        self.displayedSubCategoryData = [] // deleting all elements
         // adding the new subcategory
         //self.subCategoryData.append(categoryData[indexPath.row])
         for singleSubCategory in categoryData[indexPath.row]{
-            self.subCategoryData.append(singleSubCategory)
+            self.displayedSubCategoryData.append(singleSubCategory)
         }
         // the actual addition, deletion and update of the uitableivew
         replaceSubCategoryRow(delete: indexPathToDelete, section: 1)

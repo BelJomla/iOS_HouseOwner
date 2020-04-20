@@ -73,7 +73,6 @@ struct DB {
             if let documents = documents {
                 for document in documents {
                     // document here is a category
-                    
                     guard let ID = document["id"] as? String else {return}
                     guard let name = document["name"] as? [String:String] else {return}
                     guard let imageURLs = document["imgURLs"]  as? [String] else {return}
@@ -86,7 +85,6 @@ struct DB {
                     for i in 0..<subCategoriesDB.count{
                         
                         let subCat = subCategoriesDB[i]
-                        
                         let subID = subCat["id"] as! String
                         let subImageURL = subCat["imgURL"] as? String
                         let subName = subCat["name"] as! [String:String]
@@ -94,9 +92,7 @@ struct DB {
                         
                         let subCategory = ShoppingSubCategory(subID, subImageURL, subName, subHidden)
                         subCategories.append(subCategory)
-                        
                     }
-                    
                     if innerErrorFlag {
                         Logger.log(.warning, "One of the subcategories is missing some fields")
                     }
@@ -110,7 +106,6 @@ struct DB {
                 if (errorFlag) {
                     Logger.log(.error, "Error In Reading Categories From The DB #1")
                 }
-                
             }else{
                 Logger.log(.error, "Error In Reading Categories From The DB #2")
             }

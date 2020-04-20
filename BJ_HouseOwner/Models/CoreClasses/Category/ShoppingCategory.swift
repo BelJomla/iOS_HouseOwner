@@ -16,13 +16,12 @@ class ShoppingCategory{
     let hidden:Bool
     
     init(_ ID:String,_ imageURLs:[String]?,_ name:[String:String],_ subCategories:[ShoppingSubCategory],_ hidden:Bool) {
-        
+
         self.ID = ID
         self.imageURLs = imageURLs
         self.name = name
         self.subCategories = subCategories
         self.hidden = hidden
-        
     }
     
     init() {
@@ -42,6 +41,5 @@ class ShoppingCategory{
         for subCategory in self.subCategories {
             subCategory.toString()
         }
-        
     }
 }
