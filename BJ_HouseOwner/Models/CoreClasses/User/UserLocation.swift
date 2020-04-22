@@ -7,17 +7,20 @@
 //
 
 import Foundation
+import RealmSwift
 
-
-class UserLocation{
-    let country:String?
-    let city:String?
-    let neighbour:String?
-    let lat:Double? // latitude
-    let long:Double? // longtitude
-    let isValid:Bool
+@objcMembers class UserLocation: Object{
     
-    init(_ country:String?,_ city:String?,_ neighbour:String?,_ lat:Double?,_ long:Double?, _ isValid:Bool) {
+    dynamic var country:String? = nil
+    dynamic var city:String? = nil
+    dynamic var neighbour:String? = nil
+    dynamic var lat:Double? = nil // latitude
+    dynamic var long:Double? = nil// longtitude
+    dynamic var isValid:Bool = false
+    
+    convenience init(_ country:String?,_ city:String?,_ neighbour:String?,_ lat:Double?,_ long:Double?, _ isValid:Bool) {
+        self.init() // realm constructor
+        
         self.country = country
         self.city = city
         self.neighbour = neighbour
@@ -26,7 +29,9 @@ class UserLocation{
         self.isValid = isValid
     }
     
-    init() {
+    convenience init(_ ignore:String?) {
+        self.init()
+        
         self.country = ""
         self.city = ""
         self.neighbour = ""

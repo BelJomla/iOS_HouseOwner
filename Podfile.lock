@@ -205,7 +205,7 @@ PODS:
     - leveldb-library (~> 1.22)
     - nanopb (~> 0.3.901)
   - GoogleDataTransport (5.1.1)
-  - GoogleDataTransportCCTSupport (2.0.2):
+  - GoogleDataTransportCCTSupport (2.0.3):
     - GoogleDataTransport (~> 5.1)
     - nanopb (~> 0.3.901)
   - GoogleUtilities/AppDelegateSwizzler (6.5.2):
@@ -251,11 +251,17 @@ PODS:
   - PhoneNumberKit/PhoneNumberKitCore (3.2.0)
   - PhoneNumberKit/UIKit (3.2.0):
     - PhoneNumberKit/PhoneNumberKitCore
+  - Realm (4.4.1):
+    - Realm/Headers (= 4.4.1)
+  - Realm/Headers (4.4.1)
+  - RealmSwift (4.4.1):
+    - Realm (= 4.4.1)
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Firestore
   - PhoneNumberKit (~> 3.1)
+  - RealmSwift
 
 SPEC REPOS:
   trunk:
@@ -277,6 +283,8 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - PhoneNumberKit
+    - Realm
+    - RealmSwift
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
@@ -289,7 +297,7 @@ SPEC CHECKSUMS:
   FirebaseCoreDiagnosticsInterop: 296e2c5f5314500a850ad0b83e9e7c10b011a850
   FirebaseFirestore: a750487e2019ac35464c78311dcf2fde9d817c52
   GoogleDataTransport: 6ffa4dd0b6d547f8d27b91bd92fa9e197a3f5f1f
-  GoogleDataTransportCCTSupport: 12f02e5c8f09c055615de90bcd5ba2c375546051
+  GoogleDataTransportCCTSupport: 2d7e609f8c5af1a33d7d59053e6f8cba59365df5
   GoogleUtilities: ad0f3b691c67909d03a3327cc205222ab8f42e0e
   "gRPC-C++": 9dfe7b44821e7b3e44aacad2af29d2c21f7cde83
   gRPC-Core: c9aef9a261a1247e881b18059b84d597293c9947
@@ -297,7 +305,9 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PhoneNumberKit: df411d46177d1492da84e10b6c093846dd861452
+  Realm: 4eb04d7487bd43c0581256f40b424eafb711deff
+  RealmSwift: 3eb8924ff7100df5928c7602f71d0fec51e7c9c5
 
-PODFILE CHECKSUM: a40433d85067b44c51f015c9b74c2c7b2dd5e5f6
+PODFILE CHECKSUM: 7301e2fe1a848986fef43438316d31df8819da36
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.1

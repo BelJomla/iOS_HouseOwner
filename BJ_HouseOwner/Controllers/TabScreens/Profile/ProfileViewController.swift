@@ -54,8 +54,6 @@ class ProfileViewController: UIViewController {
         cardView.layer.cornerRadius = 10
 
     }
-
-
 }
 
 extension UIView {

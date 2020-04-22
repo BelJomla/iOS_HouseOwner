@@ -7,16 +7,20 @@
 //
 
 import Foundation
+import RealmSwift
 
-class CreditCard{
-    let holderName:String
-    let expireDate:Date
-    let cardNumber:String
-    let cvv:String
-    let isValid:Bool
+@objcMembers class CreditCard: Object{
+    
+    dynamic var holderName:String = ""
+    dynamic var expireDate:Date = Date()
+    dynamic var cardNumber:String = ""
+    dynamic var cvv:String = ""
+    dynamic var isValid:Bool = false
     
     
-    init() {
+    convenience init(_ ignore:String?) {
+        self.init()
+        
         self.holderName = ""
         self.expireDate = Date()
         self.cardNumber = ""
@@ -24,7 +28,8 @@ class CreditCard{
         self.isValid = false
     }
     
-    init(_ holderName:String, _ expireDate:Date, _ cardNumber:String, _ cvv:String, _ isValid:Bool) {
+    convenience init(_ holderName:String, _ expireDate:Date, _ cardNumber:String, _ cvv:String, _ isValid:Bool) {
+        self.init()
         
         self.holderName = holderName
         self.expireDate = expireDate

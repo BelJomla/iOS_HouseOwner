@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import RealmSwift
 
 class ViewController: UIViewController{
     
@@ -37,46 +38,23 @@ class ViewController: UIViewController{
         countryCodeTextField.text = countryCodesMap[mapIndex][0]
         
         styleUI()
-        // testing // FirebaseAuthStruct.signout();
-//        let user = DB.getUser(withID: "6HSWnOt8voX0pEhV0xbwpw2chZB3"){
-//            user in
-//            user?.toString()
-//        }
-        
-//        DB.getUser(withPhone: "+9665096339176"){
-//            user in
-//
-//            if let user = user {
-//            user.toString()
-//            }else{
-//                Logger.log(.error, "user not found")
-//            }
-//
-//        }
-//        DB.getUser(withID: "6HSWnOt8voX0pEhV0xbwpw2chZB3"){
-//            user in
-//            user?.toString()
-//        }
-//
-//        DB.getUserIfExists(withPhone: "+966509633917")
-        
-
-         
-        
-        //DB.getUserIfExists(withPhone: "") // use Auth
-        
-        //
-        // ERROR
-        //            DB.getUser(withID: "2P6ANOpEfUUkF3Q0gf5aJExnzJH3")
         
         //  --------------------------------
-//               DB.getCategories(){
-//                    categories in
-//                    print("in^^^")
-//                    for cat in categories{
-//                        cat.toString()
-//                    }
-//                }
+        print(Realm.Configuration.defaultConfiguration.fileURL)
+        DB.getUser(withID: "2P6ANOpEfUUkF3Q0gf5aJExnzJH3"){
+            user in
+            RealmManager.shared.create(user!)
+            print("saved")
+            
+            let rdata = RealmManager.shared.read(User.self)
+            print(rdata[0])
+            
+        }
+
+        
+        
+        
+        
         //  --------------------------------
         //        DB.getProducts(withSubCollectionID: "4_2"){
         //            products in
@@ -94,10 +72,12 @@ class ViewController: UIViewController{
         //
         //
         //        Logger.log(.success, " success in persisting data. lang: \(lang)")
+        //  --------------------------------
         //
+        
     }
     
-    //  --------------------------------
+    
     
     
     

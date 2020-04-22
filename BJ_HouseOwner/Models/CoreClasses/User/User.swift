@@ -7,20 +7,23 @@
 //
 
 import Foundation
+import RealmSwift
 
-
-class User {
-    var ID:String
-    var firstName:String
-    var lastName:String
-    var mobileNumber:String
-    var balance:Double
-    var points:Int
-    var type:Int
-    var locations:[UserLocation] = [UserLocation()]
-    var creditCards:[CreditCard] = [CreditCard()]
+@objcMembers class User: Object{
+    dynamic var ID:String = ""
+    dynamic var firstName:String = ""
+    dynamic var lastName:String = ""
+    dynamic var mobileNumber:String = ""
+    dynamic var balance:Double = 0.0
+    dynamic var points:Int = 0
+    dynamic var type:Int = 0
+//    dynamic var locations = List<UserLocation> //:[UserLocation] = [UserLocation()]
+//    dynamic var creditCards = List<CreditCard> //:[CreditCard] = [CreditCard()]
+    let locations = List<UserLocation>()
+    let creditCards = List<CreditCard>()
     
-    init(_ ID:String,_ firstName:String,_ lastName:String,_ mobileNumber:String,_ balance:Double,_ points:Int,_ type:Int,_ locations:[UserLocation],_ creditCards: [CreditCard]) {
+    convenience init(_ ID:String,_ firstName:String,_ lastName:String,_ mobileNumber:String,_ balance:Double,_ points:Int,_ type:Int,_ locations:[UserLocation],_ creditCards: [CreditCard]) {
+        self.init()
         
         self.ID = ID
         self.firstName = firstName
@@ -29,11 +32,21 @@ class User {
         self.balance = balance
         self.points = points
         self.type = type
-        self.locations = locations
-        self.creditCards = creditCards
+        
+        for location in locations{
+            self.locations.append(location)
+        }
+        for creditCard in creditCards {
+            self.creditCards.append(creditCard)
+        }
+        
+//        self.locations = locations
+//        self.creditCards = creditCards
     }
     
-    init() {
+    convenience init(_ ignore:String?) {
+        self.init()
+        
         self.ID = ""
         self.firstName = ""
         self.lastName = ""
@@ -41,8 +54,10 @@ class User {
         self.balance = 0.0
         self.points = 0
         self.type = 0
-        self.locations = [UserLocation()]
-        self.creditCards = [CreditCard()]
+        
+        self.locations.append(UserLocation())
+        self.creditCards.append(CreditCard())
+        
     }
     
     

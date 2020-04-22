@@ -42,6 +42,7 @@
 		A98D66FD23FCFE3D006B1791 /* ShoppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98D66FC23FCFE3D006B1791 /* ShoppingViewController.swift */; };
 		A997BAC324450A4600C205E7 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = A997BAC224450A4600C205E7 /* Product.swift */; };
 		A997BAC5244645EA00C205E7 /* SettingsUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A997BAC4244645EA00C205E7 /* SettingsUserDefaults.swift */; };
+		A99947AC244F89D3008F119D /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99947AB244F89D3008F119D /* RealmManager.swift */; };
 		A9A59AD223F9DDA100F3B6D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A59AD123F9DDA100F3B6D9 /* AppDelegate.swift */; };
 		A9A59AD423F9DDA100F3B6D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A59AD323F9DDA100F3B6D9 /* SceneDelegate.swift */; };
 		A9A59AD623F9DDA100F3B6D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A59AD523F9DDA100F3B6D9 /* ViewController.swift */; };
@@ -147,6 +148,7 @@
 		A98D66FC23FCFE3D006B1791 /* ShoppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingViewController.swift; sourceTree = "<group>"; };
 		A997BAC224450A4600C205E7 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		A997BAC4244645EA00C205E7 /* SettingsUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUserDefaults.swift; sourceTree = "<group>"; };
+		A99947AB244F89D3008F119D /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		A9A59ACE23F9DDA100F3B6D9 /* BJ_HouseOwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BJ_HouseOwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9A59AD123F9DDA100F3B6D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9A59AD323F9DDA100F3B6D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -457,6 +459,14 @@
 			path = Product;
 			sourceTree = "<group>";
 		};
+		A99947AA244F89C3008F119D /* LocalDB */ = {
+			isa = PBXGroup;
+			children = (
+				A99947AB244F89D3008F119D /* RealmManager.swift */,
+			);
+			path = LocalDB;
+			sourceTree = "<group>";
+		};
 		A9A59AC523F9DDA100F3B6D9 = {
 			isa = PBXGroup;
 			children = (
@@ -525,6 +535,7 @@
 		A9A59BB723F9E41200F3B6D9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A99947AA244F89C3008F119D /* LocalDB */,
 				A9B8066B2431DC2D00EFF400 /* CoreClasses */,
 				A9135DC724216DD800175497 /* CustomComponents */,
 				A97DD298241E9A5900FF31F3 /* LoginScreens */,
@@ -720,6 +731,7 @@
 				A9A59AE023F9DDA200F3B6D9 /* Sources */,
 				A9A59AE123F9DDA200F3B6D9 /* Frameworks */,
 				A9A59AE223F9DDA200F3B6D9 /* Resources */,
+				90BA8BC75BE39F803E76BEB0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -949,6 +961,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BJ_HouseOwner-BJ_HouseOwnerUITests/Pods-BJ_HouseOwner-BJ_HouseOwnerUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		90BA8BC75BE39F803E76BEB0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BJ_HouseOwnerTests/Pods-BJ_HouseOwnerTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BJ_HouseOwnerTests/Pods-BJ_HouseOwnerTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BJ_HouseOwnerTests/Pods-BJ_HouseOwnerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -960,6 +989,7 @@
 				A9B806712431E05D00EFF400 /* CreditCard.swift in Sources */,
 				A9A59BBF23FA183D00F3B6D9 /* Constants.swift in Sources */,
 				A91C3045243FA2DB00D23142 /* MyAddressesViewController.swift in Sources */,
+				A99947AC244F89D3008F119D /* RealmManager.swift in Sources */,
 				A97DD29C241E9B6100FF31F3 /* ShoppingStyling.swift in Sources */,
 				A9DC40FD2425CFEA00E57760 /* OrdersTableViewCell.swift in Sources */,
 				A9E68F17243568A5009F8465 /* ShoppingSubCategory.swift in Sources */,

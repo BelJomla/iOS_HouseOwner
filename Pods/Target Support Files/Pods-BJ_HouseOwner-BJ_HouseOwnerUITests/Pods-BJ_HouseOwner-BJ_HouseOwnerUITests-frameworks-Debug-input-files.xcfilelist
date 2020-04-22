@@ -8,3 +8,5 @@ ${BUILT_PRODUCTS_DIR}/gRPC-C++-framework/grpcpp.framework
 ${BUILT_PRODUCTS_DIR}/gRPC-Core-framework/grpc.framework
 ${BUILT_PRODUCTS_DIR}/leveldb-library-framework/leveldb.framework
 ${BUILT_PRODUCTS_DIR}/nanopb-framework/nanopb.framework
+${BUILT_PRODUCTS_DIR}/Realm/Realm.framework
+${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework
