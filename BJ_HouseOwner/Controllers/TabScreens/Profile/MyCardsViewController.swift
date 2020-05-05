@@ -47,7 +47,24 @@ class MyCardsViewController: UIViewController {
     func styleUI() {
            tableView.layer.cornerRadius = tableView.layer.frame.width/10
         tableView.contentInset.top = 25
+        
+        var image = UIImage(systemName: "plus.rectangle")
+        image?.withTintColor(.white)
+
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+        title: "Add Card",
+        style: .plain,
+        target: self,
+        action: #selector(addCardPressed))
+        
+        
+        self.navigationItem.rightBarButtonItem =
+            UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(addCardPressed))
        }
+   
+    @objc func addCardPressed(){
+        performSegue(withIdentifier: K.segues.profile.toAddCreditCard, sender: self)
+    }
     
 }
 

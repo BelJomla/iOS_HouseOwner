@@ -23,6 +23,7 @@ struct K {
             static let toCards = "toCards"
             static let toOrderHistory = "toOrderHistory"
             static let toAddresses = "toAddresses"
+            static let toAddCreditCard = "addCreditCard"
         }
         struct verifyScreen {
             static let toTabScreensWithoutRegistration = "directlyToTabScreens"

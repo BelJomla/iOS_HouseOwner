@@ -21,6 +21,7 @@ class MyAddressesTableViewCell: UITableViewCell {
     
     func styleUI(){
         cardView.layer.cornerRadius = 20
+        self.cardView.backgroundColor = UIColor(patternImage: UIImage(named: "blueBackgroundCreditCard.jpg")!)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -38,7 +39,6 @@ class MyAddressesTableViewCell: UITableViewCell {
             }
             
             styledNumber.append(String(Array(number)[i]))
-            print(styledNumber)
 
         }
         self.cardNumberLabel.text = styledNumber
