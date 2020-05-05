@@ -9,11 +9,15 @@
 import UIKit
 
 class MyAddressesViewController: UIViewController {
-    @IBOutlet weak var tableView: UIView!
+    @IBOutlet weak var tableView: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("My Addresses")
+        
+        tableView.dataSource = self
+        tableView.delegate = self
         
         styleUI()
     }
@@ -22,4 +26,19 @@ class MyAddressesViewController: UIViewController {
            tableView.layer.cornerRadius = tableView.layer.frame.width/10
        }
 
+}
+
+
+//MARK: -UITableView
+
+extension MyAddressesViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        tableView.dequeueReusableCell(withIdentifier: K.UITableCells.IDs.creditCardCell, for: indexPath)
+    }
+    
+    
 }

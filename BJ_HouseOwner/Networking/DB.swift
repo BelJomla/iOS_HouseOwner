@@ -171,6 +171,20 @@ struct DB {
                     || neightbour == nil ||  coordinates == nil){
                     
                     Logger.log(.warning, "Incomplete Location Received From the DB [containing Nil]")
+                    
+                    if (country == nil){
+                        print("\tCountry is Nil")
+                    }
+                    if (city == nil){
+                        print("\tCity is Nil")
+                    }
+                    if (neightbour == nil){
+                        print("\tNeightbour is Nil")
+                    }
+                    if (coordinates == nil){
+                        print("\tCoordinates is Nil")
+                    }
+                    
                     // making a default location that can't be used for actual delivery
                     // locations[index] = UserLocation().asDictionary()
                     convertedLocations.append(UserLocation(country, city, neightbour, lat, long, false))
@@ -187,7 +201,7 @@ struct DB {
                 let holderName = creditCards[index]["holderName"] as? String
                 let expireTimeStamp = creditCards[index]["expireDate"] as? Timestamp
                 let cardNumber = creditCards[index]["cardNumber"] as? String
-                let cvv = creditCards[index]["cvv"] as? String
+                let cvv = creditCards[index]["cvv"] as? Int
                 
                 var expireDate:Date? = nil
                 if let expireTimeStamp = expireTimeStamp {
@@ -202,8 +216,22 @@ struct DB {
                     creditCards[index] = CreditCard().asDictionary() // new empty card instance (can't be used)
                     Logger.log(.warning, "Invalid Credit Card Received from the DB [containing nil]")
                     
+                    if (holderName == nil){
+                        print("\tHolderName is Nil")
+                    }
+                    if (cardNumber == nil){
+                        print("\tCardNumber is Nil")
+                    }
+                    if (cvv == nil){
+                        print("\tCvv is Nil")
+                    }
+                    if (expireDate == nil){
+                        print("\tExpireDate is Nil")
+                    }
+                    
+                    
                 }else{
-                    convertedCards.append(CreditCard(holderName!, expireDate!, cardNumber!, cvv!, true))
+                    convertedCards.append(CreditCard(holderName!, expireDate!, cardNumber!, String(cvv!), true))
                     Logger.log(.success, "All Feilds are correct for the Credit Card")
                 }
             }

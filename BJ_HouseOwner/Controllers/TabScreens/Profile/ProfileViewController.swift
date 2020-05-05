@@ -17,16 +17,37 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var settingsIcon: UIImageView!
     
+    
+    @IBOutlet weak var balanceValueLabel: UILabel!
+    @IBOutlet weak var pointsValueLabel: UILabel!
+    @IBOutlet weak var phoneNumberLabel: UILabel!
+    @IBOutlet weak var fullNameLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         styleUI()
+        populateUIWithDB()
+        addTapGestures()
+    }
+    
+    func populateUIWithDB(){
+        let readData = RealmManager.shared.read(User.self)
+        let currentUser = readData[readData.count-1] // only one user would be there
         
+        balanceValueLabel.text = "SR \(currentUser.balance)"
+        pointsValueLabel.text = "\(currentUser.points)"
+        fullNameLabel.text = "\(currentUser.firstName) \(currentUser.lastName)"
+        phoneNumberLabel.text = "\(currentUser.mobileNumber)"
+    }
+    
+    func addTapGestures(){
         // Do any additional setup after loading the view.
         AddressView.addTapGesture(tapNumber: 1, target: self, action: #selector(addressViewClicked))
         historyView.addTapGesture(tapNumber: 1, target: self, action: #selector(historyViewClicked))
         cardView.addTapGesture(tapNumber: 1, target: self, action: #selector(cardViewClicked))
         settingsIcon.addTapGesture(tapNumber: 1, target: self, action: #selector(imageIconClicked))
     }
+    
     @objc func addressViewClicked(){
         Logger.log(.success, "address clicked")
         performSegue(withIdentifier: K.segues.profile.toAddresses, sender: self)

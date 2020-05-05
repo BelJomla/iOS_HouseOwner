@@ -41,30 +41,31 @@ class ViewController: UIViewController{
         
         //  --------------------------------
         print(Realm.Configuration.defaultConfiguration.fileURL)
+        
         DB.getUser(withID: "2P6ANOpEfUUkF3Q0gf5aJExnzJH3"){
             user in
             RealmManager.shared.create(user!)
             print("saved")
             
+            //            let rdata = RealmManager.shared.read(User.self)
+            //            print(rdata[rdata.count-1]) // only one user would be there
+            //            print("an xitem balance: \(rdata[rdata.count-1].balance)")
+            
             let rdata = RealmManager.shared.read(User.self)
-            print(rdata[0])
+            let user = rdata[rdata.count-1] // only one user would be there
             
         }
-
-        
-        
-        
         
         //  --------------------------------
-        //        DB.getProducts(withSubCollectionID: "4_2"){
-        //            products in
-        //
-        //            Logger.log(.success, "products has been got")
-        //            for product in products {
-        //                product.toString()
-        //            }
-        //
-        //        }
+        DB.getProducts(withSubCollectionID: "4_3"){
+            products in
+            
+            Logger.log(.success, "products has been got")
+            for product in products {
+                product.toString()
+            }
+            
+        }
         //  --------------------------------
         //        SettingsUserDefaults.setPreferedLanguage(language: .Arabic)
         //
@@ -209,7 +210,7 @@ class ViewController: UIViewController{
         }
         
     }
-
+    
 }
 
 //MARK: -UIPicker

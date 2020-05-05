@@ -79,6 +79,8 @@
 		A9DA74E5244BB8240085FAEB /* SwitchSettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DA74E3244BB8240085FAEB /* SwitchSettingsTableViewCell.xib */; };
 		A9DC40FD2425CFEA00E57760 /* OrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC40FB2425CFEA00E57760 /* OrdersTableViewCell.swift */; };
 		A9DC40FE2425CFEA00E57760 /* OrdersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DC40FC2425CFEA00E57760 /* OrdersTableViewCell.xib */; };
+		A9E19A6224615482004A2CA6 /* MyCardsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E19A6024615482004A2CA6 /* MyCardsTableViewCell.swift */; };
+		A9E19A6324615482004A2CA6 /* MyCardsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E19A6124615482004A2CA6 /* MyCardsTableViewCell.xib */; };
 		A9E68F15243567FA009F8465 /* ShoppingCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E68F14243567FA009F8465 /* ShoppingCategory.swift */; };
 		A9E68F17243568A5009F8465 /* ShoppingSubCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E68F16243568A5009F8465 /* ShoppingSubCategory.swift */; };
 		A9E885352425BD8F00B6DF50 /* Temporary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E885342425BD8F00B6DF50 /* Temporary.storyboard */; };
@@ -191,6 +193,8 @@
 		A9DA74E3244BB8240085FAEB /* SwitchSettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchSettingsTableViewCell.xib; sourceTree = "<group>"; };
 		A9DC40FB2425CFEA00E57760 /* OrdersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewCell.swift; sourceTree = "<group>"; };
 		A9DC40FC2425CFEA00E57760 /* OrdersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrdersTableViewCell.xib; sourceTree = "<group>"; };
+		A9E19A6024615482004A2CA6 /* MyCardsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardsTableViewCell.swift; sourceTree = "<group>"; };
+		A9E19A6124615482004A2CA6 /* MyCardsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCardsTableViewCell.xib; sourceTree = "<group>"; };
 		A9E68F14243567FA009F8465 /* ShoppingCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCategory.swift; sourceTree = "<group>"; };
 		A9E68F16243568A5009F8465 /* ShoppingSubCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingSubCategory.swift; sourceTree = "<group>"; };
 		A9E885342425BD8F00B6DF50 /* Temporary.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Temporary.storyboard; sourceTree = "<group>"; };
@@ -272,6 +276,7 @@
 		A91C3039243F844200D23142 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				A9E19A5F246153EE004A2CA6 /* MyAddresses */,
 				A91C303B243F84BF00D23142 /* Profile.storyboard */,
 				A9DA74DD244BB7C70085FAEB /* SettingsScreen */,
 			);
@@ -649,6 +654,15 @@
 			path = InnerTableView;
 			sourceTree = "<group>";
 		};
+		A9E19A5F246153EE004A2CA6 /* MyAddresses */ = {
+			isa = PBXGroup;
+			children = (
+				A9E19A6024615482004A2CA6 /* MyCardsTableViewCell.swift */,
+				A9E19A6124615482004A2CA6 /* MyCardsTableViewCell.xib */,
+			);
+			path = MyAddresses;
+			sourceTree = "<group>";
+		};
 		A9E68F1824356CE0009F8465 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -841,6 +855,7 @@
 				A9A59C3A23FBCB9400F3B6D9 /* segoeuii.ttf in Resources */,
 				A9A59C3423FBCB9400F3B6D9 /* seguili.ttf in Resources */,
 				A9A59BC423FB3B8400F3B6D9 /* countryCodes.json in Resources */,
+				A9E19A6324615482004A2CA6 /* MyCardsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -985,6 +1000,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9E19A6224615482004A2CA6 /* MyCardsTableViewCell.swift in Sources */,
 				A9DA74DC244958C00085FAEB /* FirebaseAuthStruct.swift in Sources */,
 				A9B806712431E05D00EFF400 /* CreditCard.swift in Sources */,
 				A9A59BBF23FA183D00F3B6D9 /* Constants.swift in Sources */,
