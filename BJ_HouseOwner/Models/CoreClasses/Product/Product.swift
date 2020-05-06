@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 class Product {
     let ID:String
     let category:String

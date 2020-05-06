@@ -81,7 +81,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="RUY-FN-7fr"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Orders" image="questionmark" catalog="system" id="pnw-6K-J5z"/>
+                    <tabBarItem key="tabBarItem" title="Orders" image="cart" catalog="system" id="pnw-6K-J5z"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WZq-SK-iLt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -180,7 +180,7 @@
     </scenes>
     <resources>
         <image name="bag.fill.badge.plus" catalog="system" width="64" height="58"/>
+        <image name="cart" catalog="system" width="64" height="50"/>
         <image name="house" catalog="system" width="64" height="54"/>
-        <image name="questionmark" catalog="system" width="48" height="64"/>
     </resources>
 </document>

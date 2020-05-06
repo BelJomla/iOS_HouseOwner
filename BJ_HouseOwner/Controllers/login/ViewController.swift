@@ -57,15 +57,17 @@ class ViewController: UIViewController{
         }
         
         //  --------------------------------
-        DB.getProducts(withSubCollectionID: "4_3"){
-            products in
-            
-            Logger.log(.success, "products has been got")
-            for product in products {
-                product.toString()
-            }
-            
-        }
+//        DB.getProducts(withSubCollectionID: "4_3"){
+//            products in
+//
+//            Logger.log(.success, "products has been got")
+//            for product in products {
+//                product.toString()
+//
+//
+//            }
+//            
+//        }
         //  --------------------------------
         //        SettingsUserDefaults.setPreferedLanguage(language: .Arabic)
         //

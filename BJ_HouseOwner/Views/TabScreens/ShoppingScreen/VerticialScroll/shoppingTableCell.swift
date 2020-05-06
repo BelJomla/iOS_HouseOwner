@@ -27,6 +27,10 @@ class shoppingTableCell: UITableViewCell {
         collectionView.register(productNib, forCellWithReuseIdentifier:K.shoppingProductCell)
         
         
+        let noProductNib = UINib(nibName: K.UICollectionCells.nibNames.noProductCell, bundle: nil)
+        collectionView.register(noProductNib, forCellWithReuseIdentifier: K.UICollectionCells.IDs.noProductCell)
+        
+        
         let categoryNib = UINib(nibName: "shoppingCollectionCell", bundle: nil)
         collectionView.register(categoryNib, forCellWithReuseIdentifier: K.shoppingCollectionCell)
         

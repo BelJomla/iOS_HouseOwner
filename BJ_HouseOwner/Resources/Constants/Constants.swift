@@ -38,13 +38,25 @@ struct K {
                 static let clickableSettingsCell = "ClickableSettingsTableViewCell"
                 static let switchSettingsCell = "SwitchSettingsTableViewCell"
                 static let creditCardCell = "creditCardCell"
+                
             }
             struct nibNames {
                 static let profileSettings = "SettingsTableViewCell"
                 static let clickableSettingsCell = "ClickableSettingsTableViewCell"
                 static let switchSettingsCell = "SwitchSettingsTableViewCell"
                 static let creditCardCell = "MyCardsTableViewCell"
+                
             }
+    }
+    
+    struct UICollectionCells {
+        struct IDs {
+            static let noProductCell = "NoProductsCell"
+        }
+        
+        struct nibNames {
+            static let noProductCell = "NoProductCollectionViewCell"
+        }
     }
     
     //identifiers

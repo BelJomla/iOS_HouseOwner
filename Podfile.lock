@@ -256,12 +256,16 @@ PODS:
   - Realm/Headers (4.4.1)
   - RealmSwift (4.4.1):
     - Realm (= 4.4.1)
+  - SDWebImage (5.7.4):
+    - SDWebImage/Core (= 5.7.4)
+  - SDWebImage/Core (5.7.4)
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Firestore
   - PhoneNumberKit (~> 3.1)
   - RealmSwift
+  - SDWebImage
 
 SPEC REPOS:
   trunk:
@@ -285,6 +289,7 @@ SPEC REPOS:
     - PhoneNumberKit
     - Realm
     - RealmSwift
+    - SDWebImage
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
@@ -307,7 +312,8 @@ SPEC CHECKSUMS:
   PhoneNumberKit: df411d46177d1492da84e10b6c093846dd861452
   Realm: 4eb04d7487bd43c0581256f40b424eafb711deff
   RealmSwift: 3eb8924ff7100df5928c7602f71d0fec51e7c9c5
+  SDWebImage: 48b88379b798fd1e4298f95bb25d2cdabbf4deb3
 
-PODFILE CHECKSUM: 7301e2fe1a848986fef43438316d31df8819da36
+PODFILE CHECKSUM: 8bc7c82693cc5e0c3d9845a34c26ada58d81d75a
 
 COCOAPODS: 1.9.1

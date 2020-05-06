@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import CoreGraphics
-
+import SDWebImage
 
 class ShoppingViewController: UIViewController{
     @IBOutlet weak var tableView: UITableView!
@@ -20,12 +20,12 @@ class ShoppingViewController: UIViewController{
      is like this: [['School','pencils','erasers'],
      ['Food','meat','chicken']]
      */
-    var categoryData: [[String]] = []
+    var categoryData: [[Any]] = []
     /*
      mainCategories: an array of the categoreies, an example is
      like this ['School','Food']
      */
-    var mainCategories: [String] = []
+    var mainCategories: [ShoppingCategory] = []
     /*
      displayedSubCategoryData: is 2d array that is similar to categoryData
      , but it contains only the data that is being
@@ -33,7 +33,15 @@ class ShoppingViewController: UIViewController{
      code as the user clicks different category.
      an example:[['School','pencils','eraser']]
      */
-    var displayedSubCategoryData: [String] = []
+    var displayedSubCategoryData: [ShoppingSubCategory] = []
+    
+    var displayedSubCategoryProducts: [Product] = []
+    
+    var remainingProductsToDisplay = 0
+    
+    var preferredLanguage = "en"
+    
+    var noProductsAvailble = true // in a clicked subcategory
     
     var chosenCategoryIndex:Int = 0
     var chosenSubcategoryIndex:Int = 0
@@ -59,6 +67,13 @@ class ShoppingViewController: UIViewController{
         // registering the custom cell
         let nib = UINib(nibName: "shoppingTableCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: K.shoppingTableCell)
+        
+        //prepare products from the db
+        prepareUIProductsDB()
+    }
+    
+    func prepareUIProductsDB(){
+        
     }
     
     @objc func rightBarButtonClicked(){
@@ -81,14 +96,14 @@ class ShoppingViewController: UIViewController{
             
             for i in 0..<categories.count{
                 if(!categories[i].hidden){
-                    let categoryName = categories[i].name["en"]!
-                    self.mainCategories.append(categoryName)
+                    let category = categories[i]
+                    self.mainCategories.append(category)
                     
-                    var catWithSubCat:[String] = []
-                    catWithSubCat.append(categoryName)
+                    var catWithSubCat:[Any] = []
+                    catWithSubCat.append(category)
                     
                     for subCat in categories[i].subCategories{
-                        catWithSubCat.append(subCat.name["en"]!)
+                        catWithSubCat.append(subCat)
                     }
                     self.categoryData.append(catWithSubCat)
                 }
@@ -116,7 +131,14 @@ extension ShoppingViewController: UITableViewDelegate, UITableViewDataSource {
         if (section==firstSection || section==secondSection)
         { return 1}
         else{
-            return ShoppingTableView.numberOfProducts
+            let count = displayedSubCategoryProducts.count/2
+            
+            if count > 2{
+                return count
+            }else{
+                return 1
+            }
+            //return //ShoppingTableView.numberOfProducts
         }
     }
     
@@ -144,6 +166,7 @@ extension ShoppingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: K.shoppingTableCell, for: indexPath)
+        
         return cell
     }
     
@@ -178,7 +201,19 @@ extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewData
         }else if collectionView.tag == secondSection {
             return displayedSubCategoryData.count
         }else{
-            return ShoppingTableView.numOfProductsInRow
+            if noProductsAvailble{
+                return 1
+            }else{
+                if self.remainingProductsToDisplay > 2 {
+                    self.remainingProductsToDisplay -= 2
+                    return 2
+                } else{
+                    let temp = self.remainingProductsToDisplay
+                    self.remainingProductsToDisplay = 0
+                    return temp
+                }
+                //return  //ShoppingTableView.numOfProductsInRow
+            }
         }
     }
     
@@ -214,9 +249,11 @@ extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewData
                 cell.backgroundColor = .white
             }
             
-            cell.label.text = mainCategories[indexPath.item]
+            cell.label.text = mainCategories[indexPath.item].name[preferredLanguage]
             return cell
-        }else if collectionView.tag == 1 {
+            
+        }
+        else if collectionView.tag == 1 {
             let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: K.shoppingCollectionCell, for: indexPath) as! shoppingCollectionCell
             
             if(indexPath.row == chosenSubcategoryIndex){
@@ -224,18 +261,41 @@ extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewData
             }else{
                 cell.backgroundColor = .white
             }
-            cell.label.text = displayedSubCategoryData[indexPath.item]
+            cell.label.text = displayedSubCategoryData[indexPath.item].name[preferredLanguage]
             return cell
         }else{
-            let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: K.shoppingProductCell, for: indexPath) as! ProductCollectionViewCell
+            
+            let cell:UICollectionViewCell
+            if noProductsAvailble {
+                cell =  collectionView.dequeueReusableCell(withReuseIdentifier: K.UICollectionCells.IDs.noProductCell, for: indexPath) as! NoProductCollectionViewCell
+            }else{
+                let index = getIndexOfProduct(withTag: collectionView.tag, andRow: indexPath.row)
+                Logger.log(.info, "displyd sbctgr dt \(displayedSubCategoryProducts.count)")
+                print(index)
+                let product = displayedSubCategoryProducts[index]
+                
+                let mycell =  collectionView.dequeueReusableCell(withReuseIdentifier: K.shoppingProductCell, for: indexPath) as! ProductCollectionViewCell
+                
+                mycell.price.text = "SR \(product.sellingPrice)"
+                mycell.title.text = product.name[preferredLanguage]
+                let url = URL(string: product.imageURLs[0])
+                
+                mycell.image.sd_setImage(with: url, placeholderImage: UIImage(named: "loading"))
+                
+                
+                cell = mycell
+                
+            }
             return cell
         }
-        //cell.label.text = subCategoryData[collectionView.tag][indexPath.item]
-        //categoryData[collectionView.tag][indexPath.item]//subCategoryData[collectionView.tag][indexPath.item]//categoryData[collectionView.tag][indexPath.item]
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Collection view at row \(collectionView.tag) selected index path \(indexPath)")
+        print("Collection view at row \(collectionView.tag) selected index path row \(indexPath.row)")
+        
+//        let sequence = 2*(collectionView.tag - 2) + indexPath.row
+//        let sequence = getIndexOfProduct(withTag: collectionView.tag, andRow: indexPath.row)
+        
         
         if (collectionView.tag == firstSection ){
             updateTableView(for: indexPath)
@@ -245,7 +305,29 @@ extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewData
             
         } else if ( collectionView.tag == secondSection){
             chosenSubcategoryIndex = indexPath.row
-            collectionView.reloadData()
+            
+            let subCatID = displayedSubCategoryData[indexPath.row].ID
+            
+            DB.getProducts(withSubCollectionID: subCatID){
+                products in
+                
+                Logger.log(.success, "products has been received from DB")
+                self.displayedSubCategoryProducts = []
+                
+                for product in products {
+                    self.displayedSubCategoryProducts.append(product)
+                }
+                
+                if products.isEmpty{
+                    self.noProductsAvailble = true
+                }else{
+                    self.noProductsAvailble = false
+                    self.remainingProductsToDisplay = self.displayedSubCategoryProducts.count
+                }
+                // this is to reload the third section of the tableView
+                self.tableView.reloadData()
+            }
+            
         }else{
             
         }
@@ -279,10 +361,23 @@ extension ShoppingViewController {
         self.displayedSubCategoryData = [] // deleting all elements
         // adding the new subcategory
         //self.subCategoryData.append(categoryData[indexPath.row])
-        for singleSubCategory in categoryData[indexPath.row]{
-            self.displayedSubCategoryData.append(singleSubCategory)
+        //        for singleSubCategory in categoryData[indexPath.row]{
+        //            self.displayedSubCategoryData.append(singleSubCategory)
+        //        }
+        for i in 1..<categoryData[indexPath.row].count{
+            self.displayedSubCategoryData.append(categoryData[indexPath.row][i] as! ShoppingSubCategory)
         }
         // the actual addition, deletion and update of the uitableivew
         replaceSubCategoryRow(delete: indexPathToDelete, section: 1)
+    }
+    
+}
+
+//MARK: -CollectionView Helpers
+
+extension ShoppingViewController {
+    
+    func getIndexOfProduct(withTag tag:Int,andRow row:Int )->Int{
+        return 2*(tag - 2) + row
     }
 }

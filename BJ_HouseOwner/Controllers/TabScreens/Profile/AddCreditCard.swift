@@ -149,7 +149,7 @@ class AddCreditCard: UIViewController{
         
         if sender.tag == 0{
             //cardView.isHidden = true
-            showView(view: cardView, hidden: false)
+            showView(view: cardView, hidden: false) // this was true when it was cash
             
             
         }else if sender.tag == 1{

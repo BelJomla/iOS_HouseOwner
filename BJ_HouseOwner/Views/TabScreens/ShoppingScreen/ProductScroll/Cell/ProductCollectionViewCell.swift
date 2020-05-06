@@ -26,6 +26,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         button.isHidden = true
         plusMinusView.isHidden = false
         quatityLabel.text = "1"
+        
     }
     
     @IBAction func minusPressed(_ sender: UIButton) {

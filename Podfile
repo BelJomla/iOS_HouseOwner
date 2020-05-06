@@ -18,6 +18,9 @@ target 'BJ_HouseOwner' do
   pod 'RealmSwift'
   # Pods for BJ_HouseOwner
   
+  pod 'SDWebImage'
+
+  
   target 'BJ_HouseOwnerTests' do
     inherit! :search_paths
     # Pods for testing
