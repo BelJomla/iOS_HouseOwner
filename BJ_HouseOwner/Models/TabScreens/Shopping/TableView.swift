@@ -17,7 +17,7 @@ struct ShoppingTableView{
     /*
      the number of products to be displayed, this is set constant for now, but it needs to have a logic to handle the infinite scrolling and the database connection
      */
-    static let numberOfProducts = 15
+    static let numberOfProducts = 0 // a dummy value
     /*
      These are the indecies that identify the category,subCategory and product sections.
      */
@@ -42,7 +42,7 @@ struct ShoppingTableView{
      Table cell height and width with respect to the screen dimentions. Note: it does not work very well on the ipad
      */
     static let cellWidth = CGFloat(UIScreen.main.bounds.height/9.5)
-    static let cellHeight = CGFloat( UIScreen.main.bounds.width/2)
+    static let cellHeight = CGFloat( UIScreen.main.bounds.width/1.5)
     
     init(){
         

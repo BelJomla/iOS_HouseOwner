@@ -16,6 +16,10 @@ struct K {
     // segues
     static let verifyPhoneSegue = "verifyPhone"
     
+    struct UserDefaultsKeys{
+        static let userIsSignedIn = "userIsSignedIn"
+    }
+    
     
     struct segues {
         struct profile {
@@ -25,9 +29,11 @@ struct K {
             static let toAddresses = "toAddresses"
             static let toAddCreditCard = "addCreditCard"
         }
-        struct verifyScreen {
-            static let toTabScreensWithoutRegistration = "directlyToTabScreens"
+        struct loginProcess {
+            static let toTabScreensWithoutRegistration = "toTabScreensWithoutRegistration"
             static let registerNewUser = "registerNewUser"
+            static let directlyToTapScreens = "directlyToTapScreens"
+            static let toLoginOrSignupProcess = "toLoginOrSignupProcess"
         }
     }
     

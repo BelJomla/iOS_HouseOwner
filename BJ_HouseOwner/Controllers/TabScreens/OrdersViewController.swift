@@ -63,10 +63,11 @@ extension OrdersViewController: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView.tag > outTebleTag{
-            return content[tableView.tag-innerTableStartingMarginForTag].count
+            //return content[tableView.tag-innerTableStartingMarginForTag].count
+            return 1
         }else {
             assert(tableView.tag == outTebleTag, tagError)
-            return content.count
+            return 1//content.count
         }
     }
     

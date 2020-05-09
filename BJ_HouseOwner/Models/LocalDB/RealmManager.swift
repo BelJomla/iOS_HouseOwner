@@ -51,4 +51,5 @@ class RealmManager{
             Logger.log(.error, "RealmError: Could not delete object. \n \(error)")
         }
     }
+    
 }

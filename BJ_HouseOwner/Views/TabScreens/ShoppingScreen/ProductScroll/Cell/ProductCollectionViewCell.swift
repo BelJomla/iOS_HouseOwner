@@ -17,10 +17,12 @@ class ProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var quatityLabel: UILabel!
     @IBOutlet weak var plusMinusView: UIView!
-
     @IBOutlet weak var minusButton: UIButton!
-    
     @IBOutlet weak var plusButton: UIButton!
+    
+    var plusButtonActionBlock: (()-> Void)? = nil
+    var minusButtonActionBlock: (()-> Void)? = nil
+    
     @IBAction func addToCartPressed(_ sender: UIButton) {
         
         button.isHidden = true
@@ -30,21 +32,24 @@ class ProductCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func minusPressed(_ sender: UIButton) {
-        var currentQuatity = Int(quatityLabel.text!)
-        if(currentQuatity! != 0){
-            currentQuatity! -= 1
-        }
+        minusButtonActionBlock?()
         
-        quatityLabel.text = String(currentQuatity!)
+//        var currentQuatity = Int(quatityLabel.text!)
+//        if(currentQuatity! != 0){
+//            currentQuatity! -= 1
+//        }
+//
+//        quatityLabel.text = String(currentQuatity!)
         
     }
     
     @IBAction func plusPressed(_ sender: UIButton) {
-        var currentQuatity = Int(quatityLabel.text!)
-        
-        currentQuatity! += 1
-        
-        quatityLabel.text = String(currentQuatity!)
+        plusButtonActionBlock?()
+//        var currentQuatity = Int(quatityLabel.text!)
+//        
+//        currentQuatity! += 1
+//        
+//        quatityLabel.text = String(currentQuatity!)
         
     }
     override func awakeFromNib() {
@@ -63,7 +68,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         cartView.layer.cornerRadius = 5
         
         //
-        button.layer.cornerRadius = 5
+        button.layer.cornerRadius = 0
         
         // shadow styling
         self.layer.shadowColor = UIColor.black.cgColor
@@ -71,7 +76,5 @@ class ProductCollectionViewCell: UICollectionViewCell {
         self.layer.shadowOffset = .zero
         self.layer.shadowRadius = 4
         
-        
     }
-    
 }

@@ -37,6 +37,8 @@ class ShoppingViewController: UIViewController{
     
     var displayedSubCategoryProducts: [Product] = []
     
+    var wantedProducts : [Product] = []
+    
     var remainingProductsToDisplay = 0
     
     var preferredLanguage = "en"
@@ -45,13 +47,19 @@ class ShoppingViewController: UIViewController{
     
     var chosenCategoryIndex:Int = 0
     var chosenSubcategoryIndex:Int = 0
+    var aCategoryIsSelected = false
+    
+    var selectedCategory:ShoppingCategory? = nil
+    var isFirstTimeLoadingRenderingTableView:Bool = true
     
     let firstSection = ShoppingTableView.firstSectionIndex
     let secondSection = ShoppingTableView.secondSectionIndex
     let thirdSection = ShoppingTableView.thirdSectionIndex
     
     override func viewDidLoad() {
-        print("shopping")
+        ///
+        
+        
         styleUI()
         // intialization of category arrays
         initCategories()
@@ -70,6 +78,7 @@ class ShoppingViewController: UIViewController{
         
         //prepare products from the db
         prepareUIProductsDB()
+
     }
     
     func prepareUIProductsDB(){
@@ -116,6 +125,26 @@ class ShoppingViewController: UIViewController{
         // hides the backbutton on the navigation bar, since the user
         // should not go back the verificaiton screen
         self.tabBarController?.navigationItem.hidesBackButton = true
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        print("view Will disappear")
+        let currentUserArr = RealmManager.shared.read(User.self)
+        let userIndex = currentUserArr.count-1
+        let currentUser = currentUserArr[userIndex]
+        
+        let order = Order(self.wantedProducts, currentUser.ID, "", .new)
+        cleanOrders(order:order)
+        RealmManager.shared.create(order.self)
+    }
+    
+    func cleanOrders(order:Order){
+        let objects = RealmManager.shared.read(Order.self)
+        for obj in objects{
+            RealmManager.shared.delete(obj)
+        }
+        
     }
 }
 
@@ -128,27 +157,52 @@ extension ShoppingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if (section==firstSection || section==secondSection)
-        { return 1}
+        if (section==firstSection)
+        {
+            return 1
+        }else if section==secondSection {
+            return 1
+//            if(aCategoryIsSelected){
+//                return 1
+//            }else{
+//                return 0
+//            }
+        }
         else{
-            let count = displayedSubCategoryProducts.count/2
-            
-            if count > 2{
-                return count
-            }else{
-                return 1
-            }
-            //return //ShoppingTableView.numberOfProducts
+            //return 1}
+            var count = Double(displayedSubCategoryProducts.count)/2.0
+            //Logger.log(.success, " count VEFORE for products tableview: \(count)")
+            count = count.rounded(.up)
+//            if count >= 2{
+                //Logger.log(.success, " count for products tableview: \(count)")
+                return Int(count)
+//            }
+//
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat(15)
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
         /*
          getting the appropriate header for each section
          */
         let label = ShoppingTableView.getSectionHeader(forSection: section)
+        label.backgroundColor = UIColor(rgb: Colors.smokeWhite)
         
-        return label
+        if section  == secondSection {
+            if aCategoryIsSelected {
+                return label
+            }else{
+                return nil
+            }
+        }else{
+            return label
+        }
+
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -157,9 +211,9 @@ extension ShoppingViewController: UITableViewDelegate, UITableViewDataSource {
             return categoryCellHeight//CGFloat(95)
             
         }else{
-            let productCellHeight = ShoppingTableView.cellHeight
+            //let productCellHeight = ShoppingTableView.cellHeight
             
-            return productCellHeight//CGFloat(210)
+            return CGFloat(255)//productCellHeight//CGFloat(210)
         }
     }
     
@@ -176,7 +230,7 @@ extension ShoppingViewController: UITableViewDelegate, UITableViewDataSource {
         if (indexPath.section==1 || indexPath.section==0){
             tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.section /*indexPath.item*/)
             
-            print("\(indexPath.section)\(indexPath.item)")
+            //print("\(indexPath.section)\(indexPath.item)")
         }else{
             
             //            let collectionViewLayout = tableViewCell.collectionView.collectionViewLayout as? UICollectionViewFlowLayout
@@ -185,9 +239,9 @@ extension ShoppingViewController: UITableViewDelegate, UITableViewDataSource {
             //
             //            collectionViewLayout?.invalidateLayout()
             //            tableViewCell.collectionView.collectionViewLayout =
-            tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: 2 + indexPath.item)
+            tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: 2 + indexPath.row)
             
-            print("\(indexPath.section)\(indexPath.item)")
+            //print("\(indexPath.section)\(indexPath.item)")
         }
     }
 }
@@ -204,15 +258,22 @@ extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewData
             if noProductsAvailble{
                 return 1
             }else{
-                if self.remainingProductsToDisplay > 2 {
+                if self.remainingProductsToDisplay >= 2 {
                     self.remainingProductsToDisplay -= 2
+                    Logger.log(.success, "OUT self.remainingProductsToDisplay : 2")
                     return 2
                 } else{
-                    let temp = self.remainingProductsToDisplay
-                    self.remainingProductsToDisplay = 0
-                    return temp
+                    if self.remainingProductsToDisplay == 1 {
+                        self.remainingProductsToDisplay -= 1
+                        Logger.log(.success, "OUT self.remainingProductsToDisplay : 1")
+                        return 1
+                    }else{
+                        Logger.log(.success, "OUT self.remainingProductsToDisplay : 0")
+                        return 0
+                    }
                 }
                 //return  //ShoppingTableView.numOfProductsInRow
+                               
             }
         }
     }
@@ -225,8 +286,8 @@ extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewData
             //return CGSize(width: CGFloat(60), height: CGFloat(60))
         }else{
             //FixMe: -Dont Access the screen width every time! just store it.
-            return CGSize(width: ShoppingCollectionView.productCellWidth, height: ShoppingCollectionView.productCellHeight)
-            //return CGSize(width: CGFloat(180), height: CGFloat(200))
+//            return CGSize(width: ShoppingCollectionView.productCellWidth, height: ShoppingCollectionView.productCellHeight)
+            return CGSize(width: CGFloat(170), height: CGFloat(240))
         }
     }
     
@@ -250,6 +311,14 @@ extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewData
             }
             
             cell.label.text = mainCategories[indexPath.item].name[preferredLanguage]
+            
+            if cell.label.text == "All" {
+                if isFirstTimeLoadingRenderingTableView {
+                    isFirstTimeLoadingRenderingTableView = false
+                    selectedCategory = mainCategories[indexPath.item]
+                }
+            }
+
             return cell
             
         }
@@ -264,24 +333,65 @@ extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewData
             cell.label.text = displayedSubCategoryData[indexPath.item].name[preferredLanguage]
             return cell
         }else{
-            
+
             let cell:UICollectionViewCell
             if noProductsAvailble {
                 cell =  collectionView.dequeueReusableCell(withReuseIdentifier: K.UICollectionCells.IDs.noProductCell, for: indexPath) as! NoProductCollectionViewCell
             }else{
+                
                 let index = getIndexOfProduct(withTag: collectionView.tag, andRow: indexPath.row)
-                Logger.log(.info, "displyd sbctgr dt \(displayedSubCategoryProducts.count)")
-                print(index)
+                
+                Logger.log(.error, "IndexDetails: index=\(index), collectionView.tag= \(collectionView.tag) indexPath.row: \(indexPath.row), , displayedSubCategoryProductslength = \(displayedSubCategoryProducts.count)")
+                
+                Logger.log(.info, " displayedSubCategoryProducts: \(displayedSubCategoryProducts) curr index: \(index)")
+                
+                
                 let product = displayedSubCategoryProducts[index]
                 
                 let mycell =  collectionView.dequeueReusableCell(withReuseIdentifier: K.shoppingProductCell, for: indexPath) as! ProductCollectionViewCell
                 
+
+                mycell.minusButtonActionBlock = {
+                    var currentQuatity = Int(mycell.quatityLabel.text!)
+                    if(currentQuatity != 0){
+                        currentQuatity! -= 1
+                    }
+                    mycell.quatityLabel.text = String(currentQuatity!)
+                    RealmManager.shared.update(product.self, with: ["wantedQuantity":currentQuatity])
+                    self.wantedProducts = self.updateProdcutInCart(product, self.wantedProducts)
+                    
+//                    if self.findProductQuantity(product: product) == 0{
+//                        RealmManager.shared.create(product.self)
+//                    }else{
+//                        RealmManager.shared.update(product.self, with: ["wantedQuantity":currentQuatity])
+//                    }
+                }
+                mycell.plusButtonActionBlock = {
+                    var currentQuatity = Int(mycell.quatityLabel.text!)
+                    
+                    currentQuatity! += 1
+                    mycell.quatityLabel.text = String(currentQuatity!)
+//                    product.wantedQuantity = currentQuatity!
+//                    RealmManager.shared.update(product.self, with: ["wantedQuantity":currentQuatity])
+                    
+                    self.wantedProducts = self.updateProdcutInCart(product, self.wantedProducts)
+                    
+//                    if self.findProductQuantity(product: product) == 0{
+//                        RealmManager.shared.create(product.self)
+//                    }else{
+//                        RealmManager.shared.update(product.self, with: ["wantedQuantity":currentQuatity])
+//                    }
+                }
+                
+                
                 mycell.price.text = "SR \(product.sellingPrice)"
-                mycell.title.text = product.name[preferredLanguage]
+                mycell.title.text = product.name[0].value
+                mycell.quatityLabel.text = String(findProductQuantity(product: product))
+                //delteDuplicateProducts(product)
+                
                 let url = URL(string: product.imageURLs[0])
                 
                 mycell.image.sd_setImage(with: url, placeholderImage: UIImage(named: "loading"))
-                
                 
                 cell = mycell
                 
@@ -293,43 +403,97 @@ extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Collection view at row \(collectionView.tag) selected index path row \(indexPath.row)")
         
-//        let sequence = 2*(collectionView.tag - 2) + indexPath.row
-//        let sequence = getIndexOfProduct(withTag: collectionView.tag, andRow: indexPath.row)
         
-        
+        //        let sequence = 2*(collectionView.tag - 2) + indexPath.row
+        //        let sequence = getIndexOfProduct(withTag: collectionView.tag, andRow: indexPath.row)
         if (collectionView.tag == firstSection ){
+            //displayedSubCategoryProducts = []
+            remainingProductsToDisplay = 0//displayedSubCategoryProducts.count//displayedSubCategoryData.count
+            selectedCategory = mainCategories[indexPath.item]
+            //selectedCategory?.toString()
+            
+            if (!aCategoryIsSelected){
+                aCategoryIsSelected = true
+                tableView.reloadData()
+            }
+            
             updateTableView(for: indexPath)
             chosenCategoryIndex = indexPath.row
             //chosenSubcategoryIndex = 0
-            collectionView.reloadData()
+            //collectionView.reloadData()
+            tableView.reloadData()
+            
             
         } else if ( collectionView.tag == secondSection){
-            chosenSubcategoryIndex = indexPath.row
+            displayedSubCategoryProducts = []
+            remainingProductsToDisplay = 0//displayedSubCategoryData.count
             
-            let subCatID = displayedSubCategoryData[indexPath.row].ID
+            let subCatName = String(displayedSubCategoryData[indexPath.row].name["en"]!)
             
-            DB.getProducts(withSubCollectionID: subCatID){
-                products in
+            //Logger.log(.success, " ENTERD 420  remainingProductsToDisplay : \(remainingProductsToDisplay)")
+            
+            if subCatName == "All"{
                 
-                Logger.log(.success, "products has been received from DB")
-                self.displayedSubCategoryProducts = []
+                chosenSubcategoryIndex = indexPath.row
                 
-                for product in products {
-                    self.displayedSubCategoryProducts.append(product)
-                }
+                let catID = selectedCategory!.ID
+                //selectedCategory?.toString()
                 
-                if products.isEmpty{
-                    self.noProductsAvailble = true
-                }else{
-                    self.noProductsAvailble = false
-                    self.remainingProductsToDisplay = self.displayedSubCategoryProducts.count
-                }
-                // this is to reload the third section of the tableView
+                
                 self.tableView.reloadData()
+                
+                    // background activity
+                    DB.getProducts(withCollectionID: catID){
+                        products in
+                        
+                        self.displayedSubCategoryProducts = []
+                        
+                        for product in products {
+                            
+                            self.displayedSubCategoryProducts.append(product)
+                        }
+                        
+                        if products.isEmpty{
+                            self.noProductsAvailble = true
+                            self.displayedSubCategoryProducts = []
+                        }else{
+                            self.noProductsAvailble = false
+                            self.remainingProductsToDisplay = self.displayedSubCategoryProducts.count
+                        }
+                            // this is to reload the third section of the tableView
+                            self.tableView.reloadData()
+                    
+                    
+                }
+            }else{
+                chosenSubcategoryIndex = indexPath.row
+                
+                let subCatID = displayedSubCategoryData[indexPath.row].ID
+                self.tableView.reloadData()
+                
+                    // background activity
+                    DB.getProducts(withSubCollectionID: subCatID){
+                        products in
+                        
+                        self.displayedSubCategoryProducts = []
+                        
+                        for product in products {
+                            self.displayedSubCategoryProducts.append(product)
+                        }
+                        
+                        if products.isEmpty{
+                            self.noProductsAvailble = true
+                            self.remainingProductsToDisplay = self.displayedSubCategoryProducts.count
+                        }else{
+                            self.noProductsAvailble = false
+                            self.remainingProductsToDisplay = self.displayedSubCategoryProducts.count
+                            
+                        }
+                            // this is to reload the third section of the tableView
+                            self.tableView.reloadData()
+                }
             }
-            
-        }else{
-            
+            tableView.reloadData()
         }
     }
 }
@@ -349,10 +513,14 @@ extension ShoppingViewController {
     
     func updateTableView(for indexPath:IndexPath){
         /*
-         since subCategoryData is a 2D, the .count will return 2
+         since subCategoryData is a 2D, the .count will FIXME:return 2
          and it is the row number the should be deleted
          */
-        let indexToDelete = 0//subCategoryData.count-1
+        Logger.log(.error, " subCategoryData count: \(categoryData.count)")
+        for somthing in categoryData{
+            (somthing as? ShoppingSubCategory)?.toString()
+        }
+        let indexToDelete = 0//FIXEME:subCategoryData.count-1
         // creating an instance of IndexPath, sinindexToDeletece it is needed for deleteSubCategoryRow
         let indexPathToDelete = IndexPath(row:indexToDelete, section: 1)
         // removing the subcatogy values from the array before updating the UITableView
@@ -380,4 +548,40 @@ extension ShoppingViewController {
     func getIndexOfProduct(withTag tag:Int,andRow row:Int )->Int{
         return 2*(tag - 2) + row
     }
+    
+    func updateProdcutInCart(_ product:Product,_ cart:[Product]) -> [Product]{
+        var myCart = cart
+        var isFound = false
+        for i in 0..<myCart.count{
+            if cart[i].ID == product.ID{
+                isFound = true
+                myCart.remove(at: i)
+                if cart[i].wantedQuantity > 0{
+                    myCart.append(product)
+                }
+            }
+        }
+        if !isFound{
+            myCart.append(product)
+        }
+        return myCart
+    }
+    func findProductQuantity(product:Product) -> Int{
+        var currentQuatity:Int  = 99
+        
+        let products = RealmManager.shared.read(Product.self)
+        var isNewlyChosenProduct = true
+        for productRealm in products{
+            if productRealm.ID == product.ID{
+                isNewlyChosenProduct = false
+                currentQuatity = productRealm.wantedQuantity
+            }
+        }
+        if isNewlyChosenProduct{
+            currentQuatity = 0
+        }
+        
+        return currentQuatity
+    }
+    
 }

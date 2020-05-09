@@ -21,7 +21,7 @@ class ShoppingCollectionView{
     static let productCellWidth = UIScreen.main.bounds.width/2.3
     static let productCellHeight = UIScreen.main.bounds.height/4.5
     static let categotyMinimumLineSpacing = CGFloat(10)
-    static let productMinimumLineSpacing = CGFloat(30)
+    static let productMinimumLineSpacing = CGFloat(12)
     
     init() {
         

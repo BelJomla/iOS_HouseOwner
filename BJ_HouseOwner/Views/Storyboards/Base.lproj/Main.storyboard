@@ -84,7 +84,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0512345678" borderStyle="roundedRect" placeholder="Your Number Here!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AVs-89-jJx">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Number Here!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AVs-89-jJx">
                                                         <rect key="frame" x="0.0" y="115" width="208" height="34"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="208" id="v8l-FJ-vTQ"/>
@@ -144,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="300" y="141"/>
+            <point key="canvasLocation" x="312" y="-309"/>
         </scene>
         <!--Verify View Controller-->
         <scene sceneID="Tbz-Dd-jSa">
@@ -262,7 +262,7 @@
                                             <constraint firstAttribute="height" constant="40" id="EuB-SW-ux7"/>
                                         </constraints>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DtE-yV-0wh">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DtE-yV-0wh">
                                         <rect key="frame" x="134" y="307" width="158" height="48"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="Pass Screen">
@@ -283,6 +283,11 @@
                                     <constraint firstItem="Nr5-2t-OJP" firstAttribute="top" secondItem="UcQ-mp-Z1L" secondAttribute="top" constant="28" id="Ugh-vw-RUX"/>
                                     <constraint firstItem="Wc4-NM-V8p" firstAttribute="centerX" secondItem="UcQ-mp-Z1L" secondAttribute="centerX" id="jiu-fU-AE6"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="DtE-yV-0wh"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -310,12 +315,12 @@
                         <outlet property="verifyButton" destination="hHh-bo-nYn" id="4tm-zX-TSr"/>
                         <outlet property="verifyTextFeild" destination="Gqe-Xt-xG1" id="0W8-6S-GPS"/>
                         <segue destination="8bM-aH-dxb" kind="show" identifier="registerNewUser" id="PrY-f3-HWw"/>
-                        <segue destination="7y3-8M-Zy5" kind="show" identifier="directlyToTabScreens" id="71g-nA-FY3"/>
+                        <segue destination="7y3-8M-Zy5" kind="show" identifier="toTabScreensWithoutRegistration" id="71g-nA-FY3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kbe-tB-EiA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1075" y="141"/>
+            <point key="canvasLocation" x="1042" y="-309"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="D1A-Yx-zwp">
@@ -423,7 +428,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vmy-1t-IDa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1848" y="-252"/>
+            <point key="canvasLocation" x="1823" y="-309"/>
         </scene>
         <!--Tabscreens-->
         <scene sceneID="kau-Ht-4RD">
@@ -433,7 +438,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SWc-XA-b75" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1848" y="127"/>
+            <point key="canvasLocation" x="1455" y="141"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KQF-Mj-7Ee">
@@ -455,12 +460,32 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="cu6-JG-gjN"/>
+                        <segue destination="FBW-RS-m5n" kind="relationship" relationship="rootViewController" id="bvG-Fv-jxh"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5c6-Ml-iLK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-549" y="141"/>
+            <point key="canvasLocation" x="-1178" y="141"/>
+        </scene>
+        <!--Welcome User View Controller-->
+        <scene sceneID="Y1U-pK-txY">
+            <objects>
+                <viewController id="FBW-RS-m5n" customClass="WelcomeUserViewController" customModule="BJ_HouseOwner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hTd-zt-4SI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Fkn-ho-Kvz"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="YmW-tO-Hcp"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toLoginOrSignupProcess" id="zxl-DA-rT9"/>
+                        <segue destination="7y3-8M-Zy5" kind="show" identifier="directlyToTapScreens" id="tlb-LI-L0p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6xw-Yj-Kjg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-445" y="141"/>
         </scene>
     </scenes>
     <resources>
@@ -468,7 +493,7 @@
         <image name="checkmark.circle.fill" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="71g-nA-FY3"/>
+        <segue reference="tlb-LI-L0p"/>
         <segue reference="PrY-f3-HWw"/>
     </inferredMetricsTieBreakers>
 </document>

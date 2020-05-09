@@ -11,9 +11,10 @@ import UIKit
 class ProfileSettingsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    
-    let switchableSettingsTitles: [String] = ["Be Logged", "Allow Delivery Person Calls"]
-    let switchableSettingsBools:[Bool] = [true,true]
+    // order is important in switchableSettingsBools
+    let switchableSettingsTitles: [String] = ["Automatic Login", "Allow Delivery Person Calls"]
+    let switchableSettingsBools:[Bool] = [UserDefaults.standard.bool(forKey: K.UserDefaultsKeys.userIsSignedIn),false]
+ //   let switchableSettingsFucntions:[((ProfileSettingsViewController)->()->())?] = [remeberUserInLogin,nil]
     
     let clickableSettings = ["👤 Sign Out", "Beljomla ©2020 Version 1.0"]
     let clickableSettingsBools:[Bool] = [true,false]
@@ -23,17 +24,24 @@ class ProfileSettingsViewController: UIViewController {
     let sectionStartingTagNumber = 100
     
     
+    
     func signUserOut() {
         FirebaseAuthStruct.signout(){
             success in
             if(success){
-                self.okAlert("Signed Out", "You have been successfully signed out, you may exit the app now.", nil)
+                self.okAlert("Signed Out", "You have been successfully signed out in FirebaseAuth, you may exit the app now.", nil)
                 // should pop to rootViewController
                 
             }else{
                 self.okAlert( "Error",  "There has been an error siging you out", nil)
             }
         }
+    }
+    
+    func remeberUserInLogin(){
+        print(">>remeberUserInLogin EXCECUTED")
+        let remeberUserInAutoSignIn = UserDefaults.standard.bool(forKey: K.UserDefaultsKeys.userIsSignedIn)
+        UserDefaults.standard.set( !remeberUserInAutoSignIn, forKey: K.UserDefaultsKeys.userIsSignedIn)
     }
     
     override func viewDidLoad() {
@@ -87,10 +95,15 @@ extension ProfileSettingsViewController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         if indexPath.section == 0 {
-            let myCell = cell as! SwitchSettingsTableViewCell
+            let myCell = cell as! SwitchSettingsTableViewCell2
             myCell.label.text = switchableSettingsTitles[indexPath.row]
             myCell.theSwitch.isOn = switchableSettingsBools[indexPath.row]
             myCell.tag =  ( indexPath.section + 1 ) * (sectionStartingTagNumber + indexPath.row)
+            myCell.actionBlock = {
+                print("value of user defaults: \(UserDefaults.standard.bool(forKey: K.UserDefaultsKeys.userIsSignedIn))")
+                self.remeberUserInLogin()
+                print("value of user defaults: \(UserDefaults.standard.bool(forKey: K.UserDefaultsKeys.userIsSignedIn))")
+            }
             
         }else{
             let myCell = cell as! ClickableSettingsTableViewCell
@@ -101,7 +114,11 @@ extension ProfileSettingsViewController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.section == 0 {
-            return tableView.dequeueReusableCell(withIdentifier: K.UITableCells.IDs.switchSettingsCell, for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: K.UITableCells.IDs.switchSettingsCell, for: indexPath) as! SwitchSettingsTableViewCell2
+            
+
+            
+            return cell
         }else{
             return tableView.dequeueReusableCell(withIdentifier: K.UITableCells.IDs.clickableSettingsCell, for: indexPath)
         }

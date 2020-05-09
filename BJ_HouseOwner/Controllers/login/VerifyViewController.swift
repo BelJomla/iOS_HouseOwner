@@ -29,15 +29,17 @@ class VerifyViewController: UIViewController{
     
     
     override func viewDidLoad() {
+//        UserDefaults.standard.bool(forKey: K.UserDefaultsKeys.userIsSignedIn)
+        
         verifyTextFeild.delegate = self
         resendButton.isHidden = true
         styleUI()
         okAlert("reCAPTCHA verfication", "We will verifiy that you are not a robot, until the final release of the app, when we use PushNotifications",{
-            //self.sendVerificationCode(forPhone: "+966512345678")
+            
             self.sendVerificationCode(forPhone: self.phoneNumber)
             self.decreaseTimer()
         })
-        //        sendVerificationCode(forPhone: self.phoneNumber)
+        
     }
     @IBAction func verifyButtonPressed(_ sender: Any) {
         if(!messageSendingRequested){
@@ -62,19 +64,32 @@ class VerifyViewController: UIViewController{
                                 user in
                                 
                                 if let user = user {
-                                    // forward to screens
-                                    // save user here using Realm
-                                    // update in user defaults
+                                    /*
+                                     Saving the user in the local DB
+                                     */
+                                    RealmManager.shared.create(user)
+                                    /*
+                                     Saving the user state of being signed in
+                                     */
                                     
-                                    Logger.log(.info, "user regestered")
+                                    // styling
                                     self.navigationController?.navigationBar.isHidden = true
                                     self.navigationItem.hidesBackButton = true
-                                    self.performSegue(withIdentifier: K.segues.verifyScreen.toTabScreensWithoutRegistration, sender: self)
+                                    /*
+                                     forwarding the user to the app shopping screen without
+                                     asking for name, since they did that in the past
+                                     */
+                                    self.performSegue(withIdentifier: K.segues.loginProcess.toTabScreensWithoutRegistration, sender: self)
                                 }else{
-                                    // user is already registered in our db
+                                    /*
+                                     TODO:need to write the user to the DB
+                                     */
                                     
-                                    Logger.log(.info, "user NOT regestered")
-                                    self.performSegue(withIdentifier: K.segues.verifyScreen.registerNewUser, sender: self)
+                                    /*
+                                     forwarding the user to the screen asking them for
+                                     user names since they are new users
+                                     */
+                                    self.performSegue(withIdentifier: K.segues.loginProcess.registerNewUser, sender: self)
                                 }
                             }
                         }else{

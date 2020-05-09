@@ -30,9 +30,9 @@ class Logger{
         case LogType.success:
             print("\n✅ Success: LogCat(\(Logger.logCount)) \(message)\n")
         case LogType.action:
-            print("\n🔷 Action: LogCat(\(Logger.logCount)) \(message)\n")
+            print("\n🔹 Action: LogCat(\(Logger.logCount)) \(message)\n")
         case LogType.info:
-            print("\n♈️ Info : LogCat(\(Logger.logCount)) \(message)\n")
+            print("\n🔘 Info : LogCat(\(Logger.logCount)) \(message)\n")
         }
     }
     
