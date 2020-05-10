@@ -49,6 +49,10 @@ class ShoppingViewController: UIViewController{
     var chosenSubcategoryIndex:Int = 0
     var aCategoryIsSelected = false
     
+    
+    var autoSelectedASubCat = false
+    var allowAutoClick = true
+    
     var selectedCategory:ShoppingCategory? = nil
     var isFirstTimeLoadingRenderingTableView:Bool = true
     
@@ -276,6 +280,13 @@ extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewData
             
             if(indexPath.row == chosenSubcategoryIndex){
                 cell.backgroundColor = UIColor(rgb: Colors.mediumBlue)
+                Logger.log(.success, "OI INN")
+                
+                if(allowAutoClick && selectedCategory?.name["en"] != "All"){
+                    autoSelectedASubCat = true
+                    collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .bottom)
+                    collectionView.delegate?.collectionView?(collectionView, didSelectItemAt: indexPath)
+                }
             }else{
                 cell.backgroundColor = .white
             }
@@ -283,9 +294,8 @@ extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewData
             return cell
         
         }else{
-            print("FICK")
             let cell:UICollectionViewCell
-            Logger.log(.success, "EE Empty Cell value \(noProductsAvailble)")
+
             if noProductsAvailble {
                 cell =  collectionView.dequeueReusableCell(withReuseIdentifier: K.UICollectionCells.IDs.noProductCell, for: indexPath) as! NoProductCollectionViewCell
                 Logger.log(.success, "EE Empty Cell Enterd")
@@ -338,7 +348,11 @@ extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewData
         print("Collection view at row \(collectionView.tag) selected index path row \(indexPath.row)")
         
         
+        
+        
         if (collectionView.tag == firstSection ){
+            allowAutoClick = true
+
             //displayedSubCategoryProducts = []
             remainingProductsToDisplay = 0//displayedSubCategoryProducts.count//displayedSubCategoryData.count
             selectedCategory = mainCategories[indexPath.item]
@@ -383,7 +397,7 @@ extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewData
             
             
         } else if ( collectionView.tag == secondSection){
-            
+            allowAutoClick = false
             displayedSubCategoryProducts = []
             remainingProductsToDisplay = 0//displayedSubCategoryData.count
             
