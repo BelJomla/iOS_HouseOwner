@@ -24,33 +24,25 @@ class ProductCollectionViewCell: UICollectionViewCell {
     var minusButtonActionBlock: (()-> Void)? = nil
     
     @IBAction func addToCartPressed(_ sender: UIButton) {
-        
+        showAdderHideButton()
+        plusButtonActionBlock?()
+    }
+    func hideAdderShowButton(){
+        button.isHidden = false
+        plusMinusView.isHidden = true
+        //quatityLabel.text = "0"
+    }
+    func showAdderHideButton(){
         button.isHidden = true
         plusMinusView.isHidden = false
-        quatityLabel.text = "1"
-        
     }
     
     @IBAction func minusPressed(_ sender: UIButton) {
         minusButtonActionBlock?()
-        
-//        var currentQuatity = Int(quatityLabel.text!)
-//        if(currentQuatity! != 0){
-//            currentQuatity! -= 1
-//        }
-//
-//        quatityLabel.text = String(currentQuatity!)
-        
     }
     
     @IBAction func plusPressed(_ sender: UIButton) {
         plusButtonActionBlock?()
-//        var currentQuatity = Int(quatityLabel.text!)
-//        
-//        currentQuatity! += 1
-//        
-//        quatityLabel.text = String(currentQuatity!)
-        
     }
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -75,6 +67,6 @@ class ProductCollectionViewCell: UICollectionViewCell {
         self.layer.shadowOpacity = 0.2
         self.layer.shadowOffset = .zero
         self.layer.shadowRadius = 4
-        
+
     }
 }

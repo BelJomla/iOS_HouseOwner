@@ -76,6 +76,12 @@ class ShoppingViewController: UIViewController{
     
     @objc func rightBarButtonClicked(){
         Logger.log(.success, "Clicked right button item")
+        
+        for prod in wantedProducts {
+            print("product: \(prod.name[0].value)")
+            print("wanted amoutn: \(prod.wantedQuantity)")
+            print(" - - - -")
+        }
     }
     
     func styleUI(){
@@ -87,9 +93,7 @@ class ShoppingViewController: UIViewController{
         
         let cartIcon = UIBarButtonItem(image: UIImage(systemName: "cart.fill"), style: .plain, target: self, action: #selector(rightBarButtonClicked))
         self.navigationItem.rightBarButtonItem  = cartIcon
-        if let navigationbar = self.navigationController?.navigationBar {
-            navigationbar.barTintColor = UIColor.white
-        }
+        
     }
     
     func initCategories(){
@@ -179,7 +183,7 @@ extension ShoppingViewController: UITableViewDelegate, UITableViewDataSource {
         }else{
             //let productCellHeight = ShoppingTableView.cellHeight
             
-            return CGFloat(310)////CGFloat(255)//productCellHeight//CGFloat(210)
+            return CGFloat(270)////CGFloat(255)//productCellHeight//CGFloat(210)
         }
     }
     
@@ -269,6 +273,7 @@ extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewData
                 if isFirstTimeLoadingRenderingTableView {
                     isFirstTimeLoadingRenderingTableView = false
                     selectedCategory = mainCategories[indexPath.item]
+                    cell.backgroundColor = .white
                 }
             }
             
@@ -280,7 +285,7 @@ extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewData
             
             if(indexPath.row == chosenSubcategoryIndex){
                 cell.backgroundColor = UIColor(rgb: Colors.mediumBlue)
-                Logger.log(.success, "OI INN")
+                
                 
                 if(allowAutoClick && selectedCategory?.name["en"] != "All"){
                     autoSelectedASubCat = true
@@ -298,35 +303,52 @@ extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewData
 
             if noProductsAvailble {
                 cell =  collectionView.dequeueReusableCell(withReuseIdentifier: K.UICollectionCells.IDs.noProductCell, for: indexPath) as! NoProductCollectionViewCell
-                Logger.log(.success, "EE Empty Cell Enterd")
-            }else{
                 
+            }else{
                 let index = getIndexOfProduct(withTag: collectionView.tag, andRow: indexPath.row)
                 let product = displayedSubCategoryProducts[index]
                 let mycell =  collectionView.dequeueReusableCell(withReuseIdentifier: K.shoppingProductCell, for: indexPath) as! ProductCollectionViewCell
                 
                 mycell.minusButtonActionBlock = {
-                    var currentQuatity = Int(mycell.quatityLabel.text!)
-                    if(currentQuatity != 0){
-                        currentQuatity! -= 1
+                    let productInCart = self.getProductWithId(self.wantedProducts, product)
+                    if let productInCart = productInCart {
+                        
+                        if productInCart.wantedQuantity > 0 {
+                            productInCart.wantedQuantity -= 1
+                            product.wantedQuantity -= productInCart.wantedQuantity
+                        }
+                        
+                        if productInCart.wantedQuantity == 0 && self.productInCart(self.wantedProducts, product) {
+                            for i in 0..<self.wantedProducts.count {
+                                if self.wantedProducts[i].ID == product.ID{
+                                    self.wantedProducts.remove(at: i)
+                                }
+                            }
+                            mycell.hideAdderShowButton()
+                        }
+                        mycell.quatityLabel.text = String(product.wantedQuantity)
                     }
-                    mycell.quatityLabel.text = String(currentQuatity!)
-                    RealmManager.shared.update(product.self, with: ["wantedQuantity":currentQuatity])
-                    self.wantedProducts = self.updateProdcutInCart(product, self.wantedProducts)
-                    
                 }
                 mycell.plusButtonActionBlock = {
-                    var currentQuatity = Int(mycell.quatityLabel.text!)
-                    
-                    currentQuatity! += 1
-                    mycell.quatityLabel.text = String(currentQuatity!)
-                    
-                    self.wantedProducts = self.updateProdcutInCart(product, self.wantedProducts)
-                    
+                    if self.productInCart(self.wantedProducts, product){
+                        let productInCart = self.getProductWithId(self.wantedProducts, product)
+                        productInCart!.wantedQuantity += 1
+                        product.wantedQuantity = productInCart!.wantedQuantity
+                    }else{
+                        self.wantedProducts.append(product)
+                        let productInCart = self.getProductWithId(self.wantedProducts, product)
+                        productInCart!.wantedQuantity = 1
+                        product.wantedQuantity = 1
+                    }
+                    mycell.quatityLabel.text = String(product.wantedQuantity)
                 }
                 
+                if productInCart(self.wantedProducts, product){
+                    let productInCart = getProductWithId(self.wantedProducts, product)
+                    mycell.showAdderHideButton()
+                    mycell.quatityLabel.text = String(productInCart!.wantedQuantity)
+                }
                 mycell.price.text = "SR \(product.sellingPrice)"
-                
                 var productName = ""
                 for name in product.name {
                     if name.key == preferredLanguage
@@ -513,22 +535,23 @@ extension ShoppingViewController {
         return 2*(tag - 2) + row
     }
     
-    func updateProdcutInCart(_ product:Product,_ cart:[Product]) -> [Product]{
-        var myCart = cart
-        var isFound = false
-        for i in 0..<myCart.count{
-            if cart[i].ID == product.ID{
-                isFound = true
-                myCart.remove(at: i)
-                if cart[i].wantedQuantity > 0{
-                    myCart.append(product)
+    func productInCart(_ products:[Product],_ product:Product) -> Bool {
+        for prod in products {
+            if prod.ID == product.ID{
+                return true
+            }
+        }
+        return false
+    }
+    
+    func getProductWithId (_ products:[Product],_ product:Product) -> Product? {
+        if productInCart(products, product){
+            for prod in products {
+                if prod.ID == product.ID{
+                    return prod
                 }
             }
         }
-        if !isFound{
-            myCart.append(product)
-        }
-        return myCart
+        return nil
     }
-    
 }
