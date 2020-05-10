@@ -39,6 +39,8 @@ class ShoppingViewController: UIViewController{
     
     var wantedProducts : [Product] = []
     
+    static var finalizedCart:[Product] = []
+    
     var remainingProductsToDisplay = 0
     
     var preferredLanguage = "en"
@@ -77,10 +79,18 @@ class ShoppingViewController: UIViewController{
     @objc func rightBarButtonClicked(){
         Logger.log(.success, "Clicked right button item")
         
-        for prod in wantedProducts {
-            print("product: \(prod.name[0].value)")
-            print("wanted amoutn: \(prod.wantedQuantity)")
-            print(" - - - -")
+        ShoppingViewController.finalizedCart = self.wantedProducts
+        tabBarController?.selectedIndex = 3
+//        for prod in wantedProducts {
+//            print("product: \(prod.name[0].value)")
+//            print("wanted amoutn: \(prod.wantedQuantity)")
+//            print(" - - - -")
+//        }
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.segues.shoppingScreen.toCart {
+            let cartViewController = segue.destination as? CartViewController
+            cartViewController?.cart = self.wantedProducts
         }
     }
     
@@ -315,7 +325,7 @@ extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewData
                         
                         if productInCart.wantedQuantity > 0 {
                             productInCart.wantedQuantity -= 1
-                            product.wantedQuantity -= productInCart.wantedQuantity
+                            product.wantedQuantity = productInCart.wantedQuantity
                         }
                         
                         if productInCart.wantedQuantity == 0 && self.productInCart(self.wantedProducts, product) {

@@ -43,7 +43,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="78K-NG-dIf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4870" y="1644"/>
+            <point key="canvasLocation" x="5648" y="1676"/>
         </scene>
         <!--Shopping View Controller-->
         <scene sceneID="8ae-DR-Bdc">
@@ -70,27 +70,43 @@
                     <navigationItem key="navigationItem" id="63Z-wX-NdE"/>
                     <connections>
                         <outlet property="tableView" destination="06t-OO-fIo" id="wVh-LY-Zv0"/>
+                        <segue destination="dnD-cA-aSp" kind="show" identifier="toCartScreenFromShopping" id="2Ea-Yo-6EG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bl5-XR-ift" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4183" y="1644"/>
+            <point key="canvasLocation" x="3916" y="1675"/>
         </scene>
         <!--Cart-->
         <scene sceneID="f8k-mN-bvQ">
             <objects>
-                <viewController id="dnD-cA-aSp" customClass="TempCartViewController" customModule="BJ_HouseOwner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dnD-cA-aSp" customClass="CartViewController" customModule="BJ_HouseOwner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jT5-S2-Nap">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DzK-cy-5DJ">
+                                <rect key="frame" x="157" y="351" width="100" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="DzK-cy-5DJ" firstAttribute="centerY" secondItem="jT5-S2-Nap" secondAttribute="centerY" id="Ikm-j6-QNg"/>
+                            <constraint firstItem="DzK-cy-5DJ" firstAttribute="centerX" secondItem="jT5-S2-Nap" secondAttribute="centerX" id="kbk-KV-rsA"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="RUY-FN-7fr"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Cart" image="cart" catalog="system" id="pnw-6K-J5z"/>
+                    <navigationItem key="navigationItem" title="Cart" id="gtL-mI-nbx"/>
+                    <connections>
+                        <outlet property="niceButton" destination="DzK-cy-5DJ" id="1eZ-Wo-fXY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WZq-SK-iLt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5560.8695652173919" y="945.53571428571422"/>
+            <point key="canvasLocation" x="4802.898550724638" y="945.53571428571422"/>
         </scene>
         <!--Profile-->
         <scene sceneID="jxF-o5-S5Z">
@@ -100,7 +116,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vx7-V1-Kf2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6033" y="615"/>
+            <point key="canvasLocation" x="7548" y="627"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="vXd-hw-WG5">
@@ -152,7 +168,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1MX-Sx-RTh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4184" y="946"/>
+            <point key="canvasLocation" x="3916" y="937"/>
         </scene>
         <!--Orders-->
         <scene sceneID="tBv-Mh-hSV">
@@ -181,7 +197,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5fF-dA-ZCA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4870" y="946"/>
+            <point key="canvasLocation" x="5648" y="937"/>
         </scene>
         <!--Thank You Order Placed Controller-->
         <scene sceneID="hnC-eh-zJB">
@@ -265,7 +281,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VY6-Fa-zSg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5561" y="1655"/>
+            <point key="canvasLocation" x="4803" y="1684"/>
         </scene>
     </scenes>
     <resources>
@@ -274,4 +290,7 @@
         <image name="house" catalog="system" width="64" height="54"/>
         <image name="orderOnTheWay" width="512" height="512"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="2Ea-Yo-6EG"/>
+    </inferredMetricsTieBreakers>
 </document>

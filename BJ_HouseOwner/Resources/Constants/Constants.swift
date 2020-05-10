@@ -35,6 +35,9 @@ struct K {
             static let directlyToTapScreens = "directlyToTapScreens"
             static let toLoginOrSignupProcess = "toLoginOrSignupProcess"
         }
+        struct shoppingScreen{
+            static let toCart = "toCartScreenFromShopping"
+        }
     }
     
     struct UITableCells {
