@@ -17,10 +17,10 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Pq-Ir-hhC">
-                        <rect key="frame" x="0.0" y="0.0" width="191" height="42"/>
+                        <rect key="frame" x="0.0" y="0.5" width="191" height="41"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="No Products In Stock" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMg-Ll-VjK">
-                                <rect key="frame" x="13" y="11" width="177" height="23"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Products In Stock" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMg-Ll-VjK">
+                                <rect key="frame" x="13" y="12" width="177" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="177" id="a9u-7b-XYA"/>
                                 </constraints>
@@ -33,6 +33,7 @@
                             <constraint firstItem="cMg-Ll-VjK" firstAttribute="centerX" secondItem="5Pq-Ir-hhC" secondAttribute="centerX" constant="6" id="GLh-GY-X35"/>
                             <constraint firstItem="cMg-Ll-VjK" firstAttribute="centerY" secondItem="5Pq-Ir-hhC" secondAttribute="centerY" constant="1.5" id="WF1-dS-R9G"/>
                             <constraint firstItem="cMg-Ll-VjK" firstAttribute="centerY" secondItem="5Pq-Ir-hhC" secondAttribute="centerY" constant="1.5" id="d09-J4-yqU"/>
+                            <constraint firstAttribute="height" constant="41" id="iDU-Mm-DeC"/>
                             <constraint firstItem="cMg-Ll-VjK" firstAttribute="centerX" secondItem="5Pq-Ir-hhC" secondAttribute="centerX" constant="6" id="qED-oH-SGS"/>
                             <constraint firstItem="cMg-Ll-VjK" firstAttribute="centerY" secondItem="5Pq-Ir-hhC" secondAttribute="centerY" constant="1.5" id="tcw-vz-OiR"/>
                             <constraint firstItem="cMg-Ll-VjK" firstAttribute="centerX" secondItem="5Pq-Ir-hhC" secondAttribute="centerX" constant="6" id="znU-ua-DuX"/>
@@ -42,9 +43,8 @@
             </view>
             <constraints>
                 <constraint firstItem="5Pq-Ir-hhC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ALS-xr-gBc"/>
-                <constraint firstAttribute="bottom" secondItem="5Pq-Ir-hhC" secondAttribute="bottom" id="IyG-Nd-ZWK"/>
                 <constraint firstAttribute="trailing" secondItem="5Pq-Ir-hhC" secondAttribute="trailing" id="bhB-eh-kvV"/>
-                <constraint firstItem="5Pq-Ir-hhC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="dYe-UB-ZU3"/>
+                <constraint firstItem="5Pq-Ir-hhC" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="rsQ-8h-6nW"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="191" height="42"/>

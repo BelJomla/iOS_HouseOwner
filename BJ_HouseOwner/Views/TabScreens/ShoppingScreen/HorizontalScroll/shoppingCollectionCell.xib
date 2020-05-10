@@ -20,10 +20,10 @@
                         <rect key="frame" x="5" y="5" width="50" height="50"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIX-t0-sEa">
-                                <rect key="frame" x="4" y="4.5" width="42" height="41"/>
+                                <rect key="frame" x="5" y="5" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="W3o-gk-lxt"/>
-                                    <constraint firstAttribute="width" constant="42" id="ktf-qr-epC"/>
+                                    <constraint firstAttribute="height" constant="40" id="W3o-gk-lxt"/>
+                                    <constraint firstAttribute="width" constant="40" id="ktf-qr-epC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
                                 <nil key="textColor"/>

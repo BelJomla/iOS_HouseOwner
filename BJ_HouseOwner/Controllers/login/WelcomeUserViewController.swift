@@ -19,7 +19,7 @@ class WelcomeUserViewController: UIViewController {
         DB.getAllProducts(){
             products in
             for product in products {
-                product.toString()
+                //product.toString()
             }
         }
         //

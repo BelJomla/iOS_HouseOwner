@@ -44,6 +44,7 @@ struct K {
                 static let clickableSettingsCell = "ClickableSettingsTableViewCell"
                 static let switchSettingsCell = "SwitchSettingsTableViewCell"
                 static let creditCardCell = "creditCardCell"
+                static let shoppingTableCell = "shoppingTableCell"
                 
             }
             struct nibNames {
@@ -51,6 +52,7 @@ struct K {
                 static let clickableSettingsCell = "ClickableSettingsTableViewCell"
                 static let switchSettingsCell = "SwitchSettingsTableViewCell"
                 static let creditCardCell = "MyCardsTableViewCell"
+                static let shoppingTableCell = "shoppingTableCell"
                 
             }
     }
