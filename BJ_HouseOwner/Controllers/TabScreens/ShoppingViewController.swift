@@ -209,7 +209,6 @@ extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewData
             return displayedSubCategoryData.count
         }else{
             if noProductsAvailble{
-                Logger.log(.success, " noProductsAvailble in numberOfItemsInSection")
                 return 1
             }else{
                 if self.remainingProductsToDisplay >= 2 {
@@ -221,8 +220,7 @@ extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewData
      
                         return 1
                     }else{
-
-                        return 0
+                        return 2//0 This needs an exaplination FIXME: explain
                     }
                 }
             }

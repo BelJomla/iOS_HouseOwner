@@ -48,7 +48,7 @@
         <!--Shopping View Controller-->
         <scene sceneID="8ae-DR-Bdc">
             <objects>
-                <viewController extendedLayoutIncludesOpaqueBars="YES" id="eb3-eh-ak0" customClass="ShoppingViewController" customModule="BJ_HouseOwner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="eb3-eh-ak0" customClass="ShoppingViewController" customModule="BJ_HouseOwner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lHw-1x-Zld">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
