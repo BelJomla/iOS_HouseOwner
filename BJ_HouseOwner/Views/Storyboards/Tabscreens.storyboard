@@ -55,7 +55,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" title="  Checkout">
+                                                        <state key="normal" title="Checkout">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
@@ -91,6 +91,7 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1233 41, 10th street NW, Dahran, KSA" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Co6-eE-E34">
                                                                 <rect key="frame" x="0.0" y="0.0" width="260" height="41"/>
                                                                 <constraints>
+                                                                    <constraint firstAttribute="height" constant="41" id="UZZ-tD-R7G"/>
                                                                     <constraint firstAttribute="width" constant="260" id="dRn-v8-gJg"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -168,6 +169,7 @@
                         <outlet property="locationLabel" destination="Co6-eE-E34" id="Vc1-an-DRj"/>
                         <outlet property="paymentTableView" destination="fwU-R0-ntb" id="mhx-eW-pPW"/>
                         <outlet property="totalPrice" destination="FVg-On-aYM" id="93l-DR-UIA"/>
+                        <segue destination="MyS-CO-EzU" kind="show" identifier="toThankyouOrderPlaced" id="3n1-fe-3qR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oun-ra-n2h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -421,7 +423,7 @@
         <!--Thank You Order Placed Controller-->
         <scene sceneID="hnC-eh-zJB">
             <objects>
-                <viewController id="MyS-CO-EzU" customClass="ThankYouOrderPlacedController" customModule="BJ_HouseOwner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="MyS-CO-EzU" customClass="ThankYouOrderPlacedController" customModule="BJ_HouseOwner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GJ5-L2-cl8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -463,6 +465,9 @@
                                                 <state key="normal" title="Ok, thank you">
                                                     <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="MyS-CO-EzU" eventType="touchUpInside" id="gnt-J9-lES"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -491,7 +496,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Sc0-od-g1c"/>
                     </view>
-                    <navigationItem key="navigationItem" id="44P-Dl-27f"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="44P-Dl-27f"/>
                     <connections>
                         <outlet property="button" destination="QNE-8m-PQu" id="6Ld-0L-g6i"/>
                         <outlet property="image" destination="fq2-hA-MgS" id="4le-ZD-J4B"/>
@@ -516,7 +521,7 @@
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -40,6 +40,7 @@ struct K {
         }
         struct cartScreen{
             static let toCheckout = "fromCartToCheckout"
+            static let toThankyouOrderPlaced = "toThankyouOrderPlaced"
         }
     }
     
@@ -53,6 +54,7 @@ struct K {
                 static let shoppingTableCell = "shoppingTableCell"
                 static let cartCell = "cartCell"
                 static let checkoutPaymentMethod = "paymentMethodCell"
+                
 
             }
             struct nibNames {

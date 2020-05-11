@@ -13,6 +13,8 @@ import SDWebImage
 class CartViewController: UIViewController {
 
     var cart:[Product] = []
+    static var forwardToOrders = false
+    
     @IBOutlet weak var finishButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var totalPrice: UILabel!
@@ -31,6 +33,17 @@ class CartViewController: UIViewController {
         self.cart = ShoppingViewController.finalizedCart
         updateTotalPrice()
         tableView.reloadData()
+        
+        if CartViewController.forwardToOrders{
+        let seconds = 1.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+            // Put your code which should be executed with a delay here
+            
+                CartViewController.forwardToOrders = false
+            self.tabBarController?.selectedIndex = 1
+            }
+        }
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -50,13 +63,20 @@ class CartViewController: UIViewController {
     }
     
     @IBAction func finishPressed(_ sender: Any) {
-        // segue to another screen
-        performSegue(withIdentifier: K.segues.cartScreen.toCheckout, sender: self)
+        
+        if self.cart.isEmpty {
+            okAlert("Items Required", "You seem to have forgotten to add items to your cart"){
+            }
+            
+        }else{
+            performSegue(withIdentifier: K.segues.cartScreen.toCheckout, sender: self)
+        }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == K.segues.cartScreen.toCheckout){
                 let viewController = segue.destination as? CheckoutViewController
             viewController?.priceValue = totalPrice.text!
+            viewController?.cart = self.cart
         }
     }
 }

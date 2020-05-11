@@ -365,7 +365,7 @@ struct DB {
         }
     }
     
-    static func writeUserOrder(withUserOrder:String, order:Order){
+    static func writeUserOrder(order:Order){
         
         var errorOccured = false
         var productData: [[String:Any]] = []
@@ -374,7 +374,7 @@ struct DB {
         let currentUser = currentUserArr[currentUserArr.count-1]
         
         let products = Array(order.products)
-        let newDocumentID = db.collection("test_Orders").document().documentID
+        let newDocumentID = db.collection("orders").document().documentID
         
         for product in products{
             productData.append( ["product" : [
@@ -399,12 +399,12 @@ struct DB {
             "date" : Timestamp(date: Date()),
             "deliveryLocation" : [
                 "city" :  "Dammam",
-                "country" : "Saudi Arabia",
-                "description" : "",
-                "lat" : 64,
-                "long" : 77,
-                "name" : "Bld 258",
-                "neighbor": "Doha",
+                "country" : currentUser.locations[0].country ?? "!!!",
+                "description" : currentUser.locations[0].description ?? "!!!",
+                "lat" : currentUser.locations[0].lat ?? 88,
+                "long" : currentUser.locations[0].long ?? 88,
+                "name" : "???",//currentUser.locations[0].description ?? "!!!",
+                "neighbor": currentUser.locations[0].neighbour ?? "!!!",
             ], // map
             "deliveryPeriod" : 0,
             "deliveryPersonID" : "???",
@@ -413,21 +413,14 @@ struct DB {
             "houseOwnerID" : currentUser.ID,//currentUser.ID,
             "orderID" : newDocumentID,
             "orderState" : 0,
-            "payedAmount" : 0,
+            "payedAmount" : order.getTotalPrice(),
             "paymentMethod" : -1,
             "reigon" : "reigon1",
             "time": Timestamp(date: Date()),
-            "totalPrice" : 69.0,//order.totalPrice,
+            "totalPrice" : order.getTotalPrice(),//order.totalPrice,
             "wsslocaiton" : [] // array
             
         ]
-        
-        //        let newDocumentRef = db.collection("test_Orders").addDocument(data: docData) { err in
-        //            if let err = err {
-        //                errorOccured = true
-        //                Logger.log(.error, "Firebase_ Error adding document: \(err)")
-        //        }
-        //    }
         
         db.collection("orders").document(newDocumentID).setData(docData)
         

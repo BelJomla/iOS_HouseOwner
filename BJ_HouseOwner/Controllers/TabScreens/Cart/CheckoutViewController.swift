@@ -19,14 +19,27 @@ class CheckoutViewController: UIViewController {
     @IBOutlet weak var totalPrice: UILabel!
     @IBOutlet weak var containerViewGrey: UIView!
     let onlyAllowedIndex = 0
+    var cart:[Product] = []
     var priceValue = ""
     
     var paymentMethods = [PaymentMethod("Cash On Delivery", true), PaymentMethod("My Wallet", false), PaymentMethod("Credit Card", false)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.totalPrice.text = priceValue
         
+        let readData = RealmManager.shared.read(User.self)
+        let user = readData[0]
+        let userLocation = user.locations[0]
+        
+        let neighbour = userLocation.neighbour ?? ""
+        let city = userLocation.city ?? ""
+        let country = userLocation.country ??  ""
+        
+        
+        
+        self.locationLabel.text =  "\(neighbour) \(city) \(country) "
+        
+        self.totalPrice.text = priceValue
         paymentTableView.dataSource = self
         paymentTableView.delegate = self
         let nib = UINib(nibName: K.UITableCells.nibNames.checkoutPaymentMethod, bundle: nil)
@@ -45,6 +58,21 @@ class CheckoutViewController: UIViewController {
         
     }
     @IBAction func checkoutPressed(_ sender: UIButton) {
+        
+        let readData = RealmManager.shared.read(User.self)
+        let user = readData[0]
+        
+        let order = Order(cart, user.ID, "", .new)
+
+        
+        print("cart has:")
+        for product in cart{
+            print("\t name: \(product.name[0].value)")
+            print("\t quantity: \(product.wantedQuantity)")
+            print(" - - -")
+        }
+        DB.writeUserOrder( order: order)
+        performSegue(withIdentifier: K.segues.cartScreen.toThankyouOrderPlaced, sender: self)
     }
 }
 

@@ -16,7 +16,19 @@ class ThankYouOrderPlacedController: UIViewController{
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var button: UIButton!
+    @IBAction func buttonPressed(_ sender: UIButton) {
+       
+       ShoppingViewController.finalizedCart = []
+        self.navigationController?.popToRootViewController(animated: true)
+        
+        CartViewController.forwardToOrders = true
+    }
+    
+    
+    
     override func viewDidLoad() {
+        self.navigationItem.hidesBackButton = true
+        
         view.backgroundColor = UIColor(rgb: Colors.darkBlue)
         
         mainView.backgroundColor = UIColor(rgb: Colors.darkBlue)
