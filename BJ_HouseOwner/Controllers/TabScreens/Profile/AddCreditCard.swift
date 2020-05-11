@@ -14,6 +14,12 @@ class AddCreditCard: UIViewController{
     @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet weak var cardView: UIStackView!
 
+    @IBAction func savePressed(_ sender: UIButton) {
+        okAlert("Not currently implemented", " Please wait for future updates"){
+            
+        }
+    }
+    
     @IBOutlet weak var madaButton: UIButton!
     @IBOutlet weak var madaImageRapper: UIView!
     @IBOutlet weak var masterCardButton: UIButton!
@@ -41,6 +47,7 @@ class AddCreditCard: UIViewController{
         
         cardView.isHidden = true
         styleUI()
+        self.hideKeyboardWhenTappedAround()
     }
     func styleUI(){
         

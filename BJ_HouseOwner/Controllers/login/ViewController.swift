@@ -43,7 +43,10 @@ class ViewController: UIViewController{
         styleUI()
         
 
+        self.hideKeyboardWhenTappedAround()
     }
+
+
     
     func findIndexOfDefaultCountry(with defaultCode:String, forCodes codes:[[String]]) -> Int{
         for i in 0..<codes.count {
@@ -231,3 +234,14 @@ extension Dictionary where Value: Equatable {
 }
 
 
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}

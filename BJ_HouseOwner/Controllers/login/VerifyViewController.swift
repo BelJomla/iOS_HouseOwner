@@ -39,7 +39,7 @@ class VerifyViewController: UIViewController{
             self.sendVerificationCode(forPhone: self.phoneNumber)
             self.decreaseTimer()
         })
-        
+        self.hideKeyboardWhenTappedAround()
     }
     @IBAction func verifyButtonPressed(_ sender: Any) {
         if(!messageSendingRequested){
@@ -89,8 +89,10 @@ class VerifyViewController: UIViewController{
                                      forwarding the user to the screen asking them for
                                      user names since they are new users
                                      */
+                                    FirebaseAuthStruct.user = User()
                                     FirebaseAuthStruct.user.mobileNumber = self.phoneNumber
                                     FirebaseAuthStruct.user.ID = FirebaseAuthStruct.auth.currentUser!.uid
+                                    
                                     
                                     self.performSegue(withIdentifier: K.segues.loginProcess.registerNewUser, sender: self)
                                 }

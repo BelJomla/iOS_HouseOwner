@@ -22,16 +22,16 @@
                                         <rect key="frame" x="0.0" y="115" width="413" height="693"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="3im-WT-ITz">
-                                                <rect key="frame" x="20" y="25" width="373" height="438"/>
+                                                <rect key="frame" x="20" y="241" width="373" height="392"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="58" translatesAutoresizingMaskIntoConstraints="NO" id="Kua-ke-j90">
-                                                        <rect key="frame" x="31.5" y="0.0" width="310" height="126"/>
+                                                        <rect key="frame" x="77.5" y="0.0" width="218" height="80"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sEO-Gu-ouI">
-                                                                <rect key="frame" x="0.0" y="0.0" width="126" height="126"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Swb-XB-TYG">
-                                                                        <rect key="frame" x="29" y="30.5" width="68" height="65"/>
+                                                                        <rect key="frame" x="6" y="7.5" width="68" height="65"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SR 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zG8-77-0kX">
                                                                                 <rect key="frame" x="9.5" y="0.0" width="49.5" height="29"/>
@@ -50,17 +50,17 @@
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="126" id="EuJ-Pg-1Ut"/>
+                                                                    <constraint firstAttribute="width" constant="80" id="EuJ-Pg-1Ut"/>
                                                                     <constraint firstItem="Swb-XB-TYG" firstAttribute="centerY" secondItem="sEO-Gu-ouI" secondAttribute="centerY" id="MpA-Ef-XgL"/>
-                                                                    <constraint firstAttribute="height" constant="126" id="TIV-cf-5nF"/>
+                                                                    <constraint firstAttribute="height" constant="80" id="TIV-cf-5nF"/>
                                                                     <constraint firstItem="Swb-XB-TYG" firstAttribute="centerX" secondItem="sEO-Gu-ouI" secondAttribute="centerX" id="eoG-1v-b69"/>
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qIn-Br-3Ob">
-                                                                <rect key="frame" x="184" y="0.0" width="126" height="126"/>
+                                                                <rect key="frame" x="138" y="0.0" width="80" height="80"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="cQh-YJ-mOb">
-                                                                        <rect key="frame" x="36.5" y="30.5" width="53" height="65"/>
+                                                                        <rect key="frame" x="13.5" y="7.5" width="53" height="65"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="300" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Way-h5-Z73">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="53" height="29"/>
@@ -80,15 +80,15 @@
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 <constraints>
                                                                     <constraint firstItem="cQh-YJ-mOb" firstAttribute="centerX" secondItem="qIn-Br-3Ob" secondAttribute="centerX" id="FeH-8y-wzb"/>
-                                                                    <constraint firstAttribute="width" constant="126" id="GlQ-xw-TiG"/>
+                                                                    <constraint firstAttribute="width" constant="80" id="GlQ-xw-TiG"/>
                                                                     <constraint firstItem="cQh-YJ-mOb" firstAttribute="centerY" secondItem="qIn-Br-3Ob" secondAttribute="centerY" id="bbB-cB-pUd"/>
-                                                                    <constraint firstAttribute="height" constant="126" id="deX-eU-4H6"/>
+                                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="deX-eU-4H6"/>
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jm7-nA-m6C">
-                                                        <rect key="frame" x="0.0" y="166" width="373" height="64"/>
+                                                        <rect key="frame" x="0.0" y="120" width="373" height="64"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="gDT-Dj-lHs">
                                                                 <rect key="frame" x="23" y="13.5" width="327.5" height="37"/>
@@ -137,7 +137,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SAS-uO-kTk">
-                                                        <rect key="frame" x="0.0" y="270" width="373" height="64"/>
+                                                        <rect key="frame" x="0.0" y="224" width="373" height="64"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="Uew-5v-OZU">
                                                                 <rect key="frame" x="23" y="13.5" width="327.5" height="37"/>
@@ -186,7 +186,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HPc-Bm-Gq8">
-                                                        <rect key="frame" x="0.0" y="374" width="373" height="64"/>
+                                                        <rect key="frame" x="0.0" y="328" width="373" height="64"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="ixm-VL-BDe">
                                                                 <rect key="frame" x="23" y="13.5" width="327.5" height="37"/>
@@ -237,14 +237,15 @@
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="jm7-nA-m6C" firstAttribute="centerX" secondItem="3im-WT-ITz" secondAttribute="centerX" id="9MA-XA-glJ"/>
+                                                    <constraint firstAttribute="height" constant="392" id="nkT-iK-ChF"/>
                                                     <constraint firstItem="jm7-nA-m6C" firstAttribute="centerX" secondItem="3im-WT-ITz" secondAttribute="centerX" id="yzF-5n-AQg"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="3im-WT-ITz" firstAttribute="centerY" secondItem="spa-4n-Pb9" secondAttribute="centerY" constant="-102.5" id="KHT-O3-VHz"/>
                                             <constraint firstItem="3im-WT-ITz" firstAttribute="centerX" secondItem="spa-4n-Pb9" secondAttribute="centerX" id="Mxl-AI-FuB"/>
+                                            <constraint firstAttribute="bottom" secondItem="3im-WT-ITz" secondAttribute="bottom" constant="60" id="v2v-ml-aLs"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cwn-Sz-SHD">
@@ -777,6 +778,9 @@
                                                                         <state key="normal" title="Save">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
+                                                                        <connections>
+                                                                            <action selector="savePressed:" destination="ElL-OV-A5J" eventType="touchUpInside" id="g4F-Iy-5QW"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                             </stackView>

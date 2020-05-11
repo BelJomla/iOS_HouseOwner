@@ -390,7 +390,7 @@ struct DB {
                 ], "quantity":product.wantedQuantity])
         }
         
-        let locations = currentUser.locations
+        //let locations = currentUser.locations
         var country = "!!!"
         var description = "!!!"
         var lat = 88
@@ -398,13 +398,13 @@ struct DB {
         var neighbor = "!!!"
         
         
-        if !locations.isEmpty{
-             country = currentUser.locations[0].country ?? "!!!"
-             description = currentUser.locations[0].description ?? "!!!"
-            lat = Int(currentUser.locations[0].lat ?? 88)
-            long = Int(currentUser.locations[0].long ?? 88)
-             neighbor = currentUser.locations[0].neighbour ?? "!!!"
-        }
+//        if !locations.isEmpty{
+////             country = currentUser.locations[0].country ?? "!!!"
+////             description = currentUser.locations[0].description ?? "!!!"
+////            lat = Int(currentUser.locations[0].lat ?? 88)
+////            long = Int(currentUser.locations[0].long ?? 88)
+////             neighbor = currentUser.locations[0].neighbour ?? "!!!"
+//        }
 
         
         let docData: [String: Any] = [

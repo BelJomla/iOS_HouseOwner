@@ -27,17 +27,17 @@ class CheckoutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let readData = RealmManager.shared.read(User.self)
-        let user = readData[0]
-        let userLocation = user.locations[0]
+//        let readData = RealmManager.shared.read(User.self)
+//        let user = readData[0]
+//        let userLocation = user.locations[0]
+//
+//        let neighbour = userLocation.neighbour ?? ""
+//        let city = userLocation.city ?? ""
+//        let country = userLocation.country ??  ""
         
-        let neighbour = userLocation.neighbour ?? ""
-        let city = userLocation.city ?? ""
-        let country = userLocation.country ??  ""
         
         
-        
-        self.locationLabel.text =  "\(neighbour) \(city) \(country) "
+        self.locationLabel.text =  "Saudi Arabia"//"\(neighbour) \(city) \(country) "
         
         self.totalPrice.text = priceValue
         paymentTableView.dataSource = self
@@ -63,12 +63,12 @@ class CheckoutViewController: UIViewController {
         let user = FirebaseAuthStruct.user
         var order = Order(cart, user.ID, "", .new)
         
-        print("cart has:")
-        for product in cart{
-            print("\t name: \(product.name[0].value)")
-            print("\t quantity: \(product.wantedQuantity)")
-            print(" - - -")
-        }
+//        print("cart has:")
+//        for product in cart{
+//            print("\t name: \(product.name[0].value)")
+//            print("\t quantity: \(product.wantedQuantity)")
+//            print(" - - -")
+//        }
         DB.writeUserOrder( order: order){
             orderWithID in
             

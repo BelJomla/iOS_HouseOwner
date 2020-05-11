@@ -58,6 +58,7 @@ class AddCardController: UIViewController{
         
         cardView.isHidden = true
         styleUI()
+        self.hideKeyboardWhenTappedAround()
     }
     func styleUI(){
         

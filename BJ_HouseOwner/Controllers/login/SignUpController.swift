@@ -33,6 +33,7 @@ class SignUpController: UIViewController{
         
         FirebaseAuthStruct.user.firstName = firstNameLabel.text!
         FirebaseAuthStruct.user.lastName = lastNameLabel.text!
+        RealmManager.shared.create(FirebaseAuthStruct.user)
         DB.writeUser(user: FirebaseAuthStruct.user)
         // style
         self.navigationController?.navigationBar.isHidden = true
@@ -46,7 +47,8 @@ class SignUpController: UIViewController{
         styleUI()
         navigationItem.hidesBackButton = true
         print("Singup Screens")
-        FirebaseAuthStruct.isUserSignedIn()
+        //FirebaseAuthStruct.isUserSignedIn()
+        self.hideKeyboardWhenTappedAround()
     }
     
     

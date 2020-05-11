@@ -42,7 +42,7 @@ class OrdersTableViewCell: UITableViewCell {
     
     @IBAction func cancelClicked(_ sender: Any) {
         
-        myDeligate?.cancelClicked(tag: self.tag)
+        //myDeligate?.cancelClicked(tag: self.tag)
     }
     @IBAction func editClicked(_ sender: Any) {
         myDeligate?.editClicked(tag: self.tag)

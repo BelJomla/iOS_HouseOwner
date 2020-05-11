@@ -23,7 +23,7 @@ class WelcomeUserViewController: UIViewController {
             
             let currentUserArr = RealmManager.shared.read(User.self)
             FirebaseAuthStruct.user = currentUserArr[currentUserArr.count-1]
-            FirebaseAuthStruct.user.toString()
+//            FirebaseAuthStruct.user.toString()
             
             // directly forward the user to "TapScreens" since they are registerd
             performSegue(withIdentifier: K.segues.loginProcess.directlyToTapScreens, sender: self)

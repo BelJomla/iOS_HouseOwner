@@ -77,6 +77,7 @@ class CartViewController: UIViewController {
                 let viewController = segue.destination as? CheckoutViewController
             viewController?.priceValue = totalPrice.text!
             viewController?.cart = self.cart
+            Logger.log(.success, "finished prepeare")
         }
     }
 }
