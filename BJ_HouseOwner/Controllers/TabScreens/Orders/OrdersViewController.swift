@@ -10,23 +10,37 @@ import UIKit
 
 class OrdersViewController: UIViewController {
     
+    static var allOrders : [Order] = []
+    var orders:[Order] = []
+    
     let outTebleTag = 0
     let innerTableStartingMarginForTag = 10000
     
     let tagError:String = "_ERROR: Received an expected tableView tag"
+    
     var content = [["rice","foon","mark"],["rice1","foon1","mark1"],["rice2","foon2","mark2"]]
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        // issues
+        // orders new global var to save products from carts (before deletion)
+        // the old bug persists (shopping)
+        // update the ui for the orders screen
+        orders = OrdersViewController.allOrders
         tableView.dataSource = self
         tableView.delegate = self
         
         let nib = UINib(nibName: K.UI.ordersCellNibName, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: K.UI.ordersCellID)
         
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        orders = OrdersViewController.allOrders
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        Logger.log(.info, "order count \(orders.count)")
+        tableView.reloadData()
     }
 }
 
@@ -63,23 +77,37 @@ extension OrdersViewController: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView.tag > outTebleTag{
-            //return content[tableView.tag-innerTableStartingMarginForTag].count
-            return 1
+            // inner tableView
+            return orders[tableView.tag - innerTableStartingMarginForTag].products.count
         }else {
             assert(tableView.tag == outTebleTag, tagError)
-            return 1//content.count
+            // outer tableView
+            return orders.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         if tableView.tag > outTebleTag{
-            return tableView.dequeueReusableCell(withIdentifier: K.UI.ordersInnerCellID, for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: K.UI.ordersInnerCellID, for: indexPath) as! InnerOrderTableViewCell
+            
+            let products = orders[tableView.tag-innerTableStartingMarginForTag].products
+            let product = products[indexPath.row ]
+            
+            cell.priceLabel.text = "SR \(String(product.sellingPrice))"
+            cell.productTitleLabel.text = product.name[0].value
+            cell.wantedQuantityLabel.text = String(product.wantedQuantity)
+            
+            return cell
             
         }else {
             assert(tableView.tag == outTebleTag, tagError)
- 
-            return tableView.dequeueReusableCell(withIdentifier: K.UI.ordersCellID, for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: K.UI.ordersCellID, for: indexPath) as! OrdersTableViewCell
+            
+            cell.orderTotalPriceLabel.text = "SR \(orders[indexPath.row].totalPrice)"
+            cell.orderIDLabel.text = "ID: \(orders[indexPath.row].orderID)"
+            
+            return cell
         }
     }
 }

@@ -365,16 +365,17 @@ struct DB {
         }
     }
     
-    static func writeUserOrder(order:Order){
+    static func writeUserOrder(order:Order, completion: @escaping (_ order:Order)->()){
         
         var errorOccured = false
         var productData: [[String:Any]] = []
         
-        let currentUserArr = RealmManager.shared.read(User.self)
-        let currentUser = currentUserArr[currentUserArr.count-1]
+//        let currentUserArr = RealmManager.shared.read(User.self)
+        let currentUser = FirebaseAuthStruct.user//currentUserArr[currentUserArr.count-1]
         
         let products = Array(order.products)
         let newDocumentID = db.collection("orders").document().documentID
+        order.orderID = newDocumentID
         
         for product in products{
             productData.append( ["product" : [
@@ -389,6 +390,23 @@ struct DB {
                 ], "quantity":product.wantedQuantity])
         }
         
+        let locations = currentUser.locations
+        var country = "!!!"
+        var description = "!!!"
+        var lat = 88
+        var long = 88
+        var neighbor = "!!!"
+        
+        
+        if !locations.isEmpty{
+             country = currentUser.locations[0].country ?? "!!!"
+             description = currentUser.locations[0].description ?? "!!!"
+            lat = Int(currentUser.locations[0].lat ?? 88)
+            long = Int(currentUser.locations[0].long ?? 88)
+             neighbor = currentUser.locations[0].neighbour ?? "!!!"
+        }
+
+        
         let docData: [String: Any] = [
             "cart" : [
                 "items" : productData// array
@@ -399,12 +417,12 @@ struct DB {
             "date" : Timestamp(date: Date()),
             "deliveryLocation" : [
                 "city" :  "Dammam",
-                "country" : currentUser.locations[0].country ?? "!!!",
-                "description" : currentUser.locations[0].description ?? "!!!",
-                "lat" : currentUser.locations[0].lat ?? 88,
-                "long" : currentUser.locations[0].long ?? 88,
+                "country" : country,
+                "description" : description,
+                "lat" : lat,
+                "long" : long,
                 "name" : "???",//currentUser.locations[0].description ?? "!!!",
-                "neighbor": currentUser.locations[0].neighbour ?? "!!!",
+                "neighbor": neighbor,
             ], // map
             "deliveryPeriod" : 0,
             "deliveryPersonID" : "???",
@@ -422,7 +440,14 @@ struct DB {
             
         ]
         
-        db.collection("orders").document(newDocumentID).setData(docData)
+        db.collection("orders").document(newDocumentID).setData(docData){
+            error1 in
+            if let error = error1{
+                Logger.log(.error, "Firebase Could not write order: \(error)")
+            }else{
+                completion(order)
+            }
+        }
         
         if (!errorOccured) {
             print("Document added with ID:.. \(newDocumentID)") //\(newDocumentRef!.documentID)

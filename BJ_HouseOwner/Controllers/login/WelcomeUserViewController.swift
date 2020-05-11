@@ -7,28 +7,24 @@
 //
 
 import UIKit
+import RealmSwift
 
 class WelcomeUserViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        //
-        DB.getAllProducts(){
-            products in
-            for product in products {
-                //product.toString()
-            }
-        }
-        //
-        
         // Do any additional setup after loading the view.
         let dataRead = RealmManager.shared.read(User.self)
         let userIsSignedIn = UserDefaults.standard.bool(forKey: K.UserDefaultsKeys.userIsSignedIn)
         
         if userIsSignedIn && !dataRead.isEmpty{
+            print("Link to open Realm Locally: \(Realm.Configuration.defaultConfiguration.fileURL)")
+            
+            let currentUserArr = RealmManager.shared.read(User.self)
+            FirebaseAuthStruct.user = currentUserArr[currentUserArr.count-1]
+            FirebaseAuthStruct.user.toString()
+            
             // directly forward the user to "TapScreens" since they are registerd
             performSegue(withIdentifier: K.segues.loginProcess.directlyToTapScreens, sender: self)
         }else{

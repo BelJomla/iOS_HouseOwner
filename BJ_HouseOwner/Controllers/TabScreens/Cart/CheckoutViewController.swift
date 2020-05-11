@@ -59,11 +59,9 @@ class CheckoutViewController: UIViewController {
     }
     @IBAction func checkoutPressed(_ sender: UIButton) {
         
-        let readData = RealmManager.shared.read(User.self)
-        let user = readData[0]
         
-        let order = Order(cart, user.ID, "", .new)
-
+        let user = FirebaseAuthStruct.user
+        var order = Order(cart, user.ID, "", .new)
         
         print("cart has:")
         for product in cart{
@@ -71,8 +69,13 @@ class CheckoutViewController: UIViewController {
             print("\t quantity: \(product.wantedQuantity)")
             print(" - - -")
         }
-        DB.writeUserOrder( order: order)
-        performSegue(withIdentifier: K.segues.cartScreen.toThankyouOrderPlaced, sender: self)
+        DB.writeUserOrder( order: order){
+            orderWithID in
+            
+            order = orderWithID
+            OrdersViewController.allOrders.append(order)
+            self.performSegue(withIdentifier: K.segues.cartScreen.toThankyouOrderPlaced, sender: self)
+        }
     }
 }
 

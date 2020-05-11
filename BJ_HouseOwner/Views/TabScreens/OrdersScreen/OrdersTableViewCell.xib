@@ -69,17 +69,21 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="P3U-vi-7US">
                                 <rect key="frame" x="15" y="15" width="398" height="312"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="136" translatesAutoresizingMaskIntoConstraints="NO" id="OlO-EH-aIA">
-                                        <rect key="frame" x="38.5" y="0.0" width="321.5" height="13.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="OlO-EH-aIA">
+                                        <rect key="frame" x="33" y="0.0" width="332" height="13.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order ID #00000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnR-eF-Nj5">
-                                                <rect key="frame" x="0.0" y="0.0" width="110.5" height="13.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="250" height="13.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="250" id="9g0-Ck-B8m"/>
+                                                    <constraint firstAttribute="height" constant="13.5" id="nfb-0k-UYC"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15/02/2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ua4-1q-xge">
-                                                <rect key="frame" x="246.5" y="0.0" width="75" height="13.5"/>
+                                                <rect key="frame" x="257" y="0.0" width="75" height="13.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -154,8 +158,11 @@
             <connections>
                 <outlet property="bottomView" destination="TYf-Hr-Fps" id="RuP-Fy-QZB"/>
                 <outlet property="contentView" destination="H2p-sc-9uM" id="ZQh-KC-IoW"/>
+                <outlet property="dateLabel" destination="ua4-1q-xge" id="0PT-QK-hYT"/>
                 <outlet property="editButton" destination="ulD-zb-lIy" id="rid-gz-hKZ"/>
                 <outlet property="mainView" destination="Cd7-vQ-aFt" id="DhO-fx-fs9"/>
+                <outlet property="orderIDLabel" destination="pnR-eF-Nj5" id="TvT-iZ-Qnm"/>
+                <outlet property="orderTotalPriceLabel" destination="GoM-b0-clS" id="6NB-fl-uIN"/>
                 <outlet property="tableView" destination="VDe-Uw-4nd" id="YNB-8e-nmz"/>
             </connections>
             <point key="canvasLocation" x="57.971014492753625" y="162.38839285714286"/>

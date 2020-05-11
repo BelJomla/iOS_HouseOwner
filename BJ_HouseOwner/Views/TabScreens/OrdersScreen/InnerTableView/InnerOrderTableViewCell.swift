@@ -9,7 +9,10 @@
 import UIKit
 
 class InnerOrderTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var wantedQuantityLabel: UILabel!
+    @IBOutlet weak var productTitleLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

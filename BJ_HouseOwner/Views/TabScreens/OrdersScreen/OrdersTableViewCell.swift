@@ -12,8 +12,11 @@ class OrdersTableViewCell: UITableViewCell {
 
     @IBOutlet weak var editButton: UIButton!
     
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var orderIDLabel: UILabel!
     @IBOutlet weak var bottomView: UIView!
     
+    @IBOutlet weak var orderTotalPriceLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var mainView: UIView!
