@@ -27,7 +27,6 @@ class ViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         navigationController?.navigationBar.topItem?.hidesBackButton = true
 
         let countryPicker = UIPickerView()
@@ -43,83 +42,7 @@ class ViewController: UIViewController{
         print("Link to open Realm Locally: \(Realm.Configuration.defaultConfiguration.fileURL)")
         styleUI()
         
-//        UserDefaults.standard.set(true, forKey: "userIsSignedin")
-//        let bool = UserDefaults.standard.bool(forKey: "userIsSignedin")
-//        Logger.log(.success, "value of userIsSingedin \(bool)")
-        //        DB.getUserIfExists(withPhone: "+966512345678"){
-//            (userIsFound, user)
-//            in
-//
-//            if userIsFound{
-//                Logger.log(.success, "user found")
-//                user?.toString()
-//            }else{
-//                Logger.log(.error, "user is not found")
-//            }
-//        }
-        
-        //  --------------------------------
-        
-        
-//        DB.getUser(withID: "2P6ANOpEfUUkF3Q0gf5aJExnzJH3"){
-//            user in
-//            RealmManager.shared.create(user!)
-//            print("saved")
-//
-//            //            let rdata = RealmManager.shared.read(User.self)
-//            //            print(rdata[rdata.count-1]) // only one user would be there
-//            //            print("an xitem balance: \(rdata[rdata.count-1].balance)")
-//
-////            let rdata = RealmManager.shared.read(User.self)
-////            let user = rdata[rdata.count-1] // only one user would be there
-//
-//        }
-        
-//        var tempProduct:Product? = nil
-//
-//        DB.getProducts(withSubCollectionID: "4_3"){
-//            products in
-//
-//
-//            RealmManager.shared.create(products[1])
-//            tempProduct = products[1]
-//
-//            let readData = RealmManager.shared.read(Product.self)
-//            let products = [tempProduct!]
-//            
-//            let currentUserArr = RealmManager.shared.read(User.self)
-//            let userIndex = currentUserArr.count-1
-//            let currentUser = currentUserArr[userIndex]
-//            
-//            let order = Order(products, "currentUser.ID", "", .new)
-//            print("OOOK")
-//
-            //DB.writeUserOrder(withUserOrder: "", order: order)
-//        }
-                
-        //let currentUserArr = RealmManager.shared.read(User.self)
-        //  --------------------------------
-//        DB.getProducts(withSubCollectionID: "4_3"){
-//            products in
-//
-//            Logger.log(.success, "products has been got")
-//            for product in products {
-//                product.toString()
-//
-//
-//            }
-//
-//        }
-        //  --------------------------------
-        //        SettingsUserDefaults.setPreferedLanguage(language: .Arabic)
-        //
-        //        let lang = SettingsUserDefaults.defualts.string(forKey: "language")
-        //
-        //
-        //        Logger.log(.success, " success in persisting data. lang: \(lang)")
-        //  --------------------------------
-        //
-        
+
     }
     
     func findIndexOfDefaultCountry(with defaultCode:String, forCodes codes:[[String]]) -> Int{

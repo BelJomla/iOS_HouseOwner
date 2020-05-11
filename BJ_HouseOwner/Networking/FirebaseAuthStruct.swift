@@ -13,6 +13,9 @@ import UIKit
 
 
 struct FirebaseAuthStruct {
+    
+    static var user:User = User()
+    
     static let auth = Auth.auth()
     static func sendVerficationMessage(forPhone phone:String, completion: @escaping (_ verificationCode:String)->()){
         PhoneAuthProvider.provider().verifyPhoneNumber(phone, uiDelegate: nil) { (verificationID, error) in

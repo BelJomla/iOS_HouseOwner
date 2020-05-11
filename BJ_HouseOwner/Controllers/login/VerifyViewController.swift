@@ -57,13 +57,13 @@ class VerifyViewController: UIViewController{
                         
                         if isSuccessful{
                             // testing
-                            // FirebaseAuthStruct.isUserSignedIn()
+//                            FirebaseAuthStruct.isUserSignedIn()
                             // end testing
                             self.checkmarkIcon.tintColor = .green
                             DB.getUser(withPhone: String(self.phoneNumber)){
-                                user in
+                                userDB in
                                 
-                                if let user = user {
+                                if let user = userDB {
                                     /*
                                      Saving the user in the local DB
                                      */
@@ -89,6 +89,9 @@ class VerifyViewController: UIViewController{
                                      forwarding the user to the screen asking them for
                                      user names since they are new users
                                      */
+                                    FirebaseAuthStruct.user.mobileNumber = self.phoneNumber
+                                    FirebaseAuthStruct.user.ID = FirebaseAuthStruct.auth.currentUser!.uid
+                                    
                                     self.performSegue(withIdentifier: K.segues.loginProcess.registerNewUser, sender: self)
                                 }
                             }

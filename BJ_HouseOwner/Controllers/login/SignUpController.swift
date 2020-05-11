@@ -31,6 +31,9 @@ class SignUpController: UIViewController{
             okAlert(title: "Information Needed", message: "We need your name, so we can register you in our system", viewController: self)
         }
         
+        FirebaseAuthStruct.user.firstName = firstNameLabel.text!
+        FirebaseAuthStruct.user.lastName = lastNameLabel.text!
+        DB.writeUser(user: FirebaseAuthStruct.user)
         // style
         self.navigationController?.navigationBar.isHidden = true
         performSegue(withIdentifier: "ToTabScreens", sender: self)

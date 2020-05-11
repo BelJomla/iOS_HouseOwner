@@ -428,6 +428,34 @@ struct DB {
             print("Document added with ID:.. \(newDocumentID)") //\(newDocumentRef!.documentID)
         }
     }
+    
+    
+    static func writeUser(user:User){
+        
+        let newDocumentID = db.collection("users").document().documentID
+        
+        let docData: [String: Any] = [
+            "balance": 0,
+            "creditCards" : [],
+            "email" : "",
+            "firstName" : user.firstName,
+            "id":user.ID,
+            "lastName" : user.lastName,
+            "locations": [],
+            "mobileNumber": user.mobileNumber,
+            "points" : 0,
+            "type": 2
+        ]
+        
+        db.collection("users").document(newDocumentID).setData(docData){
+            error1 in
+            if let error = error1{
+                Logger.log(.error, "Firebase user write Error :\(error.localizedDescription)")
+            }else{
+                print("User Added with document ID:.. \(newDocumentID)")
+            }
+        }
+    }
 }
 
 // this will be used to forward the user to get his info, or just login.
