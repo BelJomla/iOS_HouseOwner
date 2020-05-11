@@ -35,6 +35,7 @@ class SignUpController: UIViewController{
         FirebaseAuthStruct.user.lastName = lastNameLabel.text!
         RealmManager.shared.create(FirebaseAuthStruct.user)
         DB.writeUser(user: FirebaseAuthStruct.user)
+        UserDefaults.standard.set(true, forKey: K.UserDefaultsKeys.userIsSignedIn)
         // style
         self.navigationController?.navigationBar.isHidden = true
         performSegue(withIdentifier: "ToTabScreens", sender: self)
