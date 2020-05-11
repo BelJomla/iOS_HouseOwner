@@ -38,6 +38,9 @@ struct K {
         struct shoppingScreen{
             static let toCart = "toCartScreenFromShopping"
         }
+        struct cartScreen{
+            static let toCheckout = "fromCartToCheckout"
+        }
     }
     
     struct UITableCells {
@@ -48,7 +51,9 @@ struct K {
                 static let switchSettingsCell = "SwitchSettingsTableViewCell"
                 static let creditCardCell = "creditCardCell"
                 static let shoppingTableCell = "shoppingTableCell"
-                
+                static let cartCell = "cartCell"
+                static let checkoutPaymentMethod = "paymentMethodCell"
+
             }
             struct nibNames {
                 static let profileSettings = "SettingsTableViewCell"
@@ -56,7 +61,8 @@ struct K {
                 static let switchSettingsCell = "SwitchSettingsTableViewCell"
                 static let creditCardCell = "MyCardsTableViewCell"
                 static let shoppingTableCell = "shoppingTableCell"
-                
+                static let cartCell = "CartTableViewCell"
+                static let checkoutPaymentMethod = "PaymentMethodTableViewCell"
             }
     }
     

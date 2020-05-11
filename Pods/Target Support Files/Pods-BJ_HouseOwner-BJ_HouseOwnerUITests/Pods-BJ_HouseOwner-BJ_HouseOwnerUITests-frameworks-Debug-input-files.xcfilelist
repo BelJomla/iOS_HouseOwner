@@ -3,6 +3,7 @@ ${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC-framework/openssl_grpc.framework
 ${BUILT_PRODUCTS_DIR}/GTMSessionFetcher-framework/GTMSessionFetcher.framework
 ${BUILT_PRODUCTS_DIR}/GoogleUtilities-framework/GoogleUtilities.framework
 ${BUILT_PRODUCTS_DIR}/PhoneNumberKit-framework/PhoneNumberKit.framework
+${BUILT_PRODUCTS_DIR}/PromisesObjC-framework/FBLPromises.framework
 ${BUILT_PRODUCTS_DIR}/abseil-framework/absl.framework
 ${BUILT_PRODUCTS_DIR}/gRPC-C++-framework/grpcpp.framework
 ${BUILT_PRODUCTS_DIR}/gRPC-Core-framework/grpc.framework

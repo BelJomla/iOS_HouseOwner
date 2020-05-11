@@ -67,6 +67,10 @@ class ShoppingViewController: UIViewController{
         initCategories()
         prepareTableView()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        self.wantedProducts = ShoppingViewController.finalizedCart
+        tableView.reloadData()
+    }
     
     func prepareTableView(){
         tableView.delegate = self
@@ -81,11 +85,11 @@ class ShoppingViewController: UIViewController{
         
         ShoppingViewController.finalizedCart = self.wantedProducts
         tabBarController?.selectedIndex = 3
-//        for prod in wantedProducts {
-//            print("product: \(prod.name[0].value)")
-//            print("wanted amoutn: \(prod.wantedQuantity)")
-//            print(" - - - -")
-//        }
+        for prod in wantedProducts {
+            print("product: \(prod.name[0].value)")
+            print("wanted amoutn: \(prod.wantedQuantity)")
+        }
+        print(" - - - -")
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.segues.shoppingScreen.toCart {
@@ -129,6 +133,7 @@ class ShoppingViewController: UIViewController{
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        ShoppingViewController.finalizedCart = self.wantedProducts
     }
     
 }
@@ -284,6 +289,9 @@ extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewData
                     isFirstTimeLoadingRenderingTableView = false
                     selectedCategory = mainCategories[indexPath.item]
                     cell.backgroundColor = .white
+                    
+                    collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .bottom)
+                    collectionView.delegate?.collectionView?(collectionView, didSelectItemAt: indexPath)
                 }
             }
             
@@ -367,7 +375,9 @@ extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewData
                     }
                 }
                 mycell.title.text = productName//product.name[0].value
-                
+                if mycell.quatityLabel.text == "0"{
+                    mycell.hideAdderShowButton()
+                }
                 let url = URL(string: product.imageURLs[0])
                 mycell.image.sd_setImage(with: url, placeholderImage: UIImage(named: "loading"))
                 cell = mycell

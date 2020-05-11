@@ -1,1 +1,1 @@
-../../../FirebaseAuth/Firebase/Auth/Source/Public/FIRMultiFactorInfo.h
+../../../FirebaseAuth/FirebaseAuth/Sources/Public/FIRMultiFactorInfo.h
