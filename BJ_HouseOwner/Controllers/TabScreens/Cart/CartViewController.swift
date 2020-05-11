@@ -142,7 +142,7 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
             tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .left)
             tableView.endUpdates()
-            
+            ShoppingViewController.finalizedCart = self.cart
         }
     }
 }

@@ -375,7 +375,7 @@ extension ShoppingViewController: UICollectionViewDelegate, UICollectionViewData
                     }
                 }
                 mycell.title.text = productName//product.name[0].value
-                if mycell.quatityLabel.text == "0"{
+                if mycell.quatityLabel.text == "0" || product.wantedQuantity == 0{
                     mycell.hideAdderShowButton()
                 }
                 let url = URL(string: product.imageURLs[0])
